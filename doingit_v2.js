@@ -3,13 +3,24 @@
 <span class=orange>{{#Professeur}}Par : <i>{{Professeur}}</i>&nbsp&nbsp&nbsp{{/Professeur}}</span>
 <span class=h1>{{#Header1}}<b>{{Header1}}</b>{{/Header1}}</span> <br><br>
 
-<span class=h2>{{Header2}}</span> {{cloze:Corps}}
+<span class=h2>{{Header2}}</span>{{cloze:Corps}}
 
 <hr id=answer>
-<div><button id="show_obo" onclick="toggle();">show one by one</button></div>
+<button id="show_obo" onclick="toggle();">show one by one</button>
+
 
 {{#Indice}}<span class=extra>{{Indice}}</span>{{/Indice}}
 {{#More}}<br> <span class=extra>{{More}}</span>{{/More}}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -27,6 +38,7 @@
 <script>
 //SHORTCUT TO REVEAL CLOZES
 var shortcut = 'n'
+//SHORTCUT END
 </script>
 
 
@@ -104,20 +116,17 @@ var toggle = function() {
                         return true;
                     }
                 })
-        }
-};
+}
+    };
+
+
 </script>
 
 <!--                             
 todo :
-   de temps en temps ca affiche du noir au lieu de la bonne couleur, checker dans IOC comment il fait pour attendre que X truc load
     augmenter le nombre de shortcuts possible
     dedupliquer le code pour le shortcut en faisant un appel a une nfonction
-    faire que appuyer sur un shortcut quand ill y a plus de cloze a ouvrir valide la carte, si option cochée
+    faire que appuyer sur un shortcut quand ill y a plus de cloze a ouvrir valide la carte 
     faire que le bouton napparaisse que sur mobile
     faire un shortcut qui ouvrre tout
-    faire un shortcut qui referme tout
-    mentionner l'utilisation de symbols as you type
-   regarder l'addon qui retire tout seul les newline des pdf ou truc du genre, ca permet surement de rajouter des cloze entrer chaque mot ou truc du genre
            -->
-

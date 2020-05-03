@@ -1,0 +1,69 @@
+{{cloze:Text}}
+<button id="show_obo" onclick="toggle();">show one by one</button> <br />
+
+<script>
+  //SHORTCUT TO REVEAL CLOZES
+  //Put this in Back template as well
+  var shortcut = "ù";
+  //SHORTCUT END
+</script>
+
+<script>
+  // Put this in Back template
+  var clozes = [...document.querySelectorAll(".cloze")];
+  if (clozes.length <= 1) {
+    document.getElementById("show_obo").style.display = "none";
+  }
+  if (clozes.length > 1) {
+    const cloze_color = window.getComputedStyle(clozes[0]).color;
+    const cloze_bg_color = window.getComputedStyle(clozes[0]).backgroundColor;
+    clozes.slice(0).forEach((item) => {
+      //was (1) before I edited it
+      item.style.backgroundColor = cloze_color;
+      var imgs = item.getElementsByTagName("img");
+      for (var i = 0; i < imgs.length; i++) {
+        imgs[i].style.display = "none";
+      }
+      item.addEventListener("click", () => {
+        item.style.backgroundColor = cloze_bg_color;
+        var imgs = item.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+          imgs[i].style.display = "inline-block";
+        }
+      });
+    });
+
+    //USER CUSTOMIZATION event.key
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key == shortcut) {
+        clozes.slice(0).some((item) => {
+          //was (1) before I edited it
+          if (item.style.backgroundColor != cloze_bg_color) {
+            item.style.backgroundColor = cloze_bg_color;
+            var imgs = item.getElementsByTagName("img");
+            for (var i = 0; i < imgs.length; i++) {
+              imgs[i].style.display = "inline-block";
+            }
+            return true;
+          }
+        });
+      }
+    });
+
+    //by me : adds a button that shows them one by one, very handy on mobile
+    var toggle = function () {
+      clozes.slice(0).some((item) => {
+        //was (1) before I edited it
+        if (item.style.backgroundColor != cloze_bg_color) {
+          item.style.backgroundColor = cloze_bg_color;
+          var imgs = item.getElementsByTagName("img");
+          for (var i = 0; i < imgs.length; i++) {
+            imgs[i].style.display = "inline-block";
+          }
+          return true;
+        }
+      });
+    };
+  }
+</script>
