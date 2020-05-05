@@ -1,12 +1,13 @@
 # Oliver_Cloze
 enhancing "cloze one by one" script by iTraveller
 
-**Please note** : I have a very limited unnderstanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices.
+**Please note** : I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices.
 
 
-## File descriptionn
-    * BSM refers to files sent by /u/bluescreenmagick on reddit
-        * v1 refers to the version he sent me, v2 to the version I worked on
+## File description
+    * BlueScreenMagick_files : he started it all
+    * current_version : the one I'm using, tried and tested
+    * in progrerss : very bad coding and testing, don't go there it's a shame
 
 ## Features 
     * supports multiple shortcuts
