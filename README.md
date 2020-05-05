@@ -1,7 +1,7 @@
 # Oliver_Cloze
 enhancing "cloze one by one" script by iTraveller
 
-**Please note** : I have a very limited unnderstanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything.
+**Please note** : I have a very limited unnderstanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices.
 
 
 ## File descriptionn
@@ -13,7 +13,9 @@ enhancing "cloze one by one" script by iTraveller
     * supports image cloze deletion (thanks to /u/bluegrerenmagick)
     * adds a button, handy for mobile
     * more to come, this clozing system is the basis of my workflow
-### todo
+    * added a small delay to be sure that the cloze background is loaded before hiding it, otherwize the wrong color is selected
+    
+### todo, some are really simple, don't forget to help
     * deduplicate the the shortcut call
     * make it so that the button only appears on mobile, depending on a boolean
     * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean
