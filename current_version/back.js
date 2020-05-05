@@ -1,20 +1,4 @@
-<span class=gris>Deck - {{Deck}} {{#Tags}} |      Tags - {{clickable:Tags}}{{/Tags}} </span> |
-<span class = pasSurMobile><u><span class=rouge>{{info-New?:}}</span>{{info-Review?:}}{{info-Learning?:}}</u> | F={{info-Factor:}}</span> <br>
-<span class=orange>{{#Professeur}}Par : <i>{{Professeur}}</i>&nbsp&nbsp&nbsp{{/Professeur}}</span>
-<span class=h1>{{#Header1}}<b>{{Header1}}</b>{{/Header1}}</span> <br><br>
-
-<span class=h2>{{Header2}}</span> {{cloze:Corps}}
-
-<hr id=answer>
 <div><button id="show_obo" onclick="toggle();" class="biggerBouton">Reveal one</button></div>
-
-{{#Indice}}<span class=extra>{{Indice}}</span>{{/Indice}}
-{{#More}}<br> <span class=extra>{{More}}</span>{{/More}}
-
-
-
-
-
 
 
 <!-- Code for "cloze one by one"
@@ -24,6 +8,7 @@
 
 <!--
 <script>
+// I don't remember what I had this
 //aFade = 50, qFade = 0; // loads less fast to  fix the color being the wrong one
 //const clozes = document.getElementsByClassName("cloze");
 //var clr = window.getComputedStyle(clozes[0]).color;
@@ -45,7 +30,7 @@
 // reveals cloze one by one
 var shortcut = ['n','ù'];
 
-aFade = 100, qFade = 100; // loads less fast to  fix the color being the wrong one
+aFade = 300, qFade = 300; // loads less fast to  fix the color being the wrong one
     const clozes = [...document.querySelectorAll(".cloze")];
 
     // use regular cloze instead of "cloze one by one" when there is only one cloze deletion ->
@@ -109,15 +94,4 @@ var toggle = function() {
 };
 </script>
 
-<!--                             
-todo :
-    dedupliquer le code pour le shortcut en faisant un appel a une fonction
-    de temps en temps ca affiche du noir au lieu de la bonne couleur, checker dans IOC comment il fait pour attendre que X truc load
-    faire que le bouton napparaisse que sur mobile
-    faire que appuyer sur un shortcut quand ill y a plus de cloze a ouvrir valide la carte, si option cochée
-    appuyer sur shortcut devrait montrer le back
-    changer le bg de la cloze de couleur juste avant, genre on appuie sur shortcut et sa change la couleurde la cloze et ca ne disparait qu'au 2nd appuie. Ca permettrait de connaitre la taille de la sous cloze mais bon
-    faire un shortcut qui ouvrre tout
-    faire un shortcut qui referme tout
-    regarder l'addon qui retire tout seul les newline des pdf ou truc du genre, ca permet surement de rajouter des cloze entrer chaque mot ou truc du genre + auto clozer la premiere lettrer de la ligne + changer de mode de cloze sur le texte selectionné + auto increment/decrement cloze number du text selectionné
--->
+
