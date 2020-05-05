@@ -17,18 +17,20 @@ enhancing "cloze one by one" script by iTraveller
     * added a small delay to be sure that the cloze background is loaded before hiding it, otherwize the wrong color is selected
     
 ### todo, some are really simple, don't forget to help
-    * deduplicate the the shortcut call
+    * add a gif in the README showcasing the features
+    * add a setting section on top
+    * deduplicate the the shortcut event, make a function call
     * make it so that the button only appears on mobile, depending on a boolean
     * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean
     * the shortcut when seeing front should reveal the back
     * add a preview : the cloze that should disappear should change color just before, as a hint of the size of the deletion
     * add a shortcut that reveals everything
-    * shortcut for  closing everything
+    * shortcut for  closing everything back
     * add a button to automatically cloze every space of a text selection, or increment cloze number etc
 
 ## How to
     * go into current_version folder
-    * copy the content of front.js as the front template
+    * copy the content of front.js as the front template (look for it in the anki manual)
     * copy back.js as back template
     * copy styling.css into the styling part
     * the .js extension is there only to help with syntax highlighting while editing the files, it's more likely html containing `<script>` parts
