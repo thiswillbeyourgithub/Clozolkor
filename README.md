@@ -1,5 +1,5 @@
 # Oliver_Cloze
-enhancing "cloze one by one" script by iTraveller
+enhancing "cloze one by one" script found in TheAnking template. I think the original idea/script is by user "iTraveller" in the official anki forum.
 
 **Please note** : I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices.
 
