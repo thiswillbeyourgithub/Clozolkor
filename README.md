@@ -30,8 +30,8 @@ enhancing "cloze one by one" script found in TheAnking template. I think the ori
     * add a button to automatically cloze every space of a text selection, or increment cloze number etc
 
 ## How to
-    * go into current_version folder
-    * copy the content of front.js as the front template (look for it in the anki manual)
-    * copy back.js as back template
-    * copy styling.css into the styling part
-    * the .js extension is there only to help with syntax highlighting while editing the files, it's more likely html containing `<script>` parts
+* go into current_version folder
+* copy the content of front.js as the front template (look for it in the anki manual)
+* copy back.js as back template
+* copy styling.css into the styling part
+* the .js extension is there only to help with syntax highlighting while editing the files, it's more likely html containing `<script>` parts
