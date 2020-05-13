@@ -23,8 +23,7 @@ Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br>
 * added a small delay to be sure that the cloze background is loaded before hiding it, otherwize the wrong color is selected
 
 ### todo, some are really simple, don't forget to help
-* add a gif in the README showcasing the features
-* add a setting section on top
+* add a setting section on top of the code
 * figure out a way to avoid hiding cloze hints
 * deduplicate the the shortcut event, make a function call
 * make it so that the button only appears on mobile, depending on a boolean
