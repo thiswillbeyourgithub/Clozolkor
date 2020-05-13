@@ -1,7 +1,7 @@
 # Oliver_Cloze
 enhancing "cloze one by one" script found in TheAnking template. I think the original idea/script is by user "iTraveller" in the official anki forum.
 
-## Demo :
+## Demo
 ![demo_gif](demo.gif)
 
 **Please note** : I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommande using the addon ["Symbols as you type"](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc.
