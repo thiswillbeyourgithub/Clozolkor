@@ -8,6 +8,8 @@ enhancing "cloze one by one" script found in TheAnking template. I think the ori
 
 Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br><\/div>//g | s/<div>{{c1::<\/div>//g | s/<li>/<li>{{c1::/g | s/<\/li>/}}<\/li>/g`
 
+If you want to see this command in action, [click here](demo_vim2.gif).
+
 
 
 ## File description
