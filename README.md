@@ -1,7 +1,13 @@
 # Oliver_Cloze
 enhancing "cloze one by one" script found in TheAnking template. I think the original idea/script is by user "iTraveller" in the official anki forum.
 
+## Demo :
+![demo_gif](demo.gif)
+
 **Please note** : I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommande using the addon ["Symbols as you type"](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc.
+
+Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br><\/div>//g | s/<div>{{c1::<\/div>//g | s/<li>/<li>{{c1::/g | s/<\/li>/}}<\/li>/g`
+
 
 
 ## File description
@@ -15,7 +21,7 @@ enhancing "cloze one by one" script found in TheAnking template. I think the ori
 * adds a button, handy for mobile
 * more to come, this clozing system is the basis of my workflow
 * added a small delay to be sure that the cloze background is loaded before hiding it, otherwize the wrong color is selected
-    
+
 ### todo, some are really simple, don't forget to help
 * add a gif in the README showcasing the features
 * add a setting section on top
