@@ -1,5 +1,5 @@
-# Oliver_Cloze
-enhancing "cloze one by one" script found in TheAnking template. I think the original idea/script is by user "iTraveller" in the official anki forum.
+# Clozolkor
+Enhancing "*cloze one by one*" script found in TheAnking's template (on his website or drive). I think the original idea/script is by user "iTraveller" in the official anki forum. Oh and don't ask why this name.
 
 ## Demo
 ![demo_gif](demo.gif)
