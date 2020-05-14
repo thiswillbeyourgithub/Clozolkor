@@ -20,7 +20,7 @@ Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br>
 
 ## Known issue
 * I sometimes get the wrong background color, which sucks because you can still read the cloze. It seems to happen only in specific circumstances for me but this might be linked to the speed of your computer. If you have this issue regularly let me know. There might be a fix using `aFade` and `qFade` (taken from Glutanimate's IOC addon).
-* There seems to be a *slight* issue with some fonts where a character immediately following an f seems to use Quantum Tunneling to cross the cloze barriers. For example in `{{c1::ef}}{{c1::fects}}`, openning the first cloze might show `eff` intead of `ef`. Weird.
+* If you use a font that uses [ligatures](https://en.wikipedia.org/wiki/Orthographic_ligature) then you can run into a *slight* issue where some characters seemingly use Quantum Tunneling to cross the cloze barrier. For example in `{{c1::ef}}{{c1::fects}}`, openning the first cloze might show `eff` intead of `ef`.
 
 
 
