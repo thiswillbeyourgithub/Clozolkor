@@ -1,6 +1,6 @@
 /* Cloze one by one : makes the button bigger and centered*/
-.biggerBouton {display:none}/* this line make the button only appear on mobile */
-.mobile .biggerBouton {font-size : 20px !important; margin:auto ; display:flex !important;flex-grow:1 !important ; justify-content:center !important}
+.biggerButtonOnlyOnMobile {display:none}/* this line make the button only appear on mobile */
+.mobile .biggerButtonOnlyOnMobile {font-size : 20px !important; margin:auto ; display:flex !important;flex-grow:1 !important ; justify-content:center !important}
 
 
 

@@ -1,5 +1,7 @@
-<!-- add this button at the top and the bottom of your  header to make it easier to click on mobile-->
-<span class="biggerBouton">><button id="show_obo" onclick="toggle();" class="biggerBouton">Reveal one</button></span>
+<!-- add  this line where you want the button to appear
+you can add it several times
+I put it at the top and at the bottom of my temlate to make it easier to click on mobile -->
+<div class="biggerButtonOnlyOnMobile">><button id="show_obo" onclick="toggle();" class="biggerButtonOnlyOnMobile">Reveal one</button></div>
 
 
 <!-- Code for "cloze one by one"
