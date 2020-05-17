@@ -27,7 +27,6 @@ Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br>
 ## File description
 * BlueGreenMagick_files : he started it all
 * latest_version : the one I'm using, tried and tested
-* in progress : very bad coding and testing, don't go there it's a shame
 
 
 ### todo, some are really simple, don't forget to help
