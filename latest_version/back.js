@@ -31,7 +31,7 @@
 // reveals cloze one by one
 var shortcut = ['n','ù'];
 
-aFade = 150, qFade = 150; // loads less fast to  fix the color being the wrong one
+aFade = 50, qFade = 50; // loads less fast to  fix the color being the wrong one
     const clozes = [...document.querySelectorAll(".cloze")];
 
     // use regular cloze instead of "cloze one by one" when there is only one cloze deletion ->
