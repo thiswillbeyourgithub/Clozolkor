@@ -1,4 +1,5 @@
-<div><button id="show_obo" onclick="toggle();" class="biggerBouton">Reveal one</button></div>
+<!-- add this button at the top and the bottom of your  header to make it easier to click on mobile-->
+<span class="biggerBouton">><button id="show_obo" onclick="toggle();" class="biggerBouton">Reveal one</button></span>
 
 
 <!-- Code for "cloze one by one"
@@ -30,7 +31,7 @@
 // reveals cloze one by one
 var shortcut = ['n','ù'];
 
-aFade = 300, qFade = 300; // loads less fast to  fix the color being the wrong one
+aFade = 150, qFade = 150; // loads less fast to  fix the color being the wrong one
     const clozes = [...document.querySelectorAll(".cloze")];
 
     // use regular cloze instead of "cloze one by one" when there is only one cloze deletion ->
