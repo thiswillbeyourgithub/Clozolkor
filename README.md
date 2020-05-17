@@ -4,7 +4,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 
 ## Features 
 * supports multiple shortcuts
-* supports image cloze deletion (thanks to /u/bluegrerenmagick)
+* supports image cloze deletion (thanks to /u/bluegreenmagick)
 * adds a button, handy for mobile
 * more to come, this clozing system is the basis of my workflow
 * added a small delay to be sure that the cloze background is loaded before hiding it, otherwize the wrong color is selected
@@ -25,7 +25,7 @@ Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br>
 
 
 ## File description
-* BlueScreenMagick_files : he started it all
+* BlueGreenMagick_files : he started it all
 * latest_version : the one I'm using, tried and tested
 * in progress : very bad coding and testing, don't go there it's a shame
 
