@@ -5,7 +5,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 ## Features 
 * supports multiple shortcuts
 * supports image cloze deletion (thanks to /u/bluegreenmagick)
-* adds a button, handy for mobile
+* added buttons, handy for mobile
 * more to come, this clozing system is the basis of my workflow
 * added a small delay to be sure that the cloze background is loaded before hiding it, otherwize the wrong color is selected
 
