@@ -14,6 +14,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 
 ## Planned features / TODO list (some are really simple, don't forget to help!)
 * export a virgin card that contains the code to make it easier for newbies to install
+* keep the button pressed should reveal the cards at a defined pace
 * add a shortcut that reveals everything
 * shortcut for  closing everything back
 * add a setting section on top of the code
