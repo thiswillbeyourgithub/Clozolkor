@@ -59,6 +59,7 @@ aFade = 100, qFade = 75; // loads less fast to  fix the color being the wrong on
             if (include(shortcutToReset, event.key)) { resetClozesConst(); };
         });
 
+// super ugly code but apparently var work with the html buttons but const work with the keystrokes...
 var revealOneVar = function() {
     clozes.slice(0).some((item) => {   
                     if (item.style.backgroundColor != cloze_bg_color) {
@@ -71,11 +72,8 @@ var revealOneVar = function() {
                     }
                 })
         };
-// super ugly code but apparently var work with the html buttons but const work with the keystrokes...
 var resetClozesVar = function() {
     clozes.slice(0).forEach((item) => {
-	delete clozes ; const clozes = clozesBackup;
-
             item.style.backgroundColor = cloze_color;
             var imgs = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
@@ -97,8 +95,6 @@ const revealOneConst = function() {
         };
 const resetClozesConst = function() {
     clozes.slice(0).forEach((item) => {
-	delete clozes ; const clozes = clozesBackup;
-
             item.style.backgroundColor = cloze_color;
             var imgs = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
@@ -107,5 +103,6 @@ const resetClozesConst = function() {
     });
 }
 };
+
 </script>
 
