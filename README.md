@@ -33,6 +33,8 @@ The .js extension of the template files is there only to help with syntax highli
 
 Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br><\/div>//g | s/<div>{{c1::<\/div>//g | s/<li>/<li>{{c1::/g | s/<\/li>/}}<\/li>/g`. If you want to see this command in action, [click here](bin/demo_vim.gif).
 
+I use anki 2.1, I don't know if it works in 2.0.
+
 
 ### If you like the idea, these addons will interest you
 * [Cloze overlapper](https://github.com/Glutanimate/cloze-overlapper) addon by the Great Glutanimate, unfortunately not (yet?) ported to 2.1
