@@ -3,7 +3,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 
 
 ## Features 
-* supports multiple shortcuts
+* supports multiple shortcuts to show or rehide clozes
 * supports image cloze deletion (thanks to /u/bluegreenmagick)
 * added buttons, handy for mobile (one to reveal one cloze, one to reset)
 * more to come, this clozing system is the basis of my workflow

@@ -2,11 +2,9 @@
 you can add it several times
 I put it at the top and at the bottom of my temlate to make it easier to click on mobile -->
 <div class="biggerButtonOnlyOnMobile">
-    <button id="show_button" onclick="revealOne();" class="biggerButtonOnlyOnMobile">Reveal one</button>
     <button id="show_button" onclick="resetClozes();" class="biggerButtonOnlyOnMobile">Reset</button>
+    <button id="show_button" onclick="revealOne();" class="biggerButtonOnlyOnMobile">&nbsp&nbsp&nbsp&nbsp Reveal one &nbsp&nbsp&nbsp&nbsp</button>
 </div>
-
-
 
 
 
@@ -14,25 +12,24 @@ I put it at the top and at the bottom of my temlate to make it easier to click o
      credits due to (at least! ) : iTraveller, /u/AnkingMed, /u/BlueGreenMagick, glume
 -->
 
+
 <script>
+// reveals cloze one by one
 var shortcutToReveal = ['n','ù'];
 var shortcutToReset = ['N','%'];
 
 aFade = 100, qFade = 75; // loads less fast to  fix the color being the wrong one
-    const clozes = [...document.querySelectorAll(".cloze")];
-	const clozesBackup = clozes; //backup to reset the display
-
+	const clozes = [...document.querySelectorAll(".cloze")];
 
     // use regular cloze instead of "cloze one by one" when there is only one cloze deletion ->
        if(clozes.length <= 1) {
-           // hides the button if there is only one cloze
+           // don't show the buttons if there is only one cloze
            document.getElementById("show_button").style.display = "none";
        }; 
     if (clozes.length > 1) {
         const cloze_color = window.getComputedStyle(clozes[0]).color;
         const cloze_bg_color = window.getComputedStyle(clozes[0]).backgroundColor;
         clozes.slice(0).forEach((item) => {
-            // if set to (1), will never hide the first cloze
             item.style.backgroundColor = cloze_color;
             var imgs = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
@@ -71,7 +68,6 @@ var revealOne = function() {
                 })
         };
 var resetClozes = function() {
-    var clozes = clozesBackup;
     clozes.slice(0).forEach((item) => {
             item.style.backgroundColor = cloze_color;
             var imgs = item.getElementsByTagName("img");
