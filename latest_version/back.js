@@ -1,7 +1,9 @@
 <!-- add  this line where you want the button to appear
 you can add it several times
 I put it at the top and at the bottom of my temlate to make it easier to click on mobile -->
-<div class="biggerButtonOnlyOnMobile">><button id="show_obo" onclick="toggle();" class="biggerButtonOnlyOnMobile">Reveal one</button></div>
+<div class="biggerButtonOnlyOnMobile"><button id="show_obo" onclick="toggle();" class="biggerButtonOnlyOnMobile">Reveal one</button></div>
+
+
 
 
 <!-- Code for "cloze one by one"
@@ -33,7 +35,7 @@ I put it at the top and at the bottom of my temlate to make it easier to click o
 // reveals cloze one by one
 var shortcut = ['n','ù'];
 
-aFade = 50, qFade = 50; // loads less fast to  fix the color being the wrong one
+aFade = 100, qFade = 75; // loads less fast to  fix the color being the wrong one
     const clozes = [...document.querySelectorAll(".cloze")];
 
     // use regular cloze instead of "cloze one by one" when there is only one cloze deletion ->
@@ -96,5 +98,6 @@ var toggle = function() {
         }
 };
 </script>
+
 
 
