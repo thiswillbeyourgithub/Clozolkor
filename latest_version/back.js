@@ -55,7 +55,7 @@ aFade = 100, qFade = 75; // loads less fast to  fix the color being the wrong on
             if (include(shortcutToReset, event.key)) { resetClozes(); };
         });
 
-var revealOne = function() {
+const revealOne = function() {
     clozes.slice(0).some((item) => {   
                     if (item.style.backgroundColor != cloze_bg_color) {
                         item.style.backgroundColor = cloze_bg_color;
@@ -67,7 +67,7 @@ var revealOne = function() {
                     }
                 })
         };
-var resetClozes = function() {
+const resetClozes = function() {
     clozes.slice(0).forEach((item) => {
             item.style.backgroundColor = cloze_color;
             var imgs = item.getElementsByTagName("img");
