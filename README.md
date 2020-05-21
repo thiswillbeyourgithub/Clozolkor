@@ -5,7 +5,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 ## Features 
 * supports multiple shortcuts
 * supports image cloze deletion (thanks to /u/bluegreenmagick)
-* added buttons, handy for mobile
+* added buttons, handy for mobile (one to reveal one cloze, one to reset)
 * more to come, this clozing system is the basis of my workflow
 * added a small delay to be sure that the cloze background is loaded before hiding it, otherwize the wrong color is selected
 
@@ -16,14 +16,12 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * export a virgin card that contains the code to make it easier for newbies to install
 * keep the button pressed should reveal the cards at a defined pace
 * add a shortcut that reveals everything
-* shortcut for  closing everything back
 * add a setting section on top of the code
 * figure out a way to avoid hiding cloze hints
-* deduplicate the the shortcut event, make a function call
 * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean
 * the shortcut when seeing front should reveal the back
 * add a preview : the cloze that should disappear should change color just before, as a hint of the size of the deletion
-* add a button to automatically cloze every space of a text selection, or increment cloze number etc
+* add a button in the edit window to automatically cloze every space of a text selection, or increment cloze number etc
 
 #### Known issues
 * I very rarely get the wrong background color, which sucks because you can still read the cloze. It seems to happen only in specific circumstances for me but this might be linked to the speed of your computer. If you have this issue regularly let me know. There might be a fix using `aFade` and `qFade` (taken from Glutanimate's IOC addon).

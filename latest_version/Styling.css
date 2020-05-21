@@ -3,4 +3,6 @@
 .mobile .biggerButtonOnlyOnMobile {font-size : 30px !important; margin:auto ; display:flex !important;flex-grow:1 !important ; justify-content:center !important}
 
 
-
+/*if you want the button to appear on the computer, this would do the trick :
+.biggerButtonOnlyOnMobile {font-size : 30px !important; margin:auto ; display:flex !important;flex-grow:1 !important ; justify-content:center !important}
+/*
