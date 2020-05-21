@@ -13,7 +13,6 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 ![demo_gif](bin/demo.gif)
 
 ## Planned features / TODO list (some are really simple, don't forget to help!)
-* export a virgin card that contains the code to make it easier for newbies to install
 * keep the button pressed should reveal the cards at a defined pace
 * add a shortcut that reveals everything
 * add a setting section on top of the code
@@ -40,15 +39,16 @@ Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br>
 * [Cloze (Hide All) addon](https://ankiweb.net/shared/info/1709973686)
 * [Cloze Anything](https://github.com/matthayes/anki_cloze_anything), the creator (as opposed to me) knows how to code in js. I intend to add a "reveal one by one" feature as you can read [here](https://github.com/matthayes/anki_cloze_anything/issues/6#issuecomment-629829062). I learned about this addon only after spending time on this. His project looks better for a lot of use cases for I still intend to use my code for quite a while.
 
-#### File description
+#### Folder description
 * BlueGreenMagick_files : he started it all
 * latest_version : the one I'm using, tried and tested
 
 ## How can I get this ? (novice mode)
 * read this page thoroughly
-* open an issue asking for a card template, I will then send you the latest version as a deck file that you just have to import
+* import the file `latest_version/Clozolkor template.apkg` into anki, it's a useless card but contains the template
+* create your own cloze but select this new template instead of the old "cloze" note type
 
-## How can I get this ?
+## How can I get this ? (in control mode)
 * read this page thoroughly
 * go into the `current_version` folder
 * put the content of `front.js` as the cloze's front template (look for it in the anki manual)
