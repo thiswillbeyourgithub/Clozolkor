@@ -4,6 +4,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 
 ## Features 
 * supports multiple shortcuts to show or rehide clozes
+* changes cloze color when there is only one deletion (can easily be edited)
 * supports image cloze deletion (thanks to /u/bluegreenmagick)
 * added buttons, handy for mobile (one to reveal one cloze, one to reset)
 * more to come, this clozing system is the basis of my workflow
@@ -13,7 +14,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 ![demo_gif](bin/demo.gif)
 
 ## Planned features / TODO list (some are really simple, don't forget to help!)
-* keep the button pressed should reveal the cards at a defined pace
+* keep the button pressed should reveal the cards at a more manageable pace
 * add a shortcut that reveals everything
 * add a setting section on top of the code
 * figure out a way to avoid hiding cloze hints
@@ -25,6 +26,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 #### Known issues
 * I very rarely get the wrong background color, which sucks because you can still read the cloze. It seems to happen only in specific circumstances for me but this might be linked to the speed of your computer. If you have this issue regularly let me know. There might be a fix using `aFade` and `qFade` (taken from Glutanimate's IOC addon).
 * If you use a font that uses [ligatures](https://en.wikipedia.org/wiki/Orthographic_ligature) then you can run into a *slight* issue where some characters seemingly use Quantum Tunneling to cross the cloze barrier. For example in `{{c1::ef}}{{c1::fects}}`, openning the first cloze might show `eff` intead of `ef`.
+* The cloze color changes when there is only one deletion (the behavior is then the same as with regular clozes) but you can't select a color for nightmode
 
 ## A few notes, please read
 I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommande using the addon ["Symbols as you type"](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc.

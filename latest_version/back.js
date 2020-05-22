@@ -1,11 +1,11 @@
 <!-- add  this line where you want the button to appear
 you can add it several times
 I put it at the top and at the bottom of my temlate to make it easier to click on mobile -->
-    <div class="biggerButtonOnlyOnMobile">
-    <button id="show_button" onclick="resetClozesVar();" class="biggerButtonOnlyOnMobile">Reset</button>
-    <button id="show_button" onclick="revealOneVar();" class="biggerButtonOnlyOnMobile">&nbsp&nbsp&nbsp&nbsp Reveal one &nbsp&nbsp&nbsp&nbsp</button>
-</div>
 
+<div class="biggerButtonOnlyOnMobile">
+    <button id="show_button" onclick="resetClozesVar();" class="buttonSizeSmall">Reset</button>
+    <button id="show_button" onclick="revealOneVar();" class="buttonSizeBig">Reveal one</button>
+</div>
 
 
 
