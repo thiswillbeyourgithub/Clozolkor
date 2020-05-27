@@ -1,7 +1,7 @@
 /* Cloze one by one : makes the button bigger and centered*/
 .biggerButtonOnlyOnMobile {display:none}/* this line make the button only appear on mobile */
 .mobile .biggerButtonOnlyOnMobile {display:flex !important ; flex-wrap:no-wrap; justify-content:center !important}
-.buttonSizeSmall {flex-grow:1 ; font-size : 20px !important }
-.buttonSizeBig {flex-grow:10 ; font-size : 20px !important }
+.buttonSizeSmall {flex-grow:1 ; font-size : 30px !important }
+.buttonSizeBig {flex-grow:10 ; font-size : 30px !important }
 
 /*if you want the button to appear on the computer, remove the first line and remove ".mobile" (but you should probably use the keyboard shortcuts instead) */

@@ -2,6 +2,9 @@
 you can add it several times
 I put it at the top and at the bottom of my temlate to make it easier to click on mobile -->
 
+{{cloze:Text}} 
+
+
 <div class="biggerButtonOnlyOnMobile">
     <button id="show_button" onclick="resetClozesVar();" class="buttonSizeSmall">Reset</button>
     <button id="show_button" onclick="revealOneVar();" class="buttonSizeBig">Reveal one</button>
@@ -12,13 +15,11 @@ I put it at the top and at the bottom of my temlate to make it easier to click o
 
 
 
-<!-- Code for "cloze one by one"
-     credits due to (at least! ) : iTraveller, /u/AnkingMed, /u/BlueGreenMagick, glume
--->
-
-
 <script>
-// reveals cloze one by one
+// Clozolkor script, for more information or latest version go to :
+// https://github.com/thiswillbeyourgithub/Clozolkor
+// credits due to (at least! ) : iTraveller, /u/AnkingMed, /u/BlueGreenMagick, glume
+
 var shortcutToReveal = ['n','ù'];
 var shortcutToReset = ['N','%'];
 
@@ -28,7 +29,7 @@ aFade = 100, qFade = 75; // loads less fast to  fix the color being the wrong on
     // use regular cloze instead of "cloze one by one" when there is only one cloze deletion ->
        if(clozes.length <= 1) {
            // don't show the buttons if there is only one cloze
-           document.getElementById("show_button").style.display = "none";
+           document.getElementById("show_button").style.display = "hidden !important";
        }; 
     if (clozes.length > 1) {
         const cloze_color = window.getComputedStyle(clozes[0]).color;
@@ -103,6 +104,5 @@ const resetClozesConst = function() {
     });
 }
 };
-
 </script>
 

@@ -1,9 +1,10 @@
 # Clozolkor
-Enhancing "*cloze one by one*" script found in TheAnking's template (on his website or drive). I think the original idea/script is by user "iTraveller" in the official anki forum. Oh and don't ask why this name. The current status of this project is : I am using it daily. It is definitely stable as it does not require addons or complicated coding. It is basic javascript.
+Enhancing "*cloze one by one*" script found in TheAnking's template (on his website or drive). I think the original idea/script is by user "iTraveller" in the official anki forum. Oh and don't ask why this name. The current status of this project is : I am using it daily. It is definitely stable as it does not require addons or complicated coding. It is just basic javascript added to a cloze template.
 
 
 ## Features 
 * supports multiple shortcuts to show or rehide clozes
+* supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one.
 * changes cloze color when there is only one deletion (can easily be edited)
 * supports image cloze deletion (thanks to /u/bluegreenmagick)
 * added buttons, handy for mobile (one to reveal one cloze, one to reset)
@@ -16,9 +17,10 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 ## Planned features / TODO list (some are really simple, don't forget to help!)
 * keep the button pressed should reveal the cards at a more manageable pace
 * add a shortcut that reveals everything
-* add a setting section on top of the code
+* add a straightforward setting section on top of the code
 * figure out a way to avoid hiding cloze hints
 * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean
+* pressing the reveal shortcut should show `{{hint:}}` fields when there are no more cloze to unfold
 * the shortcut when seeing front should reveal the back
 * add a preview : the cloze that should disappear should change color just before, as a hint of the size of the deletion
 * add a button in the edit window to automatically cloze every space of a text selection, or increment cloze number etc
@@ -27,6 +29,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * I very rarely get the wrong background color, which sucks because you can still read the cloze. It seems to happen only in specific circumstances for me but this might be linked to the speed of your computer. If you have this issue regularly let me know. There might be a fix using `aFade` and `qFade` (taken from Glutanimate's IOC addon).
 * If you use a font that uses [ligatures](https://en.wikipedia.org/wiki/Orthographic_ligature) then you can run into a *slight* issue where some characters seemingly use Quantum Tunneling to cross the cloze barrier. For example in `{{c1::ef}}{{c1::fects}}`, openning the first cloze might show `eff` intead of `ef`.
 * The cloze color changes when there is only one deletion (the behavior is then the same as with regular clozes) but you can't select a color for nightmode
+* Buttons are supposed to hide when there is only one deletion but it doesn't happen on Ankidroid, still figuring this out. They do hide on the computer version though, which is expected behavior.
 
 ## A few notes, please read
 I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommande using the addon ["Symbols as you type"](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc.
@@ -36,6 +39,8 @@ The .js extension of the template files is there only to help with syntax highli
 Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br><\/div>//g | s/<div>{{c1::<\/div>//g | s/<li>/<li>{{c1::/g | s/<\/li>/}}<\/li>/g`. If you want to see this command in action, [click here](bin/demo_vim.gif).
 
 I use `anki 2.1` and try to be up to date. I don't know if it works in `2.0`. I ensure the version works on `AnkiDroid` as it it what I use, I tend to be up to date with it.
+
+The default shortcuts are `n` and `ù` to reveal the deletions one by one, `N` and `%` reset the hiding ("re-hides" everything), on my keyboard they are obtained via capitilizing the former shortcuts. `ù` is just next to `jklm`, that I use to answer my cards. You can change them easily in the `back` template.
 
 
 ### If you like the idea, these addons will interest you
@@ -49,8 +54,9 @@ I use `anki 2.1` and try to be up to date. I don't know if it works in `2.0`. I 
 
 ## How can I get this ? (novice mode)
 * read this page thoroughly
-* import the file `latest_version/Clozolkor template.apkg` into anki, it's a useless card but contains the template
+* import the file `latest_version/ClozolkorTemplate.apkg` into anki, it won't teach you the secrets of Life but contains the template to create your own cards.
 * create your own cloze but select this new template instead of the old "cloze" note type
+* use shortcuts to reveal cards
 
 ## How can I get this ? (in control mode)
 * read this page thoroughly
