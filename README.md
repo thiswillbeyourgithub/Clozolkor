@@ -38,7 +38,7 @@ The .js extension of the template files is there only to help with syntax highli
 
 Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br><\/div>//g | s/<div>{{c1::<\/div>//g | s/<li>/<li>{{c1::/g | s/<\/li>/}}<\/li>/g`. If you want to see this command in action, [click here](bin/demo_vim.gif).
 
-I use `anki 2.1` and try to be up to date. I don't know if it works in `2.0`. I ensure the version works on `AnkiDroid` as it it what I use, I tend to be up to date with it.
+I use `anki 2.1` and try to stay on the latest **stable** version (currently 2.1.22). I don't know if it works in `2.0`. I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release.
 
 The default shortcuts are `n` and `ù` to reveal the deletions one by one, `N` and `%` reset the hiding ("re-hides" everything), on my keyboard they are obtained via capitilizing the former shortcuts. `ù` is just next to `jklm`, that I use to answer my cards. You can change them easily in the `back` template.
 
@@ -60,7 +60,7 @@ The default shortcuts are `n` and `ù` to reveal the deletions one by one, `N` a
 
 ## How can I get this ? (in control mode)
 * read this page thoroughly
-* go into the `current_version` folder
+* go into the `latest_version` folder
 * put the content of `front.js` as the cloze's front template (look for it in the anki manual)
 * put the content of `back.js` as the back template
 * copy `styling.css` into the styling section of the card template
