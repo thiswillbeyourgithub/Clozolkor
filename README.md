@@ -10,19 +10,21 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * added buttons, handy for mobile (one to reveal one cloze, one to reset)
 * more to come, this clozing system is the basis of my workflow
 * added a small delay to be sure that the cloze background is loaded before hiding it, otherwize the wrong color is selected
+* ability to show 5 by 5, or reveal everything, or rehide the clozes.
+* autoscroll if the cloze is outside the frame
 
 #### Demo (outdated, it is much better now)
 ![demo_gif](bin/demo.gif)
 
 ## Planned features / TODO list (some are really simple, don't forget to help!)
-* keep the button pressed should reveal the cards at a more manageable pace
-* add a shortcut that reveals everything
-* add a straightforward setting section on top of the code
+* make a better gif showcasing the most recent features
 * figure out a way to avoid hiding cloze hints
+* fix the hint given by mathjax formula by changing the color of clozes to the background's, but you then have to show a number indicating the number of cloze still hidden I guess
 * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean
 * pressing the reveal shortcut should show `{{hint:}}` fields when there are no more cloze to unfold
 * the shortcut when seeing front should reveal the back
-* add a preview : the cloze that should disappear should change color just before, as a hint of the size of the deletion
+* add a preview : the cloze that could disappear should change color just before, as a hint of the size of the deletion
+* change link color with something like `a:visited { color:red }`, as currently they can be read above the colored background instead of being hidden
 * add a button in the edit window to automatically cloze every space of a text selection, or increment cloze number etc
 
 #### Known issues
@@ -30,6 +32,9 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * If you use a font that uses [ligatures](https://en.wikipedia.org/wiki/Orthographic_ligature) then you can run into a *slight* issue where some characters seemingly use Quantum Tunneling to cross the cloze barrier. For example in `{{c1::ef}}{{c1::fects}}`, openning the first cloze might show `eff` intead of `ef`.
 * The cloze color changes when there is only one deletion (the behavior is then the same as with regular clozes) but you can't select a color for nightmode
 * Buttons are supposed to hide when there is only one deletion but it doesn't happen on Ankidroid, still figuring this out. They do hide on the computer version though, which is expected behavior.
+* On ankidroid sometimes I can catch a glimpse of the answer before the background color changes
+* if you use a square root or a fraction in a mathjax formula, it can often be seen above and below the hiding rectangle, and thus help guess the answer. If it's a real issue you can try converting the mathjax brackets to latex, as it is transformed into a picture it works okay. 
+* links that appear blue are not hidden, they can be seen
 
 ## A few notes, please read
 I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommande using the addon ["Symbols as you type"](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc.
