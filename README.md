@@ -19,6 +19,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 
 * you can use it with bullet points to remembers sets. I displayed buttons on these gifs but they are designed to be used on mobile and stay hidden on the computer. You can use the first letter as hints for example :
 ![demo2_gif](bin/demo2.gif)
+*I just copied the content of the wikipedia page, just ignore whatever member of Pink Floyd you feel never really exited*
 
 * you can also use it to do followup questions:
 ![demo3_gif](bin/demo3.gif)
