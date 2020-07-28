@@ -13,11 +13,17 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * ability to show 5 by 5, or reveal everything, or rehide the clozes.
 * autoscroll if the cloze is outside the frame
 
-#### Demo (outdated, it is much better now)
+#### several demo gifs :
+* simple idea, now a bit outdated:
 ![demo_gif](bin/demo.gif)
 
+* you can use it with bullet points to remembers sets. I displayed buttons on these gifs but they are designed to be used on mobile and stay hidden on the computer. You can use the first letter as hints for example :
+![demo2_gif](bin/demo2.gif)
+
+* you can also use it to do followup questions:
+![demo3_gif](bin/demo3.gif)
+
 ## Planned features / TODO list (some are really simple, don't forget to help!)
-* make a better gif showcasing the most recent features
 * figure out a way to avoid hiding cloze hints
 * fix the hint given by mathjax formula by changing the color of clozes to the background's, but you then have to show a number indicating the number of cloze still hidden I guess
 * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean
