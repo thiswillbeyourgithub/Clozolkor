@@ -25,6 +25,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 ![demo3_gif](bin/demo3.gif)
 
 ## Planned features / TODO list (some are really simple, don't forget to help!)
+* instead of changing the background color to the cloze color, it might be better to change the whole thing to white, this way you don't have indication of the length of the blank. There needs to be a number somewhere that indicate the number of cloze still blanked. Maybe a shortcut could toggle this on and off in case some people would like to see the formatting of the card or something like that.
 * figure out a way to avoid hiding cloze hints
 * fix the hint given by mathjax formula by changing the color of clozes to the background's, but you then have to show a number indicating the number of cloze still hidden I guess
 * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean
