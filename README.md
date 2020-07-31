@@ -32,6 +32,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * add a preview : the cloze that could disappear should change color just before, as a hint of the size of the deletion
 * change link color with something like `a:visited { color:red }`, as currently they can be read above the colored background instead of being hidden
 * add a button in the edit window to automatically cloze every space of a text selection, or increment cloze number etc
+* the html buttons are too white and bright when in dark mode
 
 #### Known issues
 * I very rarely get the wrong background color, which sucks because you can still read the cloze. It seems to happen only in specific circumstances for me but this might be linked to the speed of your computer. If you have this issue regularly let me know. There might be a fix using `aFade` and `qFade` (taken from Glutanimate's IOC addon).
