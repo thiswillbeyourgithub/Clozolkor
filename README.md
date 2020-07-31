@@ -5,30 +5,28 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 ## Features 
 * supports multiple shortcuts to show or rehide clozes
 * supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one.
-* changes cloze color when there is only one deletion (can easily be edited)
-* supports image cloze deletion (thanks to /u/bluegreenmagick)
-* added buttons, handy for mobile (one to reveal one cloze, one to reset)
-* more to come, this clozing system is the basis of my workflow
-* added a small delay to be sure that the cloze background is loaded before hiding it, otherwize the wrong color is selected
-* ability to show 5 by 5, or reveal everything, or rehide the clozes.
+* changes cloze color when there is only one deletion (can easily be edited), this way you won't show the answer inadvertendly by repeatedly pressing spacebar to flip the card.
+* supports image cloze deletion (incredibly thankful to /u/bluegreenmagick)
+* added buttons, handy for mobile (one to reveal one cloze, one to reset, one to show a bunch, one to show everything)
+* more to come, this clozing system is the basis of my workflow, but I don't have much time to coded nowadays.
 * autoscroll if the cloze is outside the frame
 
 #### several demo gifs :
-* simple idea, now a bit outdated:
+* early version, now a bit outdated:
 ![demo_gif](bin/demo.gif)
 
 * you can use it with bullet points to remembers sets. I displayed buttons on these gifs but they are designed to be used on mobile and stay hidden on the computer. You can use the first letter as hints for example :
 ![demo2_gif](bin/demo2.gif)
 *I just copied the content of the wikipedia page, just ignore whatever member of Pink Floyd you feel never really existed*
 
-* you can also use it to do followup questions:
+* you can also use it to do followup questions: (very useful to force yourself to yell a mnemonic out loud!)
 ![demo3_gif](bin/demo3.gif)
 
 ## Planned features / TODO list (some are really simple, don't forget to help!)
 * instead of changing the background color to the cloze color, it might be better to change the whole thing to white, this way you don't have indication of the length of the blank. There needs to be a number somewhere that indicate the number of cloze still blanked. Maybe a shortcut could toggle this on and off in case some people would like to see the formatting of the card or something like that.
-* figure out a way to avoid hiding cloze hints
 * fix the hint given by mathjax formula by changing the color of clozes to the background's, but you then have to show a number indicating the number of cloze still hidden I guess
-* use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean
+* figure out a way to avoid hiding cloze hints
+* use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean setting
 * pressing the reveal shortcut should show `{{hint:}}` fields when there are no more cloze to unfold
 * the shortcut when seeing front should reveal the back
 * add a preview : the cloze that could disappear should change color just before, as a hint of the size of the deletion
@@ -40,12 +38,12 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * If you use a font that uses [ligatures](https://en.wikipedia.org/wiki/Orthographic_ligature) then you can run into a *slight* issue where some characters seemingly use Quantum Tunneling to cross the cloze barrier. For example in `{{c1::ef}}{{c1::fects}}`, openning the first cloze might show `eff` intead of `ef`.
 * The cloze color changes when there is only one deletion (the behavior is then the same as with regular clozes) but you can't select a color for nightmode
 * Buttons are supposed to hide when there is only one deletion but it doesn't happen on Ankidroid, still figuring this out. They do hide on the computer version though, which is expected behavior.
-* On ankidroid sometimes I can catch a glimpse of the answer before the background color changes
+* On ankidroid sometimes I can catch a glimpse of the answer before the background color changes, not sure how to fix this one. Ideas welcome.
 * if you use a square root or a fraction in a mathjax formula, it can often be seen above and below the hiding rectangle, and thus help guess the answer. If it's a real issue you can try converting the mathjax brackets to latex, as it is transformed into a picture it works okay. 
 * links that appear blue are not hidden, they can be seen
 
 ## A few notes, please read
-I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommande using the addon ["Symbols as you type"](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc.
+I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommand using the addon ["Symbols as you type"](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc.
 
 The .js extension of the template files is there only to help with syntax highlighting while editing the files, it's more likely html containing `<script>` parts
 
@@ -53,7 +51,7 @@ Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br>
 
 I use `anki 2.1` and try to stay on the latest **stable** version (currently 2.1.22). I don't know if it works in `2.0`. I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release.
 
-The default shortcuts are `n` and `ù` to reveal the deletions one by one, `N` and `%` reset the hiding ("re-hides" everything), on my keyboard they are obtained via capitilizing the former shortcuts. `ù` is just next to `jklm`, that I use to answer my cards. You can change them easily in the `back` template.
+The default shortcuts are the following. `n`, `c` and `ù` to reveal the deletions one by one. `N`, `C` and `%` show a bunch (default is 5) of deletions. `,` to re-hide everything and `;` to show everything. `ù` is just next to `jklm`, that I use to answer my cards. You can change them easily in the `back` template. Those settings were designed to be easy on the wrist for my azerty keyboard.
 
 
 ### If you like the idea, these addons will interest you
@@ -61,17 +59,14 @@ The default shortcuts are `n` and `ù` to reveal the deletions one by one, `N` a
 * [Cloze (Hide All) addon](https://ankiweb.net/shared/info/1709973686)
 * [Cloze Anything](https://github.com/matthayes/anki_cloze_anything), the creator (as opposed to me) knows how to code in js. I intend to add a "reveal one by one" feature as you can read [here](https://github.com/matthayes/anki_cloze_anything/issues/6#issuecomment-629829062). I learned about this addon only after spending time on this. His project looks better for a lot of use cases for I still intend to use my code for quite a while.
 
-#### Folder description
-* BlueGreenMagick_files : he started it all
-* latest_version : the one I'm using, tried and tested
-
-## How can I get this ? (novice mode)
+## How can I get this ?
+ ### *novice mode*
 * read this page thoroughly
 * import the file `latest_version/ClozolkorTemplate.apkg` into anki, it won't teach you the secrets of Life but contains the template to create your own cards.
 * create your own cloze but select this new template instead of the old "cloze" note type
 * use shortcuts to reveal cards
 
-## How can I get this ? (in control mode)
+ ### *in control mode*
 * read this page thoroughly
 * go into the `latest_version` folder
 * put the content of `front.js` as the cloze's front template (look for it in the anki manual)

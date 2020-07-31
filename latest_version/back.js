@@ -8,11 +8,11 @@ I put it at the top and at the bottom of my temlate to make it easier to click o
     <button id="show_button" onclick="revealOneVar();" class="buttonSizeBig">Reveal one</button>
 </div>
 
-{{cloze:Text}} 
+{{cloze:Cloze}} 
 
 
 
-
+<br>{{Extra}}    
 
 
 
@@ -20,9 +20,10 @@ I put it at the top and at the bottom of my temlate to make it easier to click o
 
 
 <script>
-// Clozolkor script, for more information or latest version go to :
+// Clozolkor back script, for more information or latest version go to :
 // https://github.com/thiswillbeyourgithub/Clozolkor
-// credits due to (at least! ) : iTraveller, /u/AnkingMed, /u/BlueGreenMagick, glume
+// Version : July 2020
+// credits due to (at least! ) : iTraveller, /u/AnkingMed, /u/BlueGreenMagick, thiswillbeyourgithub
 
 
 
@@ -36,7 +37,6 @@ var enableAutoScroll="T" ; // set to "F" to disable autoscroll
 
 
 
-//aFade = 125, qFade = 75; // loads less fast to  fix the color being the wrong one
 	const clozes = [...document.querySelectorAll(".cloze")];
 
     // use regular cloze instead of "cloze one by one" when there is only one cloze deletion ->
@@ -91,8 +91,9 @@ if (enableAutoScroll == "T") {
 			};
 }
 };
-// super ugly code but apparently var work with the html buttons but const work with the keystrokes...
-// for the buttons
+// super ugly code but apparently var only works with the html buttons while const only works with the keystrokes... So I duplicated all function to make it work
+
+// code for html buttons :
 var revealOneVar = function() {
     clozes.slice(0).some((item) => {   
                     if (item.style.backgroundColor != cloze_bg_color) {
@@ -128,7 +129,7 @@ var revealAllVar = function() {
 
 
 
-// for the keystrokes
+// code for keystrokes
 const revealOneConst = function() {
     clozes.slice(0).some((item) => {   
                     if (item.style.backgroundColor != cloze_bg_color) {
