@@ -13,7 +13,7 @@ suggestion : put this at the same location as the button in the backtemplate-->
 <script>
 // Clozolkor front script, for more information or latest version go to :
 // https://github.com/thiswillbeyourgithub/Clozolkor
-// Version : July 2020
+// Version : v2 of July 2020
 // credits due to (at least! ) : iTraveller, /u/AnkingMed, /u/BlueGreenMagick, thiswillbeyourgithub
 
 // change cloze color if only one deletion is found (regular cloze style)

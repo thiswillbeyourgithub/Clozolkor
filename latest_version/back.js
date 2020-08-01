@@ -18,11 +18,10 @@ I put it at the top and at the bottom of my temlate to make it easier to click o
 
 
 
-
 <script>
 // Clozolkor back script, for more information or latest version go to :
 // https://github.com/thiswillbeyourgithub/Clozolkor
-// Version : July 2020
+// Version : v2 of July 2020
 // credits due to (at least! ) : iTraveller, /u/AnkingMed, /u/BlueGreenMagick, thiswillbeyourgithub
 
 
@@ -54,13 +53,15 @@ var enableAutoScroll="T" ; // set to "F" to disable autoscroll
             //item.style.color=cloze_color;
             var imgs = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
-                imgs[i].style.visibility = "hidden";
+              //  imgs[i].style.visibility = "hidden";
+                imgs[i].style.display= "none";
             }
             item.addEventListener("click", () => {
                 item.style.backgroundColor = cloze_bg_color;
                 var imgs = item.getElementsByTagName("img");
                 for (var i = 0; i < imgs.length; i++) {
-                  imgs[i].style.visibility = "visible";
+             //     imgs[i].style.visibility = "visible";
+                  imgs[i].style.display= "inline";
                 }
             });
         });
@@ -100,7 +101,8 @@ var revealOneVar = function() {
                         item.style.backgroundColor = cloze_bg_color;
                         var imgs = item.getElementsByTagName("img");
                         for(var i = 0; i < imgs.length; i++){ 
-                            imgs[i].style.visibility = "visible";
+//                            imgs[i].style.visibility = "visible";
+                            imgs[i].style.display = "inline";
                         };
                         autoScrollToCloze(item);
                         return true;
@@ -112,7 +114,8 @@ var resetClozesVar = function() {
             item.style.backgroundColor = cloze_color;
             var imgs = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
-                imgs[i].style.visibility = "hidden";
+//                imgs[i].style.visibility = "hidden";
+                imgs[i].style.display = "none";
             } ;
 	window.scroll(0,0);
     });
@@ -122,7 +125,8 @@ var revealAllVar = function() {
             item.style.backgroundColor = cloze_bg_color;
             var imgs = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
-                imgs[i].style.visibility = "visible";
+//                imgs[i].style.visibility = "visible";
+                imgs[i].style.display = "inline";
             }
     });};
 
@@ -136,7 +140,8 @@ const revealOneConst = function() {
                         item.style.backgroundColor = cloze_bg_color;
                         var imgs = item.getElementsByTagName("img");
                         for(var i = 0; i < imgs.length; i++){ 
-                            imgs[i].style.visibility = "visible";
+//                            imgs[i].style.visibility = "visible";
+                	     imgs[i].style.display = "inline";
                         };
                         autoScrollToCloze(item);
                         return true;
@@ -148,7 +153,8 @@ const resetClozesConst = function() {
             item.style.backgroundColor = cloze_color;
             var imgs = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
-                imgs[i].style.visibility = "hidden";
+//                imgs[i].style.visibility = "hidden";
+                imgs[i].style.display = "none";
             }
     });
 	window.scroll(0,0);
@@ -161,6 +167,7 @@ const revealAllConst = function() {
             var imgs = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
                 imgs[i].style.visibility = "visible";
+              	imgs[i].style.display = "inline";
             }
     });
 }

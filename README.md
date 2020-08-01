@@ -4,6 +4,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 
 ## Features 
 * supports multiple shortcuts to show or rehide clozes
+* can either show blank space instead of images of directly hide images to avoid using the size as a hint. Just comment with // and uncomment the relevant lines
 * supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one.
 * changes cloze color when there is only one deletion (can easily be edited), this way you won't show the answer inadvertendly by repeatedly pressing spacebar to flip the card.
 * supports image cloze deletion (incredibly thankful to /u/bluegreenmagick)
