@@ -30,7 +30,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean setting
 * pressing the reveal shortcut should show `{{hint:}}` fields when there are no more cloze to unfold
 * the shortcut when seeing front should reveal the back
-* add a preview : the cloze that could disappear should change color just before, as a hint of the size of the deletion
+* add a preview : the cloze that could disappear should change color just before, as a hint of the size of the deletion. Better idea : reveal letters one by one if using a specific shortcut as in https://old.reddit.com/r/Anki/comments/hwbwag/reveal_one_letter_of_the_answer_at_a_time_using_a/
 * change link color with something like `a:visited { color:red }`, as currently they can be read above the colored background instead of being hidden
 * add a button in the edit window to automatically cloze every space of a text selection, or increment cloze number etc
 * the html buttons are too white and bright when in dark mode
