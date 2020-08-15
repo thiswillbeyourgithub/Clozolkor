@@ -1,6 +1,9 @@
 # Clozolkor
 Enhancing "*cloze one by one*" script found in TheAnking's template (on his website or drive). I think the original idea/script is by user "iTraveller" in the official anki forum. Oh and don't ask why this name. The current status of this project is : I am using it daily. It is definitely stable as it does not require addons or complicated coding. It is just basic javascript added to a cloze template.
 
+## How does it work?
+Basically, you create your cards just like regular clozes but using this template. Then, when reviewing, you can use shortcuts (or buttons that appear on mobile) to reveal the cloze one by one. You can also show letter by letter or word by word what's underneath the cloze as a hint. Lots of things a customizable, and I should be reactive on github to provide support. Oh and don't be surprised : by default the card auto flips the front if you have not used a hint in your cloze (like Y in {{c1::X::Y}}). This behavior can interfere with the time to answer statistics of your cards, as well as addons that use this like [speed focus](https://ankiweb.net/shared/info/1046608507).
+
 
 ## Features 
 * multiple shortcuts (show, hide, hint, etc)
@@ -12,9 +15,9 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * automatically scroll if the cloze is outside the frame
 * autoflip is the cloze doesn't contain hints
 * hints with mathjax are usable, but not with LaTeX as it is rendered as a picture
-* **more to come, this clozing system is the basis of my workflow, but I don't have much time to code nowadays.**
+* **more to come (see todo below), this clozing system is the basis of my workflow, but I don't have much time to code nowadays.**
 
-#### several demo gifs (very outdated, mising hints and hiding cloze size) :
+#### several demo gifs (very outdated, missing hints and hiding cloze size) :
 * early version
 ![demo_gif](bin/demo.gif)
 
