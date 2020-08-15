@@ -1,25 +1,30 @@
-.card {
- font-family: arial;
- font-size: 20px;
- text-align: left;
- color: black;
- background-color: white;
-}
+.card { font-family: robot ; font-size: 23px; #font-style:italic; #text-decoration:underline; text-align: left; color: black; background-color: white;  word-wrap: break-word;}
+    .nightmode .card { font-family:robot !important}
+.cloze { font-weight: none; color: red; #text-decoration:underline; display:inline; }
+    .nightMode .cloze { color: yellow !important; }
 
-.cloze {
- font-weight: bold;
- color: red;
-}
-.nightMode .cloze {
- color: lightgreen;
-}
+.extra { font-size: 23px ; text-align: left ; font-weight:none ; display:inline;}
+    .nightmode .extra { }
+.grey { color: grey; } 
+    .nightmode .gris { color: beige !important; } 
+.red { color:red; font-size:30px;}
+    .nightmode .red { color:red !important; font-size:30px;}
+.orange { color:orange;}
+    .nightmode .orange { color:orange !important;}
+.header1 { color:blue ; font-family:robot ; font-size:25px ; font-style:italic ;}
+    .nightMode .h1 { color:green !important ;}
+.header2 { }
+    .nightmode .h2 { }
+.prog {color:darkgreen ; font-family:robot}
+    .nightmode .prog {color:green !important }
 
-/* cloze one by one : */
-.biggerButtonOnlyOnMobile {display:none}
-.mobile .biggerButtonOnlyOnMobile {display:flex !important; flex-wrap:no-wrap; justify-content:center !important}
-.buttonSizeSmall {flex-grow:1 ; font-size : 10px !important }
-.buttonSizeBig {flex-grow:20 ; font-size : 30px !important }
+.notOnMobile { color:grey; font-weight:bold; }
+.mobile .notOnMobile { display : none ;}
+.hiddenThings {display : none;}
+.smallFontHeader { font-size : 15px } 
 
 
-/*if you want the button to appear on the computer, remove the first line and remove ".mobile" (but you should probably use the keyboard shortcuts instead) */
 
+/*Start of style added by resize image add-on. Don't edit directly or the edition will be lost. Edit via the add-on configuration */
+.mobile .card img {height:unset  !important; width:unset  !important;}
+/*End of style added by resize image add-on*/

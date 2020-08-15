@@ -3,74 +3,67 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 
 
 ## Features 
-* supports multiple shortcuts to show or rehide clozes
-* can either show blank space instead of images of directly hide images to avoid using the size as a hint. Just comment with // and uncomment the relevant lines
-* supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one.
-* changes cloze color when there is only one deletion (can easily be edited), this way you won't show the answer inadvertendly by repeatedly pressing spacebar to flip the card.
-* supports image cloze deletion (incredibly thankful to /u/bluegreenmagick)
-* added buttons, handy for mobile (one to reveal one cloze, one to reset, one to show a bunch, one to show everything)
-* more to come, this clozing system is the basis of my workflow, but I don't have much time to coded nowadays.
-* autoscroll if the cloze is outside the frame
+* multiple shortcuts (show, hide, hint, etc)
+* show hint of what's hidden underneath a cloze, letter by letter
+* show all the deletion as a fixed size block, this way you can't use the size of the deletion as a hint
+* hide images, leaving the size (or not) as a hint
+* supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one. Basically like regular cloze.
+* buttons, handy for mobile (one to reveal one cloze, one to reset, one to show a bunch, one to show everything, one to show a character hint)
+* automatically scroll if the cloze is outside the frame
+* autoflip is the cloze doesn't contain hints
+* hints with mathjax are usable, but not with LaTeX as it is rendered as a picture
+* **more to come, this clozing system is the basis of my workflow, but I don't have much time to code nowadays.**
 
-#### several demo gifs :
-* early version, now a bit outdated:
+#### several demo gifs (very outdated, mising hints and hiding cloze size) :
+* early version
 ![demo_gif](bin/demo.gif)
 
-* you can use it with bullet points to remembers sets. I displayed buttons on these gifs but they are designed to be used on mobile and stay hidden on the computer. You can use the first letter as hints for example :
+* use it with bullet points to remembers sets. I displayed buttons on these gifs but they are designed to be used on mobile and stay hidden on the computer. You can use the first letter as hints for example :
 ![demo2_gif](bin/demo2.gif)
 *I just copied the content of the wikipedia page, just ignore whatever member of Pink Floyd you feel never really existed*
 
-* you can also use it to do followup questions: (very useful to force yourself to yell a mnemonic out loud!)
+* use it to do followup questions: (very useful to force yourself to yell a mnemonic out loud!)
 ![demo3_gif](bin/demo3.gif)
 
-## Planned features / TODO list (some are really simple, don't forget to help!)
-* instead of changing the background color to the cloze color, it might be better to change the whole thing to white, this way you don't have indication of the length of the blank. There needs to be a number somewhere that indicate the number of cloze still blanked. Maybe a shortcut could toggle this on and off in case some people would like to see the formatting of the card or something like that.
-* fix the hint given by mathjax formula by changing the color of clozes to the background's, but you then have to show a number indicating the number of cloze still hidden I guess
-* figure out a way to avoid hiding cloze hints
+## TODO / Planned features / known issues (some are really simple, don't forget to help!)
+* gif showcasing the new hint feature
+* see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number
 * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean setting
 * pressing the reveal shortcut should show `{{hint:}}` fields when there are no more cloze to unfold
-* the shortcut when seeing front should reveal the back
-* add a preview : the cloze that could disappear should change color just before, as a hint of the size of the deletion. Better idea : reveal letters one by one if using a specific shortcut as in https://old.reddit.com/r/Anki/comments/hwbwag/reveal_one_letter_of_the_answer_at_a_time_using_a/
 * change link color with something like `a:visited { color:red }`, as currently they can be read above the colored background instead of being hidden
-* add a button in the edit window to automatically cloze every space of a text selection, or increment cloze number etc
-* the html buttons are too white and bright when in dark mode
+* support the creation of an addon handle clozes better, especially : if interested, tell it [there](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2)
+* html buttons should scroll with the page (ie always appear at the same place), with something like `position:fixed/sticky`
+* change the top header : turns out that ease factor and "is new" [are supported in ankidroid] (https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-Javascript-API)
 
 #### Known issues
 * I very rarely get the wrong background color, which sucks because you can still read the cloze. It seems to happen only in specific circumstances for me but this might be linked to the speed of your computer. If you have this issue regularly let me know. There might be a fix using `aFade` and `qFade` (taken from Glutanimate's IOC addon).
-* If you use a font that uses [ligatures](https://en.wikipedia.org/wiki/Orthographic_ligature) then you can run into a *slight* issue where some characters seemingly use Quantum Tunneling to cross the cloze barrier. For example in `{{c1::ef}}{{c1::fects}}`, openning the first cloze might show `eff` intead of `ef`.
-* The cloze color changes when there is only one deletion (the behavior is then the same as with regular clozes) but you can't select a color for nightmode
-* Buttons are supposed to hide when there is only one deletion but it doesn't happen on Ankidroid, still figuring this out. They do hide on the computer version though, which is expected behavior.
-* On ankidroid sometimes I can catch a glimpse of the answer before the background color changes, not sure how to fix this one. Ideas welcome.
-* if you use a square root or a fraction in a mathjax formula, it can often be seen above and below the hiding rectangle, and thus help guess the answer. If it's a real issue you can try converting the mathjax brackets to latex, as it is transformed into a picture it works okay. 
 * links that appear blue are not hidden, they can be seen
+* if a cloze ends with a picture, the hint field will sometimes not get reset, mildly annoying
 
 ## A few notes, please read
-I have a very limited understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommand using the addon ["Symbols as you type"](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc.
+I have a limited (but increasing) understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommand using the addon ["Symbols as you type"](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc. I hope something will come out of [this thread](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2)
 
-The .js extension of the template files is there only to help with syntax highlighting while editing the files, it's more likely html containing `<script>` parts
+The .js extension of the template files is there only to help with syntax highlighting while editing the files, it's more accurately html containing `<script>` parts
 
 Useful vim command to convert rapidly some clozes from its html : `s/<div>}}<br><\/div>//g | s/<div>{{c1::<\/div>//g | s/<li>/<li>{{c1::/g | s/<\/li>/}}<\/li>/g`. If you want to see this command in action, [click here](bin/demo_vim.gif).
 
-I use `anki 2.1` and try to stay on the latest **stable** version (currently 2.1.22). I don't know if it works in `2.0`. I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release.
+I use `anki 2.1` and try to stay on the latest **stable** version (currently 2.1.22). I don't know if it works in `2.0`. I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macos or iOS, and am counting on your feedbacks for this.
 
-The default shortcuts are the following. `n`, `c` and `ù` to reveal the deletions one by one. `N`, `C` and `%` show a bunch (default is 5) of deletions. `,` to re-hide everything and `;` to show everything. `ù` is just next to `jklm`, that I use to answer my cards. You can change them easily in the `back` template. Those settings were designed to be easy on the wrist for my azerty keyboard.
+The shortcuts and many more things can be edited in the back template, inside the script.
 
 
 ### If you like the idea, these addons will interest you
 * [Cloze overlapper](https://github.com/Glutanimate/cloze-overlapper) addon by the Great Glutanimate, unfortunately not (yet?) ported to 2.1
 * [Cloze (Hide All) addon](https://ankiweb.net/shared/info/1709973686)
 * [Cloze Anything](https://github.com/matthayes/anki_cloze_anything), the creator (as opposed to me) knows how to code in js. I intend to add a "reveal one by one" feature as you can read [here](https://github.com/matthayes/anki_cloze_anything/issues/6#issuecomment-629829062). I learned about this addon only after spending time on this. His project looks better for a lot of use cases for I still intend to use my code for quite a while.
+* [anki-wraper](https://github.com/epiphanie-gedeon/anki-wrapper/) seems promissing for cloze handling
 
 ## How can I get this ?
- ### *novice mode*
 * read this page thoroughly
-* import the file `latest_version/ClozolkorTemplate.apkg` into anki, it won't teach you the secrets of Life but contains the template to create your own cards.
-* create your own cloze but select this new template instead of the old "cloze" note type
-* use shortcuts to reveal cards
+* optionnal but better : install the [additionnal card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
+* import the latest `.apkg` file inside the `latest_version` folder into anki.   (or manually copy the front and back, they are usually identical)
+* now, when you create your own clozes : just select this template instead of the old "cloze" note type
+* optionnal : convert all your past cloze into this template : it works the same, just better
+* check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard
+* that's it, if you have **any** issue, open an issue, i'll gladly fix it for everyone else
 
- ### *in control mode*
-* read this page thoroughly
-* go into the `latest_version` folder
-* put the content of `front.js` as the cloze's front template (look for it in the anki manual)
-* put the content of `back.js` as the back template
-* copy `styling.css` into the styling section of the card template
