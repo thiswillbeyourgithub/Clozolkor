@@ -41,7 +41,7 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 * if a cloze ends with a picture, the hint field will sometimes not get reset, mildly annoying
 
 ## A few notes, please read
-I have a limited (but increasing) understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommand using the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc. I hope something will come out of [this thread](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2)
+I have a limited (but increasing) understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommand using the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc. You can see a list of my suggested macros [here](https://github.com/jefdongus/insert-symbols-anki-addon/issues/13) or in the `latest_version` folder. I hope something will come out of [this thread](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2)
 
 The .js extension of the template files is there only to help with syntax highlighting while editing the files, it's more accurately html containing `<script>` parts
 
@@ -59,7 +59,7 @@ The shortcuts and many more things can be edited in the back template, inside th
 ## How can I get this ?
 * read this page thoroughly
 * optionnal but better : install the [additionnal card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
-    * reminder : as written above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency.
+    * reminder : as written above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_version` folder.
 * import the latest `.apkg` file inside the `latest_version` folder into anki.   (or manually copy the front and back, they are usually identical)
 * now, when you create your own clozes : just select this template instead of the old "cloze" note type
 * optionnal : convert all your past cloze into this template : it works the same, just better
