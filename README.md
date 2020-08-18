@@ -7,7 +7,7 @@ Basically, you create your cards just like regular clozes but using this templat
 
 ## Features 
 * multiple shortcuts (show, hide, hint, etc)
-* **show hint of what's hidden underneath a cloze, letter by letter**
+* **show hint of what's hidden underneath a cloze, letter by letter or word by word**
 * show all the deletion as a fixed size block, this way you can't use the size of the deletion as a hint
 * hide images, leaving the size (or not) as a hint
 * supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one. Basically like regular cloze so you can just convert all your cloze to this template and it will work the same.
