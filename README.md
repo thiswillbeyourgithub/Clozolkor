@@ -30,6 +30,7 @@ Basically, you create your cards just like regular clozes but using this templat
 
 ## TODO / Planned features / known issues (some are really simple, don't forget to help!)
 * short video instead of gifs showcasing the new hint feature + showing example of using a mnemonic
+* make the number of spaces used to lower the card on desktop but not on mobile easily modifiable and the ability to deactivate it
 * see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number
 * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean setting
 * pressing the reveal shortcut should show `{{hint:}}` fields and such when there are no more cloze to unfold
@@ -39,7 +40,7 @@ Basically, you create your cards just like regular clozes but using this templat
 * change the top header : turns out that ease factor and "is new" [are supported in ankidroid] (https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-Javascript-API)
 
 #### Known issues
-* I very rarely get the wrong background color, which sucks because you can still read the cloze. It seems to happen only in specific circumstances for me but this might be linked to the speed of your computer. If you have this issue regularly let me know. There might be a fix using `aFade` and `qFade` (taken from Glutanimate's IOC addon).
+* I very rarely get the wrong background color, which sucks because you can still read the cloze. It seems to happen only in specific circumstances for me but this might be linked to the speed of your computer. If you have this issue regularly let me know. There might be a fix using `aFade` and `qFade` (taken from Glutanimate's IOC addon). A possible solution would be to used [this](https://old.reddit.com/r/Anki/comments/iiil6i/javascript_runs_before_card_is_fully_loaded_how/)
 * links that appear blue are not hidden, they can be seen
 * if a cloze ends with a picture, the hint field will sometimes not get reset, mildly annoying
 
@@ -51,6 +52,7 @@ The .js extension of the template files is there only to help with syntax highli
 I use `anki 2.1` and try to stay on the latest **stable** version (currently 2.1.22). I don't know if it works in `2.0`. I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macos or iOS, and am counting on your feedbacks for this.
 
 The shortcuts and many more things can be edited in the back template, inside the script.
+
 
 
 ### If you like the idea, these addons will interest you
