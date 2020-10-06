@@ -56,6 +56,7 @@ The shortcuts and many more things can be edited in the back template, inside th
 
 
 ### If you like the idea, these addons will interest you
+* [Closet addon](https://ankiweb.net/shared/info/272311064) seems to be able to do everything that I did but... better? Haven't tested it yet.
 * [Cloze overlapper](https://github.com/Glutanimate/cloze-overlapper) addon by the Great Glutanimate, unfortunately not (yet?) ported to 2.1
 * [Cloze (Hide All) addon](https://ankiweb.net/shared/info/1709973686)
 * [Cloze Anything](https://github.com/matthayes/anki_cloze_anything), the creator (as opposed to me) knows how to code in js. I intend to add a "reveal one by one" feature as you can read [here](https://github.com/matthayes/anki_cloze_anything/issues/6#issuecomment-629829062). I learned about this addon only after spending time on this. His project looks better for a lot of use cases for I still intend to use my code for quite a while.
