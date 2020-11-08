@@ -42,6 +42,7 @@ Basically, you create your cards just like regular clozes but using this templat
 * change the top header : turns out that ease factor and "is new" [are supported in ankidroid] (https://github.com/ankidroid/Anki-Android/wiki/AnkiDroid-Javascript-API)
 
 #### Known issues
+* Please take note that if you have an error message instead of the card during review then you probably are in front of a empty card. Select in the top menu "Tools > empty cards" to get rid of it. If it fails, I know some addons interfere with this cleanup so restart anki while holding down the Shift button, then remove empty cards, then restart anki again.
 * I very rarely get the wrong background color, which sucks because you can still read the cloze. It seems to happen only in specific circumstances for me but this might be linked to the speed of your computer. If you have this issue regularly let me know. There might be a fix using `aFade` and `qFade` (taken from Glutanimate's IOC addon). A possible solution would be to used [this](https://old.reddit.com/r/Anki/comments/iiil6i/javascript_runs_before_card_is_fully_loaded_how/)
 * links that appear blue are not hidden, they can be seen
 * if a cloze ends with a picture, the hint field will sometimes not get reset, mildly annoying
