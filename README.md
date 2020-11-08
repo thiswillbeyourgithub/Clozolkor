@@ -1,8 +1,10 @@
 # Clozolkor
 Enhancing "*cloze one by one*" script found in TheAnking's template (on his website or drive). I think the original idea/script is by user "iTraveller" in the official anki forum. Oh and don't ask why this name. The current status of this project is : I am using it daily. It is definitely stable as it does not require addons or complicated coding. It is just basic javascript added to a cloze template.
 
+If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
+
 ## How does it work?
-Basically, you create your cards just like regular clozes but using this template. Then, when reviewing, you can use shortcuts (or buttons that appear on mobile) to reveal the cloze one by one. That means that if you have severall `c1` occlusion you will see them sequentially, same for `c2` etc. You can also show letter by letter or word by word what's underneath the cloze as a hint. Lots of things a customizable, and I should be reactive on github to provide support. Oh and don't be surprised : by default the card auto flips the front if you have not used a hint in your cloze (like Y in {{c1::X::Y}}). This behavior can interfere with the time to answer statistics of your cards, as well as addons that use this like [speed focus](https://ankiweb.net/shared/info/1046608507).
+Basically, you create your cards just like regular clozes but using this template. Then, when reviewing, you can use shortcuts (or buttons that appear on mobile) to reveal the cloze one by one. That means that if you have several `c1` occlusion you will see them sequentially, same for `c2` etc. You can also show letter by letter or word by word what's underneath the cloze as a hint. Lots of things a customizable, and I should be reactive on github to provide support. Oh and don't be surprised : by default the card auto flips the front if you have not used a hint in your cloze (like Y in {{c1::X::Y}}). This behavior can interfere with the time to answer statistics of your cards, as well as addons that use this like [speed focus](https://ankiweb.net/shared/info/1046608507).
 
 
 ## Features 
@@ -71,4 +73,5 @@ The shortcuts and many more things can be edited in the back template, inside th
 * optional : convert all your past cloze into this template : it works the same, just better
 * check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard
 * that's it, if you have **any** issue, open an issue, i'll gladly fix it for everyone else
+* If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
 
