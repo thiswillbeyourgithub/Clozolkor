@@ -1,30 +1,55 @@
-.card { font-family: robot ; font-size: 23px; #font-style:italic; #text-decoration:underline; text-align: left; color: black; background-color: white;  word-wrap: break-word;}
-    .nightmode .card { font-family:robot !important}
-.cloze { font-weight: none; color: red; #text-decoration:underline; display:inline; }
-    .nightMode .cloze { color: yellow !important; }
-
-.extra { font-size: 23px ; text-align: left ; font-weight:none ; display:inline;}
-    .nightmode .extra { }
-.grey { color: grey; } 
-    .nightmode .gris { color: beige !important; } 
-.red { color:red; font-size:30px;}
-    .nightmode .red { color:red !important; font-size:30px;}
-.orange { color:orange;}
-    .nightmode .orange { color:orange !important;}
-.header1 { color:blue ; font-family:robot ; font-size:25px ; font-style:italic ;}
-    .nightMode .h1 { color:green !important ;}
-.header2 { }
-    .nightmode .h2 { }
-.prog {color:darkgreen ; font-family:robot}
-    .nightmode .prog {color:green !important }
-
-.notOnMobile { color:grey; font-weight:bold; }
-.mobile .notOnMobile { display : none ;}
-.hiddenThings {display : none;}
-.smallFontHeader { font-size : 15px } 
-
 
 
 /*Start of style added by resize image add-on. Don't edit directly or the edition will be lost. Edit via the add-on configuration */
 .mobile .card img {height:unset  !important; width:unset  !important;}
-/*End of style added by resize image add-on*/
+/*End of style added by resize image add-on*/  
+/* BEGIN WRAPPER CODE justify
+Please do not edit this section directly, this code is generated automatically. Modify config.json instead */
+
+.leftalign {
+  display: inline-block;
+  text-align: left;
+}
+.centeredbox {
+  text-align: center;
+}
+/* END WRAPPER CODE */
+
+
+   
+.card { font-family: robot ; font-size: 18px; #font-style:italic; #text-decoration:underline; text-align: left; color: black; background-color: white;  word-wrap: break-word;}
+.cloze { font-weight: none; color: grey !important; #text-decoration:underline; display:inline; }
+    .nightMode .cloze { color: pink !important; }
+.extra { font-size: 18px ; text-align: left ; font-weight:none ; display:inline;}
+    .nightmode .extra { }
+.grey { color: grey; } 
+    .nightmode .gris { color: beige !important; } 
+.red { color:red; font-size:18px;}
+    .nightmode .red { color:red !important; font-size:18px;}
+.orange { color:orange;}
+    .nightmode .orange { color:orange !important;}
+.headerField { color:black !important ; font-style:bold ;}
+    .nightMode .headerField { color:white !important ; font-style:bold}
+
+.notOnMobile { color:grey; font-weight:bold; }
+    .mobile .notOnMobile { display : none ;}
+.hiddenThings {display : none;}
+.smallFontHeader { font-size : 12px } 
+
+
+/* if you want to edit clozolkor's hints or something, it had to be handled via js so the related lines will be found in the front and back sections */
+
+span.leech    { font-family: "Sans Forgetica"; }
+span.ease1300 { font-family: "Sans Forgetica"; }
+span.ease1350 { font-family: "Sans Forgetica"; }
+span.ease1400 { font-family: "Sans Forgetica"; }
+span.ease1500 { font-family: "Sans Forgetica"; }
+span.ease1550 { font-family: "Sans Forgetica"; }
+span.ease1600 { font-family: "Sans Forgetica"; }
+span.ease1650 { font-family: "Sans Forgetica"; }
+span.ease1700 { font-family: "Sans Forgetica"; }
+span.ease1750 { font-family: "Sans Forgetica"; }
+span.ease1800 { font-family: "Sans Forgetica"; }
+
+
+

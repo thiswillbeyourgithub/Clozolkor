@@ -1,21 +1,58 @@
-<div class = smallFontHeader><span class=grey>Deck - {{clickable:Deck}} {{#Tags}} |      Tags - {{clickable:Tags}}{{/Tags}} </span><span class = notOnMobile > | <u><span class=red>{{info-New?:}}</span>{{info-Review?:}}{{info-Learning?:}}</u> | Ease = {{info-Factor:}}</div>
-<span class=orange>{{#Teacher}}Par : <i>{{Teacher}}</i>&nbsp&nbsp&nbsp{{/Teacher}}</span> </span>
+<span class = debugFieldFront></span>
 
-
-<div class="biggerButtonOnlyOnMobile"><br></div>
-<br>
-
-<!--this is to avoid having the lines going up or down a notch when fliping the card on mobile
-<span class = notOnMobile>
-	<br><br><br><br><br><br><br><br><br><br><br>
+<!-- HEADER -->
+<span id="decksContainer">
+    {{Deck}}
+</span> 
+<span id="tagsContainer">
+    {{Tags}}
 </span>
 
+<div class = smallFontHeader>
+        <span class=notOnMobile>
+        <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
+                <span class=red>
+                    <u>{{info-New?:}}</u>
+                </span>
+                <u>
+                    {{info-Review?:}}{{info-Learning?:}}
+                </u>
+                {{info-Factor:}}
+        </span>
+    <span class=grey>
+        <span class=addStateHereBack> </span>
+        <span class=addEaseHereBack> </span>
+    </span>
+</div>
 
-<span class=header1>{{#Header1}}<b>{{Header1}}</b><br>{{/Header1}}</span> <br>
-{{#Header2}}<span class=header2>{{Header2}} : </span>{{/Header2}} {{cloze:Body}}
-{{#Hint}}<hr id=answer><span class=extra>{{hint:Hint}}</span>{{/Hint}} 
+
+<span class=orange>
+    {{#Teacher}}By : <i>{{Teacher}}</i>&nbsp&nbsp&nbsp{{/Teacher}}
+</span> 
+
+<br>
+
+<!--this next line is used to make sure the text stays at the same level when flipping the card, a placeholder if you will -->
+<div class="biggerButtonOnlyOnMobile"><br></div><br>
 
 
+<hr>
+<span class=headerField>
+    {{#Header}}<b>{{Header}}<br></b> {{/Header}}
+</span>
+
+<!-- the next two lines are used to display the card using Sans forgetica if it's harder, at least on the desktop app. On ankidroid this is done below. They need to encompass the whole cloze -->
+<div class="{{{Tags}}">
+    <span class="ease{{info-Factor:}}">
+        {{cloze:Body}}
+        {{#Hint}}
+        <hr id=answer><br><br>
+        <span class=extra>
+            {{hint:Hint}}
+        </span>
+        {{/Hint}} 
+    </span>
+</div>
 
 <script>
 /* 
@@ -39,7 +76,7 @@
     */ /*
     for more information or to get the latest version go to :
     https://github.com/thiswillbeyourgithub/Clozolkor
-    Version : August 15th 2020
+    Version : August 2020
 
     credits due to (at least! ) :
     thiswillbeyourgithub (main dev)
@@ -49,54 +86,153 @@
     */
 
 
+// ###########################################
+	// USER SETTINGS
 
-	// SETTINGS
+
 let autoFlip = "T"; // F = autoflip if there are no hints
- 	// VAR
-const clozes = [...document.querySelectorAll(".cloze")];
-const biggerButtonOnlyOnMobile = document.getElementsByClassName("biggerButtonOnlyOnMobile");
-const notOnMobile = document.getElementsByClassName("notOnMobile");
-const buttonSizeSmall = document.getElementsByClassName("buttonSizeSmall");
-const buttonSizeBig = document.getElementsByClassName("buttonSizeBig");
+//var qFade = 0;
+//var aFade = 100;
+let tagsAndDeckFontSize     = "8px"; // default : "8px"
+
+// ###########################################
+ 	// VARIABLES ASSIGNMENT
 
 
+const clozes                    = [...document.querySelectorAll(".cloze")];
+if (clozes.length !== 0) { // continue only if clozes are found
+const biggerButtonOnlyOnMobile  = document.getElementsByClassName("biggerButtonOnlyOnMobile");
+const notOnMobile               = document.getElementsByClassName("notOnMobile");
+const buttonSizeSmall           = document.getElementsByClassName("buttonSizeSmall");
+const buttonSizeBig             = document.getElementsByClassName("buttonSizeBig");
+const debugFieldFront           = document.getElementsByClassName("debugFieldFront");
+const addEaseHereFront          = document.getElementsByClassName("addEaseHereFront") ; 
+const addStateHereFront         = document.getElementsByClassName("addStateHereFront") ; 
+const tagsContainer     = document.getElementById("tagsContainer")
+const decksContainer    = document.getElementById("decksContainer")
 
+
+// ###########################################
     // STYLING (depending on platform)
-var isAnkiDroid = /wv/i.test(navigator.userAgent); // ankidroid specific test 
-if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("roid") >= 0 || isAnkiDroid || ankiPlatform.indexOf("esktop") == -1)  {
-    var isOnMobile = "T";
+
+
+		// TAGS AND DECK STYLING :
+if (decksContainer.childElementCount == 0) {
+ var deckList = decksContainer.innerHTML.split("::");
+ var newdeckContent = document.createElement("div");
+
+ for (var i = 0; i < deckList.length;  i++) {
+  var newdeck = document.createElement("button");
+  newdeck.innerHTML = deckList[i].replace(" - ", "-");
+  newdeckContent.append(newdeck)
+ }
+ decksContainer.innerHTML              =  newdeckContent.innerHTML;
+ decksContainer.style.display          =  "flex";
+ decksContainer.style.flexwrap         =  "no-wrap";
+ decksContainer.style.justifyContent   =  "left";
+
+  for (i = 0 , len = decksContainer.querySelectorAll("button").length ; i < len ; i++) {
+      decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
+      decksContainer.querySelectorAll("button")[i].style.height            =  5;
+      decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
+      decksContainer.querySelectorAll("button")[i].style.color            =  "white";
+      decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent !important";
+      decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent !important";
+      decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
+      decksContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
+      decksContainer.querySelectorAll("button")[i].style.border     =  "none";
+      decksContainer.querySelectorAll("button")[i].style.opacity     =  0.5;
+      decksContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
+  }
+}
+
+if (tagsContainer.childElementCount == 0) {
+ var tagList = tagsContainer.innerHTML.split("::");
+ var newTagContent = document.createElement("div");
+
+ for (var i = 0; i < tagList.length;  i++) {
+  var newTag = document.createElement("button");
+  newTag.innerHTML = tagList[i];
+  newTagContent.append(newTag)
+ }
+    tagsContainer.innerHTML              =  newTagContent.innerHTML;
+    tagsContainer.style.display          =  "flex";
+    tagsContainer.style.flexwrap         =  "no-wrap";
+    tagsContainer.style.justifyContent   =  "left";
+  for (i = 0 , len = tagsContainer.querySelectorAll("button").length ; i < len ; i++) {
+      tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
+      tagsContainer.querySelectorAll("button")[i].style.height         =  5;
+      tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
+      tagsContainer.querySelectorAll("button")[i].style.color            =  "white";
+      tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent !important";
+      tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent !important";
+      tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
+      tagsContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
+      tagsContainer.querySelectorAll("button")[i].style.border     =  "none";
+      tagsContainer.querySelectorAll("button")[i].style.opacity     =  0.5;
+      tagsContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
+  }
+}
+
+
+var isAnkiDroidFront = /wv/i.test(navigator.userAgent); // ankidroid specific test 
+if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("roid") >= 0 || isAnkiDroidFront || ankiPlatform.indexOf("esktop") == -1)  {
+    var isOnMobileFront = "T";
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
-        biggerButtonOnlyOnMobile[index].style.display = "flex";
-        biggerButtonOnlyOnMobile[index].style.flexWrap = "no-wrap";
+        biggerButtonOnlyOnMobile[index].style.display        = "flex";
+        biggerButtonOnlyOnMobile[index].style.flexWrap       = "no-wrap";
         biggerButtonOnlyOnMobile[index].style.justifyContent = "center";
     }
     for (index = 0, len = notOnMobile.length ; index < len ; index++) {
         notOnMobile[index].style.display = "none";
     }
+        // loads ankidroid api
+    var jsApiFront     = {"version" : "0.0.1", "developer" : "dev@mail.com"};
+    var apiStatusFront = AnkiDroidJS.init(JSON.stringify(jsApiFront));
+    console.log(apiStatusFront);
+    var apiFront       = JSON.parse(apiStatusFront);
+
+    // adds ease factor to the header
+    addEaseHereFront[0].textContent = AnkiDroidJS.ankiGetCardFactor();
+
+    // adds card status to the header
+    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereFront[0].outerHTML   = "<span class=red>new</span>" ;}
+    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereFront[0].textContent = "learning" ;}
+    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereFront[0].textContent = "review" ;}
+    if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereFront[0].textContent = "relearning" ;}
 }
 else {
-	var isOnMobile = "F";
+	var isOnMobileFront = "F";
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
         biggerButtonOnlyOnMobile[index].style.display = "none";
     }
     for (index = 0, len = notOnMobile.length ; index < len ; index++) {
-        notOnMobile[index].style.color = "grey";
+        notOnMobile[index].style.color     = "grey";
         notOnMobile[index].style.fontStyle = "bold";
     }
 }
 
+
+// ###########################################
     // if there are no hints : auto flip the card
-for(let i = 0 ; i < clozes.length;i++) {
-    if (autoFlip == "T") {
+
+
+if (autoFlip == "T") {
+    for(let i = 0 ; i < clozes.length;i++) {
         if(clozes[i].textContent != '[...]') { 
             autoFlip = "F";
         };
     }
 }
 if (autoFlip == "T") {
-	if (isOnMobile == "T") { showAnswer(); }
-	if (isOnMobile == "F") { pycmd("ans"); }
+	if (isOnMobileFront == "T") {
+        showAnswer(); 
+    }
+	if (isOnMobileFront == "F") { 
+        pycmd("ans"); 
+    }
 }
 
+}
 </script>
 
