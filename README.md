@@ -3,6 +3,8 @@ Enhancing "*cloze one by one*" script found in TheAnking's template (on his webs
 
 If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
 
+As time went on, I added a lot of things to suit my needs and decided to share it with the community.
+
 ## How does it work?
 Basically, you create your cards just like regular clozes but using this template. Then, when reviewing, you can use shortcuts (or buttons that appear on mobile) to reveal the cloze one by one. That means that if you have several `c1` occlusion you will see them sequentially, same for `c2` etc. You can also show letter by letter or word by word what's underneath the cloze as a hint. Lots of things a customizable, and I should be reactive on github to provide support. Oh and don't be surprised : by default the card auto flips the front if you have not used a hint in your cloze (like Y in {{c1::X::Y}}). I think that this behavior can interfere with the "time to answer" statistics of your cards, as well as addons that use this like [speed focus](https://ankiweb.net/shared/info/1046608507).
 
