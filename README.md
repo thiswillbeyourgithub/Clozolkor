@@ -15,8 +15,8 @@ Basically, you create your cards just like regular clozes but using this templat
 * **compatibility** : it supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one. Basically like regular cloze so you can just convert all your cloze to this template and it will work the same.
 * **fast** : autoflip to answer sided is the cloze doesn't contain hints
 * **memory boosting?** : if your card's ease drop too low, the card will switch to the font [Sans Forgetica](https://en.wikipedia.org/wiki/Sans_forgetica). No idea if it works but interesting to try.
-* shows the tags and decks on top in a nice and non-distracting way
-* displays the ease and the state (learning, new, etc) on top
+* **elegent** : shows the tags and decks on top in a nice and non-distracting way
+* **handy** : displays the ease and the state (learning, new, etc) on top (desktop) or in a little button box (mobile)
 * show all the hidden clozes as a fixed size block, this way you can't use the size of the deletion as a hint
 * automatically show the "links" (like `{{hint:Sources}}` when you showed all the clozes
 * hide images that are inside clozes, leaving the size (or not) as a hint
@@ -69,12 +69,13 @@ The shortcuts and many more things can be edited in the template, inside the scr
 * [anki-wraper](https://github.com/epiphanie-gedeon/anki-wrapper/) seems promissing for cloze handling
 
 ## How can I get this?
-* read this page **thoroughly**, it's well worth a few minutes of (y)our time
-* install the [additionnal card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
-* optionnal : as written above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_version` folder
-* import the latest `.apkg` file inside the `latest_version` folder into anki.   (or manually copy the front and back, they are usually identical)
-* now, when you create your own clozes : just select this template instead of the old "cloze" note type
-* optional : convert all your past cloze into this template : it works the same, just better
-* check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard
-* that's it, if you have **any** issue, open an issue, i'll gladly try and fix it for everyone else
-* If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
+1. read this page **thoroughly**, it's well worth a few minutes of (y)our time
+2. install the [additionnal card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
+3. optionnal : as written above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_release` folder
+4. import the `.apkg` file inside the `latest_release` folder into anki, it's the latest release but not necessarily the latest *version*
+5. get the latest version by updating this new template by copying and pasting the content of the relevant text files in `latest_release`
+6. check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard
+7. now, when you create your own clozes : just select this template instead of the old "cloze" note type
+8. optional : convert all your past cloze into this template : it works the same, just better
+9. that's it, if you have **any** issue, open an issue, i'll gladly try and fix it for everyone else
+10. If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
