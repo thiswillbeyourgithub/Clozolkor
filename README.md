@@ -41,6 +41,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 ![card](card_pic.jpg)
 
 ## TODO / Planned features / known issues (some are really simple, don't forget to help!)
+* split the script into multiple sub scripts. That would help maintenance and "sharibility" to have a "decks and tags section", "cloze section", etc
 * see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number
 * use the same shortcut to answer 3 if no more cloze to reveal, depending on a boolean setting?
 * I want to support the creation of an addon that handles clozes better : if you are interested, tell it [there](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2)
