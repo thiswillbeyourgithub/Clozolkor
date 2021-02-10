@@ -25,7 +25,6 @@
     </span>
 </div>
 
-
 <span class=orange>
     {{#Teacher}}By : <i>{{Teacher}}</i>&nbsp&nbsp&nbsp{{/Teacher}}
 </span> 
@@ -34,7 +33,6 @@
 
 <!--this next line is used to make sure the text stays at the same level when flipping the card, a placeholder if you will -->
 <div class="biggerButtonOnlyOnMobile"><br></div><br>
-
 
 <hr>
 <span class=headerField>
@@ -85,10 +83,8 @@
     /u/DrewZZZ and /u/yumenogotoshi (scroll code)
     */
 
-
 // ###########################################
 	// USER SETTINGS
-
 
 let autoFlip = "T"; // F = autoflip if there are no hints
 //var qFade = 0;
@@ -98,9 +94,9 @@ let tagsAndDeckFontSize     = "8px"; // default : "8px"
 // ###########################################
  	// VARIABLES ASSIGNMENT
 
-
 const clozes                    = [...document.querySelectorAll(".cloze")];
 if (clozes.length !== 0) { // continue only if clozes are found
+const cloze_color         = window.getComputedStyle(clozes[0]).color;
 const biggerButtonOnlyOnMobile  = document.getElementsByClassName("biggerButtonOnlyOnMobile");
 const notOnMobile               = document.getElementsByClassName("notOnMobile");
 const buttonSizeSmall           = document.getElementsByClassName("buttonSizeSmall");
@@ -111,10 +107,8 @@ const addStateHereFront         = document.getElementsByClassName("addStateHereF
 const tagsContainer     = document.getElementById("tagsContainer")
 const decksContainer    = document.getElementById("decksContainer")
 
-
 // ###########################################
     // STYLING (depending on platform)
-
 
 		// TAGS AND DECK STYLING :
 if (decksContainer.childElementCount == 0) {
@@ -135,7 +129,7 @@ if (decksContainer.childElementCount == 0) {
       decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
       decksContainer.querySelectorAll("button")[i].style.height            =  5;
       decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
-      decksContainer.querySelectorAll("button")[i].style.color            =  "white";
+      decksContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
       decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent !important";
       decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent !important";
       decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
@@ -163,7 +157,7 @@ if (tagsContainer.childElementCount == 0) {
       tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
       tagsContainer.querySelectorAll("button")[i].style.height         =  5;
       tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
-      tagsContainer.querySelectorAll("button")[i].style.color            =  "white";
+      tagsContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
       tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent !important";
       tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent !important";
       tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
@@ -173,7 +167,6 @@ if (tagsContainer.childElementCount == 0) {
       tagsContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
   }
 }
-
 
 var isAnkiDroidFront = /wv/i.test(navigator.userAgent); // ankidroid specific test 
 if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("roid") >= 0 || isAnkiDroidFront || ankiPlatform.indexOf("esktop") == -1)  {
@@ -212,10 +205,8 @@ else {
     }
 }
 
-
 // ###########################################
     // if there are no hints : auto flip the card
-
 
 if (autoFlip == "T") {
     for(let i = 0 ; i < clozes.length;i++) {
@@ -235,4 +226,3 @@ if (autoFlip == "T") {
 
 }
 </script>
-

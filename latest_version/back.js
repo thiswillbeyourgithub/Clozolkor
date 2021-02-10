@@ -37,7 +37,6 @@
     <button id="show_button" onclick="revealHintLettVar();" class="buttonSizeBig"> Letter</button>
 </span>
 
-
 <!-- line that will be filled with the cloze hint-->
 <div id="hintLettUp"></div> 
 
@@ -145,10 +144,8 @@ var defaultDisplay = [...document.querySelectorAll(".card")][0].style.display;
 // to debug, put the following line where you want :
 //	debugFieldBack[0].textContent += "code run until point A";
 
-
 // ###########################################
     // USER SETTINGS
-
 
 let enableHiding        = "T"; // set to "F" to disable hiding
 let enableAutoScroll    = "T" ; // set to "F" to disable autoscroll
@@ -178,7 +175,7 @@ let shortcutToReset    = [':'];
 let c                   = 0; // index of cloze
 let n                   = 0; // index of the character of the letter used of hints
 let manuallyClicked     = 0; // if a cloze has been manually clicked
-let cloze_color         = window.getComputedStyle(clozes[0]).color;
+const cloze_color         = window.getComputedStyle(clozes[0]).color;
 let cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
 if (typeof cloze_bg_color == 'undefined') { let cloze_bg_color = "white"}; // not sure it works
 const biggerButtonOnlyOnMobile = document.getElementsByClassName("biggerButtonOnlyOnMobile");
@@ -196,8 +193,6 @@ const addStateHereBack  = document.getElementsByClassName("addStateHereBack") ;
 const tagsContainer     = document.getElementById("tagsContainer")
 const decksContainer    = document.getElementById("decksContainer")
 
-
-
     // STYLING
 hintLettFieldUp.style.fontStyle         = "italic";
 hintLettFieldUp.style.backgroundColor   = "transparent";
@@ -211,7 +206,6 @@ hintLettFieldDown.style.color           = cloze_color;
 hintLettFieldDown.style.display         = "flex";
 hintLettFieldDown.style.justifyContent  = "center";
 hintLettFieldDown.style.alignItems      = "center";
-
 
 	// BUTTON STYLING AND MOBILE BEHAVIOR (hide on computer, show on mobile etc) :
 
@@ -296,7 +290,6 @@ if(hideButtons == "T") {
     }
 }; 
 
-
 		// TAGS AND DECK STYLING :
 if (decksContainer.childElementCount == 0) {
  var deckList = decksContainer.innerHTML.split("::");
@@ -316,13 +309,13 @@ if (decksContainer.childElementCount == 0) {
       decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
       decksContainer.querySelectorAll("button")[i].style.height            =  5;
       decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
-      decksContainer.querySelectorAll("button")[i].style.color            =  "white";
+      decksContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
       decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent !important";
       decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent !important";
       decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
       decksContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
       decksContainer.querySelectorAll("button")[i].style.border     =  "none";
-      decksContainer.querySelectorAll("button")[i].style.opacity     =  0.5;
+      decksContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
       decksContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
   }
 }
@@ -344,21 +337,19 @@ if (tagsContainer.childElementCount == 0) {
       tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
       tagsContainer.querySelectorAll("button")[i].style.height         =  5;
       tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
-      tagsContainer.querySelectorAll("button")[i].style.color            =  "white";
+      tagsContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
       tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent !important";
       tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent !important";
       tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
       tagsContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
       tagsContainer.querySelectorAll("button")[i].style.border     =  "none";
-      tagsContainer.querySelectorAll("button")[i].style.opacity     =  0.5;
+      tagsContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
       tagsContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
   }
 }
 
-
 // ###########################################
 // MAIN CODE :
-
 
 // hides the clozes
 clozes.slice(0).forEach((item) => {
@@ -657,18 +648,16 @@ const resetHintLettConst = function() {
     <!--numbIndi.textContent          = Math.max(0,Math.round(clozes.length-c-manuallyClicked))-->
 };
 
-
 // ###########################################
 // code to run after all that 
-
 
 if (enableHiding == "F") { revealAllVar();};
 resetHintLettVar();
 resetHintLettConst();
 
-
-
 }; // if clozes found
 [...document.querySelectorAll(".card")][0].style.display = defaultDisplay // finally shows the card
 
 </script>
+
+
