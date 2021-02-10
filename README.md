@@ -25,7 +25,6 @@ Basically, you create your cards just like regular clozes but using this templat
 * **more to come (see todo below), this clozing system is the basis of my workflow, but I don't have that much time to code.**
 
 #### demo gifs 
-*removed as it's a pain to update the gifs and they were severely outdate, **you should try instead!**!*
 <!--
 * early version (severely out
 ![demo_gif](bin/demo.gif)
@@ -37,6 +36,9 @@ Basically, you create your cards just like regular clozes but using this templat
 * use it to do followup questions: (very useful to force yourself to yell a mnemonic out loud!)
 ![demo3_gif](bin/demo3.gif)
 -->
+![demo](demo.gif)
+from the following card (and yes the deck is ZZ::Perso::BrainDB) :
+![card](card_pic.jpg)
 
 ## TODO / Planned features / known issues (some are really simple, don't forget to help!)
 * see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number
