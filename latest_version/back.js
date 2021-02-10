@@ -176,7 +176,7 @@ let c                   = 0; // index of cloze
 let n                   = 0; // index of the character of the letter used of hints
 let manuallyClicked     = 0; // if a cloze has been manually clicked
 const cloze_color         = window.getComputedStyle(clozes[0]).color;
-let cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
+var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
 if (typeof cloze_bg_color == 'undefined') { let cloze_bg_color = "white"}; // not sure it works
 const biggerButtonOnlyOnMobile = document.getElementsByClassName("biggerButtonOnlyOnMobile");
 const notOnMobile       = document.getElementsByClassName("notOnMobile");
@@ -307,12 +307,12 @@ if (decksContainer.childElementCount == 0) {
 
   for (i = 0 , len = decksContainer.querySelectorAll("button").length ; i < len ; i++) {
       decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      decksContainer.querySelectorAll("button")[i].style.height            =  5;
+      decksContainer.querySelectorAll("button")[i].style.height            =  7;
       decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
       decksContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent !important";
-      decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent !important";
-      decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
+      decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  cloze_bg_color;
+      decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
+      decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
       decksContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
       decksContainer.querySelectorAll("button")[i].style.border     =  "none";
       decksContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
@@ -335,12 +335,12 @@ if (tagsContainer.childElementCount == 0) {
     tagsContainer.style.justifyContent   =  "left";
   for (i = 0 , len = tagsContainer.querySelectorAll("button").length ; i < len ; i++) {
       tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      tagsContainer.querySelectorAll("button")[i].style.height         =  5;
+      tagsContainer.querySelectorAll("button")[i].style.height         =  7;
       tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
       tagsContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent !important";
-      tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent !important";
-      tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
+      tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  cloze_bg_color;
+      tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
+      tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
       tagsContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
       tagsContainer.querySelectorAll("button")[i].style.border     =  "none";
       tagsContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
