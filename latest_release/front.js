@@ -1,4 +1,4 @@
-<span class = debugFieldFront></span>
+<div class = debugFieldFront></div>
 
 <!-- HEADER -->
 <span id="decksContainer">

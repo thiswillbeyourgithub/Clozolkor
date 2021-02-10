@@ -19,13 +19,13 @@ Please do not edit this section directly, this code is generated automatically. 
    
 .card { font-family: robot ; font-size: 18px; #font-style:italic; #text-decoration:underline; text-align: left; color: black; background-color: white;  word-wrap: break-word;}
 .cloze { font-weight: none; color: red !important; #text-decoration:underline; display:inline; }
-    .nightMode .cloze { color: pink !important; }
+    .nightMode .cloze { color: red !important; }
 .extra { font-size: 18px ; text-align: left ; font-weight:none ; display:inline;}
     .nightmode .extra { }
 .grey { color: grey; } 
     .nightmode .gris { color: beige !important; } 
-.red { color:red; font-size:18px;}
-    .nightmode .red { color:red !important; font-size:18px;}
+.red { color:red;}
+    .nightmode .red { color:red !important;}
 .orange { color:orange;}
     .nightmode .orange { color:orange !important;}
 .headerField { color:black !important ; font-style:bold ;}

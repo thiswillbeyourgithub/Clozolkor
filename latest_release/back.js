@@ -1,4 +1,4 @@
-<span class = debugFieldBack></span>
+<div class = debugFieldBack></div>
 
 <!-- HEADER -->
 <span id="decksContainer">
@@ -19,10 +19,6 @@
                 </u>
                 {{info-Factor:}}
         </span>
-    <span class=grey>
-        <span class=addStateHereBack> </span>
-        <span class=addEaseHereBack> </span>
-    </span>
 </div>
 
 <span class=orange>
@@ -30,6 +26,7 @@
 </span> 
 
 <span class="biggerButtonOnlyOnMobile">
+    <button id=addStateHereBack class=buttonSizeSmall></button>
     <button id="show_button" onclick="resetClozesVar();" class="buttonSizeSmall">Reset</button>
     <button id="show_button" onclick="revealAllVar();" class="buttonSizeSmall">Clear</button>
     <button id="show_button"  onclick="revealOneVar();" class="buttonSizeSmall"> Cloze</button>
@@ -175,7 +172,7 @@ let shortcutToReset    = [':'];
 let c                   = 0; // index of cloze
 let n                   = 0; // index of the character of the letter used of hints
 let manuallyClicked     = 0; // if a cloze has been manually clicked
-const cloze_color         = window.getComputedStyle(clozes[0]).color;
+var cloze_color         = window.getComputedStyle(clozes[0]).color;
 var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
 if (typeof cloze_bg_color == 'undefined') { let cloze_bg_color = "white"}; // not sure it works
 const biggerButtonOnlyOnMobile = document.getElementsByClassName("biggerButtonOnlyOnMobile");
@@ -188,8 +185,7 @@ const buttonSizeBig     = document.getElementsByClassName("buttonSizeBig");
 const hintLettFieldUp   = document.getElementById("hintLettUp");
 const hintLettFieldDown = document.getElementById("hintLettDown");
 const debugFieldBack    = document.getElementsByClassName("debugFieldBack");
-const addEaseHereBack   = document.getElementsByClassName("addEaseHereBack") ; 
-const addStateHereBack  = document.getElementsByClassName("addStateHereBack") ; 
+const addStateHereBack  = document.getElementById("addStateHereBack") ; 
 const tagsContainer     = document.getElementById("tagsContainer")
 const decksContainer    = document.getElementById("decksContainer")
 
@@ -214,6 +210,24 @@ var isAnkiDroidBack = /wv/i.test(navigator.userAgent);
 
 if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("droid") >= 0 ||ankiPlatform.indexOf("esktop")==-1 || isAnkiDroidBack|| forceMobileBehavior == "T")  {
     var isOnMobileBack = "T";
+
+    // loads anki droid
+    var jsApi = {"version" : "0.0.1", "developer" : "dev@mail.com"};
+    var apiStatus = AnkiDroidJS.init(JSON.stringify(jsApi));
+    console.log(apiStatus);
+    var api = JSON.parse(apiStatus);
+
+    // adds card status to the header
+    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereBack.outerHTML = "<span class=red>new</span>" ;} //new
+    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereBack.textContent = "L" ;} //learning
+    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereBack.textContent = "R" ;} //review
+    if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereBack.textContent = "rL" ;} //relearning
+
+    // adds ease factor to the header
+    addStateHereBack.textContent += AnkiDroidJS.ankiGetCardFactor()/100;
+
+
+    // button display for mobile
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
         biggerButtonOnlyOnMobile[index].style.display         = "flex";
         biggerButtonOnlyOnMobile[index].style.flexWrap        = "no-wrap";
@@ -224,20 +238,6 @@ if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("dr
         notOnMobile[index].style.display = "none";
     };
 
-    // loads anki droid
-    var jsApi = {"version" : "0.0.1", "developer" : "dev@mail.com"};
-    var apiStatus = AnkiDroidJS.init(JSON.stringify(jsApi));
-    console.log(apiStatus);
-    var api = JSON.parse(apiStatus);
-
-    // adds ease factor to the header
-    addEaseHereBack[0].textContent = AnkiDroidJS.ankiGetCardFactor();
-
-    // adds card status to the header
-    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereBack[0].outerHTML = "<span class=red>new</span>" ;}
-    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereBack[0].textContent = "learning" ;}
-    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereBack[0].textContent = "review" ;}
-    if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereBack[0].textContent = "relearning" ;}
 }
 else {
     var isOnMobileBack = "F";
@@ -304,13 +304,14 @@ if (decksContainer.childElementCount == 0) {
  decksContainer.style.display          =  "flex";
  decksContainer.style.flexwrap         =  "no-wrap";
  decksContainer.style.justifyContent   =  "left";
+ decksContainer.style.backgroundColor   =  cloze_bg_color;
 
   for (i = 0 , len = decksContainer.querySelectorAll("button").length ; i < len ; i++) {
       decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      decksContainer.querySelectorAll("button")[i].style.height            =  7;
+      decksContainer.querySelectorAll("button")[i].style.height            =  5;
       decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
       decksContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  cloze_bg_color;
+      decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
       decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
       decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
       decksContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
@@ -333,12 +334,14 @@ if (tagsContainer.childElementCount == 0) {
     tagsContainer.style.display          =  "flex";
     tagsContainer.style.flexwrap         =  "no-wrap";
     tagsContainer.style.justifyContent   =  "left";
+    tagsContainer.style.backgroundColor   =  cloze_bg_color;
+
   for (i = 0 , len = tagsContainer.querySelectorAll("button").length ; i < len ; i++) {
       tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      tagsContainer.querySelectorAll("button")[i].style.height         =  7;
+      tagsContainer.querySelectorAll("button")[i].style.height         =  5;
       tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
       tagsContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  cloze_bg_color;
+      tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
       tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
       tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
       tagsContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
@@ -659,5 +662,4 @@ resetHintLettConst();
 [...document.querySelectorAll(".card")][0].style.display = defaultDisplay // finally shows the card
 
 </script>
-
 
