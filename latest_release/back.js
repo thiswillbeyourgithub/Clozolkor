@@ -11,12 +11,15 @@
 <div class = smallFontHeader>
         <span class=notOnMobile>
         <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
-                <span class=red>
-                    <u>{{info-New?:}}</u>
+                <span class=blue>
+                    {{info-New?:}}
                 </span>
-                <u>
-                    {{info-Review?:}}{{info-Learning?:}}
-                </u>
+                <span class=green>
+                    {{info-Review?:}}
+                </span>
+                <span class=red>
+                    {{info-Learning?:}}
+                </span>
                 {{info-Factor:}}
         </span>
 </div>
@@ -218,10 +221,10 @@ if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("dr
     var api = JSON.parse(apiStatus);
 
     // adds card status to the header
-    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereBack.outerHTML = "<span class=red>new</span>" ;} //new
-    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereBack.textContent = "L" ;} //learning
-    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereBack.textContent = "R" ;} //review
-    if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereBack.textContent = "rL" ;} //relearning
+    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereBack.textContent = "N" ; addStateHereBack.style.color = "blue" ;} //new
+    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereBack.textContent = "L" ; addStateHereBack.style.color = "red" ;} //learning
+    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereBack.textContent = "R" ; addStateHereBack.style.color = "green" ;} //review
+    if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereBack.textContent = "rL" ; addStateHereBack.style.color = "red" ;} //relearning
 
     // adds ease factor to the header
     addStateHereBack.textContent += AnkiDroidJS.ankiGetCardFactor()/100;

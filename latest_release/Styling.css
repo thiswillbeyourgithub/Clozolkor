@@ -23,9 +23,13 @@ Please do not edit this section directly, this code is generated automatically. 
 .extra { font-size: 18px ; text-align: left ; font-weight:none ; display:inline;}
     .nightmode .extra { }
 .grey { color: grey; } 
-    .nightmode .gris { color: beige !important; } 
+    .nightmode .grey { color: beige !important; } 
 .red { color:red;}
     .nightmode .red { color:red !important;}
+.blue { color:blue;}
+    .nightmode .blue { color:blue !important;}
+.green { color:green;}
+    .nightmode .green { color:green !important;}
 .orange { color:orange;}
     .nightmode .orange { color:orange !important;}
 .headerField { color:black !important ; font-style:bold ;}
