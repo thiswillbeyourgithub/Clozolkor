@@ -1,4 +1,4 @@
-<div class = debugFieldFront></div>
+<span class = debugFieldFront></span>
 
 <!-- HEADER -->
 <span id="decksContainer">
@@ -8,25 +8,26 @@
     {{Tags}}
 </span>
 
-<div class = smallFontHeader>
-        <span class=notOnMobile>
-        <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
-                <span class=red>
-                    <u>{{info-New?:}}</u>
-                </span>
-                <u>
-                    {{info-Review?:}}{{info-Learning?:}}
-                </u>
-                {{info-Factor:}}
-        </span>
-    <span class=grey>
-        <span class=addStateHereFront> </span>
-        <span class=addEaseHereFront> </span>
+<span class = smallFontHeader>
+    <span class=notOnMobile>
+    <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
+            <span class=blue>
+                {{info-New?:}}
+            </span>
+            <span class=green>
+                {{info-Review?:}}
+            </span>
+            <span class=red>
+                {{info-Learning?:}}
+            </span>
+            {{info-Factor:}}
     </span>
-</div>
+    <span class=addStateHereFront> </span>
+    <span class=addEaseHereFront> </span>
+</span>
 
 <span class=orange>
-    {{#Teacher}}By : <i>{{Teacher}}</i>&nbsp&nbsp&nbsp{{/Teacher}}
+    {{#Teacher}}<i>{{Teacher}}</i>&nbsp&nbsp&nbsp{{/Teacher}}
 </span> 
 
 <br>
@@ -87,8 +88,8 @@
 	// USER SETTINGS
 
 let autoFlip = "T"; // F = autoflip if there are no hints
-//var qFade = 0;
-//var aFade = 100;
+var qFade = 0;
+var aFade = 100;
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
 
 // ###########################################
@@ -96,7 +97,7 @@ let tagsAndDeckFontSize     = "8px"; // default : "8px"
 
 const clozes                    = [...document.querySelectorAll(".cloze")];
 if (clozes.length !== 0) { // continue only if clozes are found
-const cloze_color         = window.getComputedStyle(clozes[0]).color;
+var cloze_color         = window.getComputedStyle(clozes[0]).color;
 var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
 const biggerButtonOnlyOnMobile  = document.getElementsByClassName("biggerButtonOnlyOnMobile");
 const notOnMobile               = document.getElementsByClassName("notOnMobile");
@@ -129,12 +130,12 @@ if (decksContainer.childElementCount == 0) {
 
   for (i = 0 , len = decksContainer.querySelectorAll("button").length ; i < len ; i++) {
       decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      decksContainer.querySelectorAll("button")[i].style.height            =  7;
+      decksContainer.querySelectorAll("button")[i].style.height            =  5;
       decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
       decksContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  cloze_bg_color;
+      decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
       decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
-      decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
+      decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
       decksContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
       decksContainer.querySelectorAll("button")[i].style.border     =  "none";
       decksContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
@@ -159,12 +160,12 @@ if (tagsContainer.childElementCount == 0) {
 
   for (i = 0 , len = tagsContainer.querySelectorAll("button").length ; i < len ; i++) {
       tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      tagsContainer.querySelectorAll("button")[i].style.height         =  7;
+      tagsContainer.querySelectorAll("button")[i].style.height         =  5;
       tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
       tagsContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  cloze_bg_color;
+      tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
       tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
-      tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
+      tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
       tagsContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
       tagsContainer.querySelectorAll("button")[i].style.border     =  "none";
       tagsContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
@@ -174,7 +175,8 @@ if (tagsContainer.childElementCount == 0) {
 
 var isAnkiDroidFront = /wv/i.test(navigator.userAgent); // ankidroid specific test 
 if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("roid") >= 0 || isAnkiDroidFront || ankiPlatform.indexOf("esktop") == -1)  {
-    var isOnMobileFront = "T";
+    var isOnMobileFront = "T";   
+ 
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
         biggerButtonOnlyOnMobile[index].style.display        = "flex";
         biggerButtonOnlyOnMobile[index].style.flexWrap       = "no-wrap";
@@ -183,20 +185,22 @@ if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("ro
     for (index = 0, len = notOnMobile.length ; index < len ; index++) {
         notOnMobile[index].style.display = "none";
     }
+
         // loads ankidroid api
     var jsApiFront     = {"version" : "0.0.1", "developer" : "dev@mail.com"};
     var apiStatusFront = AnkiDroidJS.init(JSON.stringify(jsApiFront));
     console.log(apiStatusFront);
     var apiFront       = JSON.parse(apiStatusFront);
 
+    // adds card status to the header
+    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereFront[0].textContent = "N" ; addStateHereFront[0].style.color = "blue" ;} //new
+    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereFront[0].textContent = "L" ; addStateHereFront[0].style.color = "red" ;} //learning
+    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereFront[0].textContent = "R" ; addStateHereFront[0].style.color = "green" ;} //review
+    if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereFront[0].textContent = "rL" ; addStateHereFront[0].style.color = "red" ;} //relearning
+
     // adds ease factor to the header
     addEaseHereFront[0].textContent = AnkiDroidJS.ankiGetCardFactor();
 
-    // adds card status to the header
-    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereFront[0].outerHTML   = "<span class=red>new</span>" ;}
-    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereFront[0].textContent = "learning" ;}
-    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereFront[0].textContent = "review" ;}
-    if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereFront[0].textContent = "relearning" ;}
 }
 else {
 	var isOnMobileFront = "F";
@@ -230,3 +234,4 @@ if (autoFlip == "T") {
 
 }
 </script>
+
