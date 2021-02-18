@@ -1,4 +1,4 @@
-<div class = debugFieldBack></div>
+<span class = debugFieldBack></span>
 
 <!-- HEADER -->
 <span id="decksContainer">
@@ -8,7 +8,7 @@
     {{Tags}}
 </span>
 
-<div class = smallFontHeader>
+<span class = smallFontHeader>
         <span class=notOnMobile>
         <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
                 <span class=blue>
@@ -22,10 +22,10 @@
                 </span>
                 {{info-Factor:}}
         </span>
-</div>
+</span>
 
 <span class=orange>
-    {{#Teacher}}By : <i>{{Teacher}}</i>&nbsp&nbsp&nbsp{{/Teacher}}
+    {{#Teacher}}<i>{{Teacher}}</i>&nbsp&nbsp&nbsp{{/Teacher}}
 </span> 
 
 <span class="biggerButtonOnlyOnMobile">
@@ -160,8 +160,8 @@ let largeButtonSize     = "25px"; // default : "15px"
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
 let wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!","?"] ; // when hinting a whole word
 //let wordSeparators     = [" ", "=", "~","'", ",", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", ";", ":","\"", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","!","?"] ; // when hinting a whole word
-//var qFade = 0; // set a delay to appear and flip smoothly
-//var aFade = 100;
+var qFade = 0; // set a delay to appear and flip smoothly
+var aFade = 100;
 
     // USER SHORTCUTS
 let shortcutToReveal   = ['n','w'];
@@ -227,8 +227,7 @@ if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("dr
     if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereBack.textContent = "rL" ; addStateHereBack.style.color = "red" ;} //relearning
 
     // adds ease factor to the header
-    addStateHereBack.textContent += AnkiDroidJS.ankiGetCardFactor()/100;
-
+    addStateHereBack.textContent += AnkiDroidJS.ankiGetCardFactor()/10;
 
     // button display for mobile
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
@@ -665,4 +664,5 @@ resetHintLettConst();
 [...document.querySelectorAll(".card")][0].style.display = defaultDisplay // finally shows the card
 
 </script>
+
 
