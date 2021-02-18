@@ -66,16 +66,16 @@ The shortcuts and many more things can be edited in the template, inside the scr
 * [Cloze overlapper](https://github.com/Glutanimate/cloze-overlapper) addon by the Great Glutanimate, unfortunately not (yet?) ported to 2.1
 * [Cloze (Hide All) addon](https://ankiweb.net/shared/info/1709973686)
 * [Cloze Anything](https://github.com/matthayes/anki_cloze_anything), the creator (as opposed to me) knows how to code in js. I intend to add a "reveal one by one" feature as you can read [here](https://github.com/matthayes/anki_cloze_anything/issues/6#issuecomment-629829062). I learned about this addon only after spending time on this. His project looks better for a lot of use cases for I still intend to use my code for quite a while.
-* [anki-wraper](https://github.com/epiphanie-gedeon/anki-wrapper/) seems promissing for cloze handling
+* [anki-wrapper](https://github.com/epiphanie-gedeon/anki-wrapper/) seems promissing for cloze handling
 
 ## How can I get this?
 1. read this page **thoroughly**, it's well worth a few minutes of (y)our time
 2. install the [additionnal card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
 3. optionnal : as written above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_release` folder
-4. import the `.apkg` file inside the `latest_release` folder into anki, it's the latest release but not necessarily the latest *version*
-5. get the latest version by updating this new template by copying and pasting the content of the relevant text files in `latest_release`
+4. import the `.apkg` file inside the `latest_release` folder into anki, it's the latest release but usually not the latest *version*
+5. get the latest version by updating this new template. To do this : copy and paste the content of the files located in `latest_release`
 6. check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard
 7. now, when you create your own clozes : just select this template instead of the old "cloze" note type
 8. optional : convert all your past cloze into this template : it works the same, just better
-9. that's it, if you have **any** issue, open an issue, i'll gladly try and fix it for everyone else
+9. that's it, if you have **any** issue, open an issue, i'll gladly try and fix it for everyone else, yes even typos.
 10. If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
