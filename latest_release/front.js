@@ -199,7 +199,7 @@ if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("ro
     if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereFront[0].textContent = "rL" ; addStateHereFront[0].style.color = "red" ;} //relearning
 
     // adds ease factor to the header
-    addEaseHereFront[0].textContent = AnkiDroidJS.ankiGetCardFactor();
+    addEaseHereFront[0].textContent += AnkiDroidJS.ankiGetCardFactor()/10;
 
 }
 else {
