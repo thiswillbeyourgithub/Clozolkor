@@ -1,25 +1,13 @@
 
 
-/*Start of style added by resize image add-on. Don't edit directly or the edition will be lost. Edit via the add-on configuration */
-.mobile .card img {height:unset  !important; width:unset  !important;}
-/*End of style added by resize image add-on*/  
-/* BEGIN WRAPPER CODE justify
-Please do not edit this section directly, this code is generated automatically. Modify config.json instead */
+/* clozolkor : */
 
-.leftalign {
-  display: inline-block;
-  text-align: left;
-}
-.centeredbox {
-  text-align: center;
-}
-/* END WRAPPER CODE */
-
-
-   
 .card { font-family: robot ; font-size: 18px; #font-style:italic; #text-decoration:underline; text-align: left; color: black; background-color: white;  word-wrap: break-word;}
-.cloze { font-weight: none; color: red !important; #text-decoration:underline; display:inline; }
-    .nightMode .cloze { color: red !important; }
+    .nightmode .card { font-family:robot }
+
+.cloze { font-weight: none; color: grey !important; #text-decoration:underline; display:inline; }
+    .nightMode .cloze { color: pink !important; }
+
 .extra { font-size: 18px ; text-align: left ; font-weight:none ; display:inline;}
     .nightmode .extra { }
 .grey { color: grey; } 
@@ -54,6 +42,4 @@ span.ease1650 { font-family: "Sans Forgetica"; }
 span.ease1700 { font-family: "Sans Forgetica"; }
 span.ease1750 { font-family: "Sans Forgetica"; }
 span.ease1800 { font-family: "Sans Forgetica"; }
-
-
 
