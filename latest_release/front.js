@@ -109,6 +109,38 @@ const addStateHereFront         = document.getElementsByClassName("addStateHereF
 const tagsContainer     = document.getElementById("tagsContainer")
 const decksContainer    = document.getElementById("decksContainer")
 
+
+// ###########################################
+    // if there are no hints : auto flip the card
+
+
+var isAnkiDroidFront = /wv/i.test(navigator.userAgent);
+if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("roid") >= 0 || isAnkiDroidFront || ankiPlatform.indexOf("esktop") == -1)  {
+    var isOnMobileFront = "T";   
+} 
+else 
+{ 
+    var isOnMobileFront = "F"; 
+}
+
+
+if (autoFlip == "T") { // if contains at least one hint : dont flip
+    for(let i = 0 ; i < clozes.length;i++) {
+        if(clozes[i].textContent != '[...]') { 
+            autoFlip = "F";
+        };
+    }
+}
+if (autoFlip == "T") {
+	if (isOnMobileFront == "T") {
+        showAnswer(); 
+    }
+	if (isOnMobileFront == "F") { 
+        pycmd("ans"); 
+    }
+}
+
+
 // ###########################################
     // STYLING (depending on platform)
 
@@ -173,10 +205,8 @@ if (tagsContainer.childElementCount == 0) {
   }
 }
 
-var isAnkiDroidFront = /wv/i.test(navigator.userAgent); // ankidroid specific test 
-if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("roid") >= 0 || isAnkiDroidFront || ankiPlatform.indexOf("esktop") == -1)  {
-    var isOnMobileFront = "T";   
- 
+
+if ( isOnMobileFront == "T" ) {
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
         biggerButtonOnlyOnMobile[index].style.display        = "flex";
         biggerButtonOnlyOnMobile[index].style.flexWrap       = "no-wrap";
@@ -200,10 +230,8 @@ if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("ro
 
     // adds ease factor to the header
     addEaseHereFront[0].textContent += AnkiDroidJS.ankiGetCardFactor()/10;
-
 }
-else {
-	var isOnMobileFront = "F";
+if ( isOnMobileFront == "F" ) {
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
         biggerButtonOnlyOnMobile[index].style.display = "none";
     }
@@ -213,25 +241,8 @@ else {
     }
 }
 
-// ###########################################
-    // if there are no hints : auto flip the card
-
-if (autoFlip == "T") {
-    for(let i = 0 ; i < clozes.length;i++) {
-        if(clozes[i].textContent != '[...]') { 
-            autoFlip = "F";
-        };
-    }
-}
-if (autoFlip == "T") {
-	if (isOnMobileFront == "T") {
-        showAnswer(); 
-    }
-	if (isOnMobileFront == "F") { 
-        pycmd("ans"); 
-    }
-}
-
 }
 </script>
+
+
 
