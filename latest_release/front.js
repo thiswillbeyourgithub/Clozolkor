@@ -89,14 +89,18 @@
 
 let autoFlip = "T"; // F = autoflip if there are no hints
 var qFade = 0;
-var aFade = 100;
+var aFade = 0;
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
 
 // ###########################################
- 	// VARIABLES ASSIGNMENT
+ 	// INIT + VARIABLES ASSIGNMENT
 
 const clozes                    = [...document.querySelectorAll(".cloze")];
 if (clozes.length !== 0) { // continue only if clozes are found
+    // hides the card before it is fully loaded, otherwise you can catch a glimpse of images on slow devices :
+//var defaultDisplayFront = [...document.querySelectorAll(".card")][0].style.display;
+//[...document.querySelectorAll(".card")][0].style.display = "none !important";
+
 var cloze_color         = window.getComputedStyle(clozes[0]).color;
 var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
 const biggerButtonOnlyOnMobile  = document.getElementsByClassName("biggerButtonOnlyOnMobile");
@@ -109,10 +113,8 @@ const addStateHereFront         = document.getElementsByClassName("addStateHereF
 const tagsContainer     = document.getElementById("tagsContainer")
 const decksContainer    = document.getElementById("decksContainer")
 
-
 // ###########################################
     // if there are no hints : auto flip the card
-
 
 var isAnkiDroidFront = /wv/i.test(navigator.userAgent);
 if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("roid") >= 0 || isAnkiDroidFront || ankiPlatform.indexOf("esktop") == -1)  {
@@ -122,7 +124,6 @@ else
 { 
     var isOnMobileFront = "F"; 
 }
-
 
 if (autoFlip == "T") { // if contains at least one hint : dont flip
     for(let i = 0 ; i < clozes.length;i++) {
@@ -139,7 +140,6 @@ if (autoFlip == "T") {
         pycmd("ans"); 
     }
 }
-
 
 // ###########################################
     // STYLING (depending on platform)
@@ -176,7 +176,7 @@ if (decksContainer.childElementCount == 0) {
 }
 
 if (tagsContainer.childElementCount == 0) {
- var tagList = tagsContainer.innerHTML.split("::");
+ var tagList = tagsContainer.innerHTML.replace(/ +/,"").split(/::| /);
  var newTagContent = document.createElement("div");
 
  for (var i = 0; i < tagList.length;  i++) {
@@ -204,7 +204,6 @@ if (tagsContainer.childElementCount == 0) {
       tagsContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
   }
 }
-
 
 if ( isOnMobileFront == "T" ) {
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
@@ -241,8 +240,9 @@ if ( isOnMobileFront == "F" ) {
     }
 }
 
+ // finally shows the card :
+//[...document.querySelectorAll(".card")][0].style.display = defaultDisplayFront
 }
 </script>
-
 
 
