@@ -63,6 +63,7 @@
     <button id="show_button" onclick="revealOneVar();" class="buttonSizeSmall">C</button>
     <button id="show_button" onclick="revealHintLettVar();" class="buttonSizeBig">L</button>
     <button id="show_button" onclick="revealHintWordVar();" class="buttonSizeBig">W</button>
+    <button id="show_button" onclick="revealOneVar();" class="buttonSizeSmall">C</button>
 </div>
 
 <br>
@@ -138,7 +139,7 @@ const clozes            = [...document.querySelectorAll(".cloze")];
 if (clozes.length !== 0) {
 
 // hides the card before it is fully loaded, otherwise you can catch a glimpse of images on slow devices
-var defaultDisplay = [...document.querySelectorAll(".card")][0].style.display;
+var defaultDisplayBack = [...document.querySelectorAll(".card")][0].style.display;
 [...document.querySelectorAll(".card")][0].style.display = "none !important";
 
 // to debug, put the following line where you want :
@@ -161,12 +162,12 @@ let tagsAndDeckFontSize     = "8px"; // default : "8px"
 let wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!","?"] ; // when hinting a whole word
 //let wordSeparators     = [" ", "=", "~","'", ",", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", ";", ":","\"", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","!","?"] ; // when hinting a whole word
 var qFade = 0; // set a delay to appear and flip smoothly
-var aFade = 100;
+var aFade = 0;
 
     // USER SHORTCUTS
 let shortcutToReveal   = ['n','w'];
-let shortcutToHintLett = [';','x'];
-let shortcutToHintWord = [',','c'];
+let shortcutToHintLett = [';','c'];
+let shortcutToHintWord = [',','x'];
 let shortcutToShow5    = [''];
 let shortcutToShowAll  = ['.'];
 let shortcutToReset    = [':'];
@@ -324,7 +325,7 @@ if (decksContainer.childElementCount == 0) {
 }
 
 if (tagsContainer.childElementCount == 0) {
- var tagList = tagsContainer.innerHTML.split("::");
+ var tagList = tagsContainer.innerHTML.replace(/ +/,"").split(/::| /);
  var newTagContent = document.createElement("div");
 
  for (var i = 0; i < tagList.length;  i++) {
@@ -661,7 +662,7 @@ resetHintLettVar();
 resetHintLettConst();
 
 }; // if clozes found
-[...document.querySelectorAll(".card")][0].style.display = defaultDisplay // finally shows the card
+[...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack // finally shows the card
 
 </script>
 
