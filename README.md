@@ -49,8 +49,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 * add a way to show blurred text as a hint? Anki seems to support it. text.filter = "blur(3px)" at least. It seems to work on images too.
 
 #### Known issues
-* if you have a weird error code (*"Cannot read property 'style' of undefined"*) when previewing the card, try toggling the "show both sides" checkbox in the bottom right corner.
-* apparenty when displaying the tags on top, if you have hierarchical tags they will be displayed across several buttons as intended, but if you have several tags (for example `leech personnal::things`) it won't properly separate `leech` and `personnal`.
+* NONE! All caught up!
 
 ## A few important notes, please read
 * I have a limited (but increasing) understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommand using the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc. You can see a list of my suggested macros [here](https://github.com/jefdongus/insert-symbols-anki-addon/issues/13). I hope something will come out of [this thread](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2).
@@ -62,6 +61,8 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 * The shortcuts and many more things can be edited in the template, inside the script.
 
 * If you have a very slow device, especially on mobile, turning off nightmode seems to speed up the card loading
+
+* If you want to allow clozolkor to automatically use the Sans Forgetica font if the ease is low or if the card is a leech, you have to install the font yourself on all your devices. Otherwise clozolkor works fine but won't use that.
 
 
 ### If you like the idea, these addons will interest you
@@ -80,5 +81,6 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 6. check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard
 7. now, when you create your own clozes : just select this template instead of the old "cloze" note type
 8. optional : convert all your past cloze into this template : it works the same, just better
-9. that's it, if you have **any** issue, open an issue, i'll gladly try and fix it for everyone else, yes even typos.
-10. If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
+9. optionnal : install the Sans Forgetica font
+10. that's it, if you have **any** issue, open an issue, i'll gladly try and fix it for everyone else, yes even typos.
+11. If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
