@@ -1,4 +1,4 @@
-# Clozolkor
+ Clozolkor
 Enhancing "*cloze one by one*" script found in TheAnking's template (on his website or drive). I think the original idea/script is by user "iTraveller" in the official anki forum. Oh and don't ask why this name. The current status of this project is : I am using it daily. It is definitely stable as it does not require addons or complicated coding. It is just basic javascript added to a cloze template.
 
 If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
@@ -42,7 +42,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 
 ## TODO / Planned features / known issues (some are really simple, don't forget to help!)
 * make it work with the latest anki version
-* split the script into multiple sub scripts. That would help maintenance and "sharibility" to have a "decks and tags section", "cloze section", etc. It would make it really easy to add parts to other template, for example adding the nice tag bar to the image occlusion template.
+* split the script into multiple sub scripts. That would help maintenance and "sharability" to have a "decks and tags section", "cloze section", etc. It would make it really easy to add parts to other template, for example adding the nice tag bar to the image occlusion template.
 * see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number
 * I want to support the creation of an addon that handles clozes better : if you are interested, tell it [there](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2)
 * html buttons should scroll with the page instead of being shown on top and bottom (ie always appear at the same place), with something like `position:fixed/sticky`
@@ -52,11 +52,11 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 * I'm told this stopped working in anki 2.1.40 or 41/42. Unfortunately I won't switch to this version before the end of the semester I think so I don't plan on updating it soon.
 
 ## A few important notes, please read
-* I have a limited (but increasing) understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use linux and ankidroid, I can't test on other devices. Also, I strongly recommand using the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc. You can see a list of my suggested macros [here](https://github.com/jefdongus/insert-symbols-anki-addon/issues/13). I hope something will come out of [this thread](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2).
+* I have a limited (but increasing) understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use Linux and ankidroid, I can't test on other devices. Also, I strongly recommend using the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc. You can see a list of my suggested macros [here](https://github.com/jefdongus/insert-symbols-anki-addon/issues/13). I hope something will come out of [this thread](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2).
 
 * The .js extension of the template files is there only to help with syntax highlighting while editing the files, it's more accurately html containing `<script>` parts.
 
-* I use `anki 2.1` and try to stay on the latest **stable** version (currently 2.1.35). I don't know if it works in `2.0`. I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macos or iOS, and am counting on your feedbacks for this. **EDIT : see Know issues section**.
+* I use `anki 2.1` and try to stay on the latest **stable** version (currently 2.1.35). I don't know if it works in `2.0`. I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macOS or iOS, and am counting on your feedbacks for this. **EDIT : see Know issues section**.
 
 * The shortcuts and many more things can be edited in the template, inside the script.
 
@@ -70,17 +70,17 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 * [Cloze overlapper](https://github.com/Glutanimate/cloze-overlapper) addon by the Great Glutanimate, unfortunately not (yet?) ported to 2.1
 * [Cloze (Hide All) addon](https://ankiweb.net/shared/info/1709973686)
 * [Cloze Anything](https://github.com/matthayes/anki_cloze_anything), the creator (as opposed to me) knows how to code in js. I intend to add a "reveal one by one" feature as you can read [here](https://github.com/matthayes/anki_cloze_anything/issues/6#issuecomment-629829062). I learned about this addon only after spending time on this. His project looks better for a lot of use cases for I still intend to use my code for quite a while.
-* [anki-wrapper](https://github.com/epiphanie-gedeon/anki-wrapper/) seems promissing for cloze handling
+* [anki-wrapper](https://github.com/epiphanie-gedeon/anki-wrapper/) seems promising for cloze handling
 
 ## How can I get this?
 1. read this page **thoroughly**, it's well worth a few minutes of (y)our time
-2. install the [additionnal card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
-3. optionnal : as written above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_release` folder
+2. install the [additional card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
+3. Optional : as written above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_release` folder
 4. import the `.apkg` file inside the `latest_release` folder into anki, it's the latest release but usually not the latest *version*
 5. get the latest version by updating this new template. To do this : copy and paste the content of the files located in `latest_release`
 6. check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard
 7. now, when you create your own clozes : just select this template instead of the old "cloze" note type
-8. optional : convert all your past cloze into this template : it works the same, just better
-9. optionnal : install the Sans Forgetica font
-10. that's it, if you have **any** issue, open an issue, i'll gladly try and fix it for everyone else, yes even typos.
+8. Optional : convert all your past cloze into this template : it works the same, just better
+9. optional : install the Sans Forgetica font
+10. that's it, if you have **any** issue, open an issue, I'll gladly try and fix it for everyone else, yes even typos.
 11. If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
