@@ -41,6 +41,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 ![card](card_pic.jpg)
 
 ## TODO / Planned features / known issues (some are really simple, don't forget to help!)
+* clicking on the cloze boxes should open the links (then notify and close [this issue](https://github.com/thiswillbeyourgithub/Clozolkor/issues/5 )
 * make it work with the latest anki version
 * split the script into multiple sub scripts. That would help maintenance and "sharability" to have a "decks and tags section", "cloze section", etc. It would make it really easy to add parts to other template, for example adding the nice tag bar to the image occlusion template.
 * see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number
