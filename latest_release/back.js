@@ -688,5 +688,3 @@ resetHintLettConst();
 [...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack // finally shows the card
 
 </script>
-
-
