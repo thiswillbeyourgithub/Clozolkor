@@ -103,7 +103,7 @@
 <script>
 /* 
     Released under the GNU General Public License v3.
-    Copyright (C) - 2021 - user "thiswillbeyourgithub" of the website "github".
+    Copyright (C) - 2020 - user "thiswillbeyourgithub" of the website "github".
     This file is the Back of the Clozolkor template. It is part of Clozolkor : an
     Anki card template helping user to retain knowledge.
 
@@ -122,7 +122,7 @@
     */ /*
     for more information or to get the latest version go to :
     https://github.com/thiswillbeyourgithub/Clozolkor
-    Version : March 2021
+    Version : August 2020
 
     credits due to (at least! ) :
     thiswillbeyourgithub (main dev)
