@@ -30,8 +30,8 @@
 
 <span class="biggerButtonOnlyOnMobile">
     <button id=addStateHereBack class=buttonSizeSmall></button>
-    <button id="show_button" onclick="resetClozesVar();" class="buttonSizeSmall">Reset</button>
-    <button id="show_button" onclick="revealAllVar();" class="buttonSizeSmall">Clear</button>
+    <button id="show_button" onclick="resetClozesVar();" class="buttonSizeSmall">Hide</button>
+    <button id="show_button" onclick="revealAllVar();" class="buttonSizeSmall">Show</button>
     <button id="show_button"  onclick="revealOneVar();" class="buttonSizeSmall"> Cloze</button>
     <button id="show_button" onclick="revealHintWordVar();" class="buttonSizeBig"> Word</button>
     <button id="show_button" onclick="revealHintLettVar();" class="buttonSizeBig"> Letter</button>
