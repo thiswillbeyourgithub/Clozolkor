@@ -46,7 +46,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 * see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number (*edit: pretty sure it's actually very easy by adding a html field and treating it like a cloze*)
 * I want to support the creation of an addon that handles clozes better : if you are interested, tell it [there](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2)
 * html buttons should scroll with the page instead of being shown on top and bottom (ie always appear at the same place), with something like `position:fixed/sticky`
-* add a way to show blurred text as a hint? Anki seems to support it. text.filter = "blur(3px)" at least. It seems to work on images too.
+* maybe add a way to show blurred text as a hint? Anki seems to support it. text.filter = "blur(3px)" at least. It seems to work on images too.
 
 #### Known issues
 * I'm told this stopped working in anki 2.1.40 or 41/42. Unfortunately I won't switch to this version before the end of the semester I think so I don't plan on updating it soon.
