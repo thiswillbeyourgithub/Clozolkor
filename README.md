@@ -62,7 +62,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 
 * If you have a very slow device, especially on mobile, turning off nightmode seems to speed up the card loading
 
-* If you want to allow clozolkor to automatically use the Sans Forgetica font if the ease is low or if the card is a leech, you have to install the font yourself on all your devices. Otherwise clozolkor works fine but won't use that.
+* If you want to allow clozolkor to automatically use the Sans Forgetica font if the ease is low or if the card is a leech, you have to install the font yourself on all your devices. Otherwise clozolkor works fine but won't use this font.
 
 
 ### If you like the idea, these addons will interest you
