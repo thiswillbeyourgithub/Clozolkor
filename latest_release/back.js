@@ -394,6 +394,14 @@ clozes.slice(0).forEach((item) => {
             };
         };
         manuallyClicked = manuallyClicked+1;
+            if (c+1 == clozes.length) {
+                var openWithButtonConst = document.getElementsByClassName("openWithButton")
+                for(var i=0; i<openWithButtonConst.length; i++) {
+                        openWithButtonConst[i].querySelector('*').click()
+                };
+            }
+            c = c+1 ; if (c > clozes.length) { c = clozes.length };
+            n = 0;
         resetHintLettConst();
     });
 });
@@ -509,6 +517,12 @@ var revealAllVar = function() {
                 };
             };
     });
+    if (c+1 == clozes.length) {
+        var openWithButtonVar = document.getElementsByClassName("openWithButton")
+        for(var i=0; i<openWithButtonVar.length; i++) {
+                openWithButtonVar[i].querySelector('*').click()
+        };
+    }
     c = clozes.length;
     n = 0;
     manuallyClicked = 0;
@@ -591,6 +605,12 @@ const revealAllConst = function() {
                 };
              };
     });
+    if (c+1 == clozes.length) {
+        const openWithButtonConst = document.getElementsByClassName("openWithButton")
+        for(var i=0; i<openWithButtonConst.length; i++) {
+                openWithButtonConst[i].querySelector('*').click()
+        };
+    }
     c = clozes.length;
     n = 0;
     manuallyClicked = 0;
