@@ -165,7 +165,7 @@ var qFade = 0; // set a delay to appear and flip smoothly
 var aFade = 0;
 
     // USER SHORTCUTS
-let shortcutToReveal   = ['n','w'];
+let shortcutToReveal   = ['']; // default ['w', 'c']
 let shortcutToHintLett = [';','c'];
 let shortcutToHintWord = [',','x'];
 let shortcutToShow5    = [''];
