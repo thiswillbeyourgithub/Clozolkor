@@ -198,14 +198,14 @@ hintLettFieldUp.style.fontStyle         = "italic";
 hintLettFieldUp.style.backgroundColor   = "transparent";
 hintLettFieldUp.style.color             = cloze_color;
 hintLettFieldUp.style.display           = "flex";
-hintLettFieldUp.style.justifyContent    = "center";
-hintLettFieldUp.style.alignItems        = "center";
+hintLettFieldUp.style.justifyContent    = "left";
+hintLettFieldUp.style.alignItems        = "left";
 hintLettFieldDown.style.fontStyle       = "italic"; 
 hintLettFieldDown.style.backgroundColor = "transparent";
 hintLettFieldDown.style.color           = cloze_color;
 hintLettFieldDown.style.display         = "flex";
-hintLettFieldDown.style.justifyContent  = "center";
-hintLettFieldDown.style.alignItems      = "center";
+hintLettFieldDown.style.justifyContent  = "left";
+hintLettFieldDown.style.alignItems      = "left";
 
     
     
