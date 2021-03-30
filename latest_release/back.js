@@ -207,24 +207,48 @@ hintLettFieldDown.style.display         = "flex";
 hintLettFieldDown.style.justifyContent  = "center";
 hintLettFieldDown.style.alignItems      = "center";
 
+    
+    
 	// BUTTON STYLING AND MOBILE BEHAVIOR (hide on computer, show on mobile etc) :
 
-// ANKIDROID :
+    // setup all buttons
+for (index = 0, len = buttonSizeSmall.length ; index < len ; index++) {
+    buttonSizeSmall[index].style.backgroundColor = "grey";
+    buttonSizeSmall[index].style.flexGrow        = "1";
+    buttonSizeSmall[index].style.fontSize        = smallButtonSize;
+    buttonSizeSmall[index].style.color           = "beige";
+    buttonSizeSmall[index].style.outlineColor    = "transparent";
+    if (roundedButtons == "T") {
+        buttonSizeSmall[index].style.borderRadius = smallButtonSize;
+    } 
+    else { buttonSizeSmall[index].style.borderRadius = "-1px"; }
+}
+for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
+    buttonSizeBig[index].style.backgroundColor = "grey";
+    buttonSizeBig[index].style.flexGrow        = "10";
+    buttonSizeBig[index].style.fontSize        = largeButtonSize;
+    buttonSizeBig[index].style.color           = "beige";
+    buttonSizeBig[index].style.outlineColor    = "transparent";
+    if (roundedButtons == "T") {
+        buttonSizeBig[index].style.borderRadius = largeButtonSize;
+    } else { buttonSizeBig[index].style.borderRadius = "-1px"; }
+}
+
+    // ankidroid's buttons etc :
 var isAnkiDroidBack = /wv/i.test(navigator.userAgent);
 
-if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("droid") >= 0 ||ankiPlatform.indexOf("esktop")==-1 || isAnkiDroidBack|| forceMobileBehavior == "T")  {
+if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("droid") >= 0 || ankiPlatform.indexOf("esktop")==-1 || isAnkiDroidBack || forceMobileBehavior == "T")  {
     var isOnMobileBack = "T";
 
-    // loads anki droid
     var jsApi = {"version" : "0.0.1", "developer" : "dev@mail.com"};
     var apiStatus = AnkiDroidJS.init(JSON.stringify(jsApi));
     console.log(apiStatus);
     var api = JSON.parse(apiStatus);
 
     // adds card status to the header
-    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereBack.textContent = "N" ; addStateHereBack.style.color = "blue" ;} //new
-    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereBack.textContent = "L" ; addStateHereBack.style.color = "red" ;} //learning
-    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereBack.textContent = "R" ; addStateHereBack.style.color = "green" ;} //review
+    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereBack.textContent = "N"  ; addStateHereBack.style.color = "blue" ;} //new
+    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereBack.textContent = "L"  ; addStateHereBack.style.color = "red" ;} //learning
+    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereBack.textContent = "R"  ; addStateHereBack.style.color = "green" ;} //review
     if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereBack.textContent = "rL" ; addStateHereBack.style.color = "red" ;} //relearning
 
     // adds ease factor to the header
@@ -252,27 +276,6 @@ else {
         notOnMobile[index].style.fontStyle = "bold";
     }
     //hintLettFieldDown.style.display      = "none"; 
-}
-for (index = 0, len = buttonSizeSmall.length ; index < len ; index++) {
-    buttonSizeSmall[index].style.backgroundColor = "grey";
-    buttonSizeSmall[index].style.flexGrow        = "1";
-    buttonSizeSmall[index].style.fontSize        = smallButtonSize;
-    buttonSizeSmall[index].style.color           = "beige";
-    buttonSizeSmall[index].style.outlineColor    = "transparent";
-    if (roundedButtons == "T") {
-        buttonSizeSmall[index].style.borderRadius = smallButtonSize;
-    } 
-    else { buttonSizeSmall[index].style.borderRadius = "-1px"; }
-}
-for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
-    buttonSizeBig[index].style.backgroundColor = "grey";
-    buttonSizeBig[index].style.flexGrow        = "10";
-    buttonSizeBig[index].style.fontSize        = largeButtonSize;
-    buttonSizeBig[index].style.color           = "beige";
-    buttonSizeBig[index].style.outlineColor    = "transparent";
-    if (roundedButtons == "T") {
-        buttonSizeBig[index].style.borderRadius = largeButtonSize;
-    } else { buttonSizeBig[index].style.borderRadius = "-1px"; }
 }
 
 // don't show the buttons if there is only one cloze
