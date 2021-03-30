@@ -60,10 +60,10 @@
 <span id="hintLettDown"></span>
 
 <div class="biggerButtonOnlyOnMobile">
-    <button id="show_button" onclick="revealOneVar();" class="buttonSizeSmall">C</button>
+   <!-- <button id="show_button" onclick="revealOneVar();" class="buttonSizeSmall">C</button> -->
     <button id="show_button" onclick="revealHintLettVar();" class="buttonSizeBig">L</button>
     <button id="show_button" onclick="revealHintWordVar();" class="buttonSizeBig">W</button>
-    <button id="show_button" onclick="revealOneVar();" class="buttonSizeSmall">C</button>
+<!--    <button id="show_button" onclick="revealOneVar();"   class="buttonSizeSmall">C</button>  -->
 </div>
 
 <br>
