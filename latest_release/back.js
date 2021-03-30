@@ -328,8 +328,8 @@ if (decksContainer.childElementCount == 0) {
 }
 
 if (tagsContainer.childElementCount == 0) {
- var tagList = tagsContainer.innerHTML.replace(/ +/,"").split(/::| /);
  var newTagContent = document.createElement("div");
+ var tagList = [...new Set(tagsContainer.innerHTML.replace(/ +/,"").split(/::| /))];
 
  for (var i = 0; i < tagList.length;  i++) {
   var newTag = document.createElement("button");
