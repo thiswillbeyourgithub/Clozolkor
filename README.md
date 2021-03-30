@@ -1,4 +1,4 @@
- Clozolkor
+**Clozolkor**
 Enhancing "*cloze one by one*" script found in TheAnking's template (on his website or drive). I think the original idea/script is by user "iTraveller" in the official anki forum. Oh and don't ask why this name. The current status of this project is : I am using it daily. It is definitely stable as it does not require addons or complicated coding. It is just basic javascript added to a cloze template.
 
 If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
