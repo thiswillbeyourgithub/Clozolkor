@@ -158,6 +158,8 @@ let hiddenClozeWidth    = "1%"; // default : "1%"
 let hiddenClozeHeight   = "15px"; // default : "15px"
 let smallButtonSize     = "20px"; // default : "20px"
 let largeButtonSize     = "25px"; // default : "15px"
+var enableTagsContainerBack = "T"; // default : "T"
+var enableDecksContainerBack = "T"; // default : "T"
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
 let wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!","?"] ; // when hinting a whole word
 //let wordSeparators     = [" ", "=", "~","'", ",", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", ";", ":","\"", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","!","?"] ; // when hinting a whole word
@@ -297,65 +299,68 @@ if(hideButtons == "T") {
 }; 
 
 		// TAGS AND DECK STYLING :
-if (decksContainer.childElementCount == 0) {
- var deckList = decksContainer.innerHTML.split("::");
- var newdeckContent = document.createElement("div");
+if (enableDecksContainerBack == "T") {
+    if (decksContainer.childElementCount == 0) {
+     var deckList = decksContainer.innerHTML.split("::");
+     var newdeckContent = document.createElement("div");
 
- for (var i = 0; i < deckList.length;  i++) {
-  var newdeck = document.createElement("button");
-  newdeck.innerHTML = deckList[i].replace(" - ", "-");
-  newdeckContent.append(newdeck)
- }
- decksContainer.innerHTML              =  newdeckContent.innerHTML;
- decksContainer.style.display          =  "flex";
- decksContainer.style.flexwrap         =  "no-wrap";
- decksContainer.style.justifyContent   =  "left";
- decksContainer.style.backgroundColor   =  cloze_bg_color;
+     for (var i = 0; i < deckList.length;  i++) {
+      var newdeck = document.createElement("button");
+      newdeck.innerHTML = deckList[i].replace(" - ", "-");
+      newdeckContent.append(newdeck)
+     }
+     decksContainer.innerHTML              =  newdeckContent.innerHTML;
+     decksContainer.style.display          =  "flex";
+     decksContainer.style.flexwrap         =  "no-wrap";
+     decksContainer.style.justifyContent   =  "left";
+     decksContainer.style.backgroundColor   =  cloze_bg_color;
 
-  for (i = 0 , len = decksContainer.querySelectorAll("button").length ; i < len ; i++) {
-      decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      decksContainer.querySelectorAll("button")[i].style.height            =  5;
-      decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
-      decksContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
-      decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
-      decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
-      decksContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
-      decksContainer.querySelectorAll("button")[i].style.border     =  "none";
-      decksContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
-      decksContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
-  }
-}
+      for (i = 0 , len = decksContainer.querySelectorAll("button").length ; i < len ; i++) {
+          decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
+          decksContainer.querySelectorAll("button")[i].style.height            =  5;
+          decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
+          decksContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
+          decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
+          decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
+          decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
+          decksContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
+          decksContainer.querySelectorAll("button")[i].style.border     =  "none";
+          decksContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
+          decksContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
+      }
+    }
+} else { decksContainer.style.display = "none"; }
+if (enableTagsContainerBack == "T") {
+    if (tagsContainer.childElementCount == 0) {
+     var newTagContent = document.createElement("div");
+     var tagList = [...new Set(tagsContainer.innerHTML.replace(/ +/,"").split(/::| /))];
 
-if (tagsContainer.childElementCount == 0) {
- var newTagContent = document.createElement("div");
- var tagList = [...new Set(tagsContainer.innerHTML.replace(/ +/,"").split(/::| /))];
+     for (var i = 0; i < tagList.length;  i++) {
+      var newTag = document.createElement("button");
+      newTag.innerHTML = tagList[i];
+      newTagContent.append(newTag)
+     }
+        tagsContainer.innerHTML              =  newTagContent.innerHTML;
+        tagsContainer.style.display          =  "flex";
+        tagsContainer.style.flexwrap         =  "no-wrap";
+        tagsContainer.style.justifyContent   =  "left";
+        tagsContainer.style.backgroundColor   =  cloze_bg_color;
 
- for (var i = 0; i < tagList.length;  i++) {
-  var newTag = document.createElement("button");
-  newTag.innerHTML = tagList[i];
-  newTagContent.append(newTag)
- }
-    tagsContainer.innerHTML              =  newTagContent.innerHTML;
-    tagsContainer.style.display          =  "flex";
-    tagsContainer.style.flexwrap         =  "no-wrap";
-    tagsContainer.style.justifyContent   =  "left";
-    tagsContainer.style.backgroundColor   =  cloze_bg_color;
-
-  for (i = 0 , len = tagsContainer.querySelectorAll("button").length ; i < len ; i++) {
-      tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      tagsContainer.querySelectorAll("button")[i].style.height         =  5;
-      tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
-      tagsContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
-      tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
-      tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
-      tagsContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
-      tagsContainer.querySelectorAll("button")[i].style.border     =  "none";
-      tagsContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
-      tagsContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
-  }
-}
+      for (i = 0 , len = tagsContainer.querySelectorAll("button").length ; i < len ; i++) {
+          tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
+          tagsContainer.querySelectorAll("button")[i].style.height         =  5;
+          tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
+          tagsContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
+          tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
+          tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
+          tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
+          tagsContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
+          tagsContainer.querySelectorAll("button")[i].style.border     =  "none";
+          tagsContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
+          tagsContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
+      }
+    }
+} else { tagsContainer.style.display = "none"; }
 
 // ###########################################
 // MAIN CODE :
@@ -688,3 +693,4 @@ resetHintLettConst();
 [...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack // finally shows the card
 
 </script>
+

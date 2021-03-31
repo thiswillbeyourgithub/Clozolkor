@@ -88,6 +88,8 @@
 	// USER SETTINGS
 
 let autoFlip = "T"; // F = autoflip if there are no hints
+var enableTagsContainerFront = "T"; // default : "T"
+var enableDecksContainerFront = "T"; // default : "T"
 var qFade = 0;
 var aFade = 0;
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
@@ -146,65 +148,71 @@ if (autoFlip == "T") {
     // STYLING (depending on platform)
 
 		// TAGS AND DECK STYLING :
-if (decksContainer.childElementCount == 0) {
- var deckList = decksContainer.innerHTML.split("::");
- var newdeckContent = document.createElement("div");
+if (enableDecksContainerFront == "T") {
+    if (decksContainer.childElementCount == 0) {
+     var deckList = decksContainer.innerHTML.split("::");
+     var newdeckContent = document.createElement("div");
 
- for (var i = 0; i < deckList.length;  i++) {
-  var newdeck = document.createElement("button");
-  newdeck.innerHTML = deckList[i].replace(" - ", "-");
-  newdeckContent.append(newdeck)
- }
- decksContainer.innerHTML              =  newdeckContent.innerHTML;
- decksContainer.style.display          =  "flex";
- decksContainer.style.flexwrap         =  "no-wrap";
- decksContainer.style.justifyContent   =  "left";
- decksContainer.style.backgroundColor   =  cloze_bg_color;
+     for (var i = 0; i < deckList.length;  i++) {
+      var newdeck = document.createElement("button");
+      newdeck.innerHTML = deckList[i].replace(" - ", "-");
+      newdeckContent.append(newdeck)
+     }
+     decksContainer.innerHTML              =  newdeckContent.innerHTML;
+     decksContainer.style.display          =  "flex";
+     decksContainer.style.flexwrap         =  "no-wrap";
+     decksContainer.style.justifyContent   =  "left";
+     decksContainer.style.backgroundColor   =  cloze_bg_color;
 
-  for (i = 0 , len = decksContainer.querySelectorAll("button").length ; i < len ; i++) {
-      decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      decksContainer.querySelectorAll("button")[i].style.height            =  5;
-      decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
-      decksContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
-      decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
-      decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
-      decksContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
-      decksContainer.querySelectorAll("button")[i].style.border     =  "none";
-      decksContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
-      decksContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
-  }
-}
+      for (i = 0 , len = decksContainer.querySelectorAll("button").length ; i < len ; i++) {
+          decksContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
+          decksContainer.querySelectorAll("button")[i].style.height            =  5;
+          decksContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
+          decksContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
+          decksContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
+          decksContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
+          decksContainer.querySelectorAll("button")[i].style.textShadow     =  "none";
+          decksContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
+          decksContainer.querySelectorAll("button")[i].style.border     =  "none";
+          decksContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
+          decksContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
+      }
+    }
+} else { decksContainer.style.display = "none"; }
 
-if (tagsContainer.childElementCount == 0) {
- var tagList = tagsContainer.innerHTML.replace(/ +/,"").split(/::| /);
- var newTagContent = document.createElement("div");
 
- for (var i = 0; i < tagList.length;  i++) {
-  var newTag = document.createElement("button");
-  newTag.innerHTML = tagList[i];
-  newTagContent.append(newTag)
- }
-    tagsContainer.innerHTML              =  newTagContent.innerHTML;
-    tagsContainer.style.display          =  "flex";
-    tagsContainer.style.flexwrap         =  "no-wrap";
-    tagsContainer.style.justifyContent   =  "left";
-    tagsContainer.style.backgroundColor   =  cloze_bg_color;
+if (enableTagsContainerFront == "T") {
+    if (tagsContainer.childElementCount == 0) {
+     var tagList = tagsContainer.innerHTML.replace(/ +/,"").split(/::| /);
+     var newTagContent = document.createElement("div");
 
-  for (i = 0 , len = tagsContainer.querySelectorAll("button").length ; i < len ; i++) {
-      tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
-      tagsContainer.querySelectorAll("button")[i].style.height         =  5;
-      tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
-      tagsContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
-      tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
-      tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
-      tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
-      tagsContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
-      tagsContainer.querySelectorAll("button")[i].style.border     =  "none";
-      tagsContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
-      tagsContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
-  }
-}
+     for (var i = 0; i < tagList.length;  i++) {
+      var newTag = document.createElement("button");
+      newTag.innerHTML = tagList[i];
+      newTagContent.append(newTag)
+     }
+        tagsContainer.innerHTML              =  newTagContent.innerHTML;
+        tagsContainer.style.display          =  "flex";
+        tagsContainer.style.flexwrap         =  "no-wrap";
+        tagsContainer.style.justifyContent   =  "left";
+        tagsContainer.style.backgroundColor   =  cloze_bg_color;
+
+      for (i = 0 , len = tagsContainer.querySelectorAll("button").length ; i < len ; i++) {
+          tagsContainer.querySelectorAll("button")[i].style.fontSize         =  tagsAndDeckFontSize;
+          tagsContainer.querySelectorAll("button")[i].style.height         =  5;
+          tagsContainer.querySelectorAll("button")[i].style.flexGrow         =  "1";
+          tagsContainer.querySelectorAll("button")[i].style.color            =  cloze_color;
+          tagsContainer.querySelectorAll("button")[i].style.backgroundColor  =  "transparent";
+          tagsContainer.querySelectorAll("button")[i].style.outlineColor     =  "transparent";
+          tagsContainer.querySelectorAll("button")[i].style.textShadow     =  "none !important";
+          tagsContainer.querySelectorAll("button")[i].style.borderRadius     =  "-1px";
+          tagsContainer.querySelectorAll("button")[i].style.border     =  "none";
+          tagsContainer.querySelectorAll("button")[i].style.opacity     =  0.8;
+          tagsContainer.querySelectorAll("button")[i].style.fontWeight     =  "bold";
+      }
+    }
+} else { tagsContainer.style.display = "none"; }
+
 
 if ( isOnMobileFront == "T" ) {
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
@@ -245,5 +253,6 @@ if ( isOnMobileFront == "F" ) {
 [...document.querySelectorAll("*")][0].style.visibility =defaultVisiFront;
 }
 </script>
+
 
 
