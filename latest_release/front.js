@@ -97,9 +97,10 @@ let tagsAndDeckFontSize     = "8px"; // default : "8px"
 
 const clozes                    = [...document.querySelectorAll(".cloze")];
 if (clozes.length !== 0) { // continue only if clozes are found
+
     // hides the card before it is fully loaded, otherwise you can catch a glimpse of images on slow devices :
-//var defaultDisplayFront = [...document.querySelectorAll(".card")][0].style.display;
-//[...document.querySelectorAll(".card")][0].style.display = "none !important";
+var defaultVisiFront = [...document.querySelectorAll("*")][0].style.visibility;
+[...document.querySelectorAll("*")][0].style.visibility = "hidden";
 
 var cloze_color         = window.getComputedStyle(clozes[0]).color;
 var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
@@ -241,9 +242,8 @@ if ( isOnMobileFront == "F" ) {
 }
 
  // finally shows the card :
-//[...document.querySelectorAll(".card")][0].style.display = defaultDisplayFront
+[...document.querySelectorAll("*")][0].style.visibility =defaultVisiFront;
 }
 </script>
-
 
 
