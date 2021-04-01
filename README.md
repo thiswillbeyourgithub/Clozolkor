@@ -76,7 +76,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 
 ## How can I get this?
 1. read this page **thoroughly**, it's well worth a few minutes of (y)our time
-2. install the [additional card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
+2. install the [refocus card when reviewing](https://ankiweb.net/shared/info/1642550423) addon, the [additional card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
 3. Optional : as written above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_release` folder
 4. import the `.apkg` file inside the `latest_release` folder into anki, it's the latest release but usually not the latest *version*
 5. get the latest version by updating this new template. To do this : copy and paste the content of the files located in `latest_release`
