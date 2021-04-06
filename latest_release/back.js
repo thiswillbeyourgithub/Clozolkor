@@ -144,6 +144,7 @@ var defaultDisplayBack = [...document.querySelectorAll(".card")][0].style.displa
 
 // to debug, put the following line where you want :
 //	debugFieldBack[0].textContent += "code run until point A";
+// another better way is to use alert("some string"); to know if the code is running a specific part or not, or window.alert()
 
 // ###########################################
     // USER SETTINGS
