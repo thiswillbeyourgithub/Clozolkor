@@ -6,8 +6,8 @@
 .cloze { font-weight: none; color: grey !important; #text-decoration:underline; display:inline; }
     .nightMode .cloze { color: pink !important; }
 
-.extra { font-size: 18px ; text-align: left ; font-weight:none ; display:inline;}
-    .nightmode .extra { }
+.extra { font-size: 18px ; text-align: center ;}
+    .nightmode .extra { font-size: 18px ; text-align: center ; }
 .grey { color: grey; } 
     .nightmode .grey { color: beige !important; } 
 .red { color:red;}
