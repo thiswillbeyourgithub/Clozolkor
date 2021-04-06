@@ -111,6 +111,10 @@ const notOnMobile               = document.getElementsByClassName("notOnMobile")
 const buttonSizeSmall           = document.getElementsByClassName("buttonSizeSmall");
 const buttonSizeBig             = document.getElementsByClassName("buttonSizeBig");
 const debugFieldFront           = document.getElementsByClassName("debugFieldFront");
+// to debug, put the following line where you want :
+//	debugFieldFront[0].textContent += "code run until point A";
+// another better way is to use alert("some string"); to know if the code is running a specific part or not, or window.alert()
+
 const addEaseHereFront          = document.getElementsByClassName("addEaseHereFront") ; 
 const addStateHereFront         = document.getElementsByClassName("addStateHereFront") ; 
 const tagsContainer     = document.getElementById("tagsContainer")
