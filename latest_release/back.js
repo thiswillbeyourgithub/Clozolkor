@@ -180,7 +180,6 @@ let wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", "."
     // VARIABLES ASSIGNMENT
 let c                   = 0; // index of cloze
 let n                   = 0; // index of the character of the letter used of hints
-let manuallyClicked     = 0; // if a cloze has been manually clicked
 var cloze_color         = window.getComputedStyle(clozes[0]).color;
 var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
 if (typeof cloze_bg_color == 'undefined') { let cloze_bg_color = "white"}; // not sure it works
@@ -416,16 +415,16 @@ clozes.slice(0).forEach((item) => {
                 imgs[i].style.width  = "unset";
             };
         };
-        manuallyClicked = manuallyClicked+1;
-            if (c+1 == clozes.length) {
-                var openWithButtonConst = document.getElementsByClassName("openWithButton")
+        resetHintLettConst();
+        if (c+1 == clozes.length) {
+            var openWithButtonConst = document.getElementsByClassName("openWithButton")
                 for(var i=0; i<openWithButtonConst.length; i++) {
                         openWithButtonConst[i].querySelector('*').click()
-                };
-            }
-            c = c+1 ; if (c > clozes.length) { c = clozes.length };
-            n = 0;
-        resetHintLettConst();
+            };
+            hintLettFieldUp.style.opacity = 0;
+            hintLettFieldDown.style.opacity = 0;
+        }
+        resetVariableCConst();
     });
 });
 
@@ -494,9 +493,10 @@ var revealOneVar = function() {
         for(var i=0; i<openWithButtonVar.length; i++) {
                 openWithButtonVar[i].querySelector('*').click()
         };
+        hintLettFieldUp.style.opacity = 0;
+        hintLettFieldDown.style.opacity = 0;
     }
-    c = c+1 ; if (c > clozes.length) { c = clozes.length };
-    n = 0;
+    resetVariableCConst();
     resetHintLettVar();
 };
 var resetClozesVar = function() {
@@ -516,8 +516,6 @@ var resetClozesVar = function() {
     });
     window.scroll(0,0);
     c = 0;
-    n = 0;
-    manuallyClicked = 0;
     resetHintLettVar();
 };
 var revealAllVar = function() {
@@ -540,16 +538,16 @@ var revealAllVar = function() {
                 };
             };
     });
+    resetHintLettVar();
     if (c+1 == clozes.length) {
         var openWithButtonVar = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButtonVar.length; i++) {
                 openWithButtonVar[i].querySelector('*').click()
         };
+        hintLettFieldUp.style.opacity = 0;
+        hintLettFieldDown.style.opacity = 0;
     }
     c = clozes.length;
-    n = 0;
-    manuallyClicked = 0;
-    resetHintLettVar();
 };
 
 // code for keystrokes
@@ -582,9 +580,10 @@ const revealOneConst = function() {
         for(var i=0; i<openWithButtonConst.length; i++) {
                 openWithButtonConst[i].querySelector('*').click()
         };
+        hintLettFieldUp.style.opacity = 0;
+        hintLettFieldDown.style.opacity = 0;
     }
-    c = c+1; if (c > clozes.length) { c=clozes.length };
-    n = 0;
+    resetVariableCConst();
     resetHintLettConst();
 };
 const resetClozesConst = function() {
@@ -604,8 +603,6 @@ const resetClozesConst = function() {
     });
     window.scroll(0,0);
     c = 0;
-    n = 0;
-    manuallyClicked = 0;
     resetHintLettConst();
 };
 const revealAllConst = function() {
@@ -626,18 +623,18 @@ const revealAllConst = function() {
                     imgs[i].style.height = "unset";
                     imgs[i].style.width  = "unset";
                 };
-             };
+            };
     });
+    resetHintLettConst();
     if (c+1 == clozes.length) {
         const openWithButtonConst = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButtonConst.length; i++) {
                 openWithButtonConst[i].querySelector('*').click()
         };
+        hintLettFieldUp.style.opacity = 0;
+        hintLettFieldDown.style.opacity = 0;
     }
     c = clozes.length;
-    n = 0;
-    manuallyClicked = 0;
-    resetHintLettConst();
 };
 
 // shows letter by letter (hint)
@@ -689,15 +686,29 @@ const revealHintWordConst = function() {
 };
 var resetHintLettVar = function() {
     n = 0;
+    hintLettFieldUp.style.opacity = 1;
+    hintLettFieldDown.style.opacity = 1;
     hintLettFieldUp.textContent   = '…' ; 
     hintLettFieldDown.textContent = hintLettFieldUp.textContent ;
-    <!--numbIndi.textContent          = Math.max(0,Math.round(clozes.length-c-manuallyClicked))-->
 };
 const resetHintLettConst = function() {
     n = 0;
+    hintLettFieldUp.style.opacity = 1;
+    hintLettFieldDown.style.opacity = 1;
     hintLettFieldUp.textContent   = '…' ;
     hintLettFieldDown.textContent = hintLettFieldUp.textContent ;
-    <!--numbIndi.textContent          = Math.max(0,Math.round(clozes.length-c-manuallyClicked))-->
+};
+var resetVariableCVar = function() {
+   // resets the cloze counter to the minimum cloze number that is still hidden
+   c=0 ; 
+   while (clozes[c].style.backgroundColor != cloze_color | c>100) { c=c+1; }; 
+   if (c==100) { c = 0 };
+};
+const resetVariableCConst = function() {
+   // resets the cloze counter to the minimum cloze number that is still hidden
+   c=0 ; 
+   while (clozes[c].style.backgroundColor != cloze_color | c>100) { c=c+1; }; 
+   if (c==100) { c = 0 };
 };
 
 // ###########################################
