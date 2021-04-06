@@ -88,11 +88,11 @@
 	// USER SETTINGS
 
 let autoFlip = "T"; // F = autoflip if there are no hints
-var enableTagsContainerFront = "T"; // default : "T"
-var enableDecksContainerFront = "T"; // default : "T"
+var enableTagsContainerFront = "F"; // default : "T"
+var enableDecksContainerFront = "F"; // default : "T"
+let tagsAndDeckFontSize     = "8px"; // default : "8px"
 var qFade = 0;
 var aFade = 0;
-let tagsAndDeckFontSize     = "8px"; // default : "8px"
 
 // ###########################################
  	// INIT + VARIABLES ASSIGNMENT
