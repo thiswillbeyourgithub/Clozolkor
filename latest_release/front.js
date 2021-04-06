@@ -261,11 +261,8 @@ if ( isOnMobileFront == "T" ) {
         notOnMobile[index].style.fontStyle = "bold";
     }
 }
-
+}
  // finally shows the card :
-[...document.querySelectorAll("*")][0].style.visibility =defaultVisiFront;
+[...document.querySelectorAll("*")][0].style.visibility = defaultVisiFront;
 }
 </script>
-
-
-
