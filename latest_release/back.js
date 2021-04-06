@@ -149,23 +149,21 @@ var defaultDisplayBack = [...document.querySelectorAll(".card")][0].style.displa
 // ###########################################
     // USER SETTINGS
 
+var qFade = 0; // set a delay to appear and flip smoothly
+var aFade = 0;
 let enableHiding        = "T"; // set to "F" to disable hiding
 let enableAutoScroll    = "T" ; // set to "F" to disable autoscroll
 let autoShowFirstIfOnly = "F" ; //set to "T" to show directly the first one and hide the buttons
 let hideImagesFully     = "T"; // if "F", you can use image size as a hint
-let forceMobileBehavior = "F";  // mainly used to debug, is currently broken if you don't comment the relevant ankidroidJS part
+let forceMobileBehavior = "F";  // mainly used to debug
 let roundedButtons      = "F" ; // "F" to square buttons
 let hiddenClozeWidth    = "1%"; // default : "1%"
 let hiddenClozeHeight   = "15px"; // default : "15px"
 let smallButtonSize     = "20px"; // default : "20px"
 let largeButtonSize     = "25px"; // default : "15px"
-var enableTagsContainerBack = "T"; // default : "T"
-var enableDecksContainerBack = "T"; // default : "T"
+var enableTagsContainerBack = "F"; // default : "T"
+var enableDecksContainerBack = "F"; // default : "T"
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
-let wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!","?"] ; // when hinting a whole word
-//let wordSeparators     = [" ", "=", "~","'", ",", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", ";", ":","\"", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","!","?"] ; // when hinting a whole word
-var qFade = 0; // set a delay to appear and flip smoothly
-var aFade = 0;
 
     // USER SHORTCUTS
 let shortcutToReveal   = ['']; // default ['w', 'c']
@@ -174,6 +172,8 @@ let shortcutToHintWord = [',','x'];
 let shortcutToShow5    = [''];
 let shortcutToShowAll  = ['.'];
 let shortcutToReset    = [':'];
+let wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!","?"] ; // when hinting a whole word
+//let wordSeparators     = [" ", "=", "~","'", ",", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", ";", ":","\"", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","!","?"] ; // when hinting a whole word
 
     // VARIABLES ASSIGNMENT
 let c                   = 0; // index of cloze
