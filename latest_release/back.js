@@ -164,6 +164,8 @@ let largeButtonSize     = "25px"; // default : "15px"
 var enableTagsContainerBack = "F"; // default : "T"
 var enableDecksContainerBack = "F"; // default : "T"
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
+let DisableHintLettFieldDow = "F"; // default : "F", disables the secondary hint letter field
+
 
     // USER SHORTCUTS
 let shortcutToReveal   = ['']; // default ['w', 'c']
@@ -291,7 +293,9 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
         notOnMobile[index].style.color     = "grey";
         notOnMobile[index].style.fontStyle = "bold";
     }
-    //hintLettFieldDown.style.display      = "none"; 
+    if (DisableHintLettFieldDow == "T") {
+        hintLettFieldDown.style.display      = "none"; 
+    };
 }
 
 // don't show the buttons if there is only one cloze
