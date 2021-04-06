@@ -76,12 +76,12 @@
     </span>
 {{/Hint}}
 {{#More}}
-    <span class=extra>
+    <span class=red><span class=extra>
         <span class=openWithButton>
             {{hint:More}}
             <br>
         </span>
-    </span>
+    </span></span>
 {{/More}}
 {{#Source}}
     <span class=grey>
