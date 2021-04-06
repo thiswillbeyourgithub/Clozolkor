@@ -236,25 +236,40 @@ for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
     } else { buttonSizeBig[index].style.borderRadius = "-1px"; }
 }
 
+
+    // platform tests :
+try {
+                // ankidroid :
+    var isOnMobileBack = "F"; // preset to false
+    var isAnkiDroidBack = /wv/i.test(navigator.userAgent);
+    if (isAnkiDroidBack) { isOnMobileBack = "T"; isOnAndroidBack = "T"; };
+    if (navigator.userAgent.indexOf("droid") >= 0) { isOnMobileBack = "T"; isOnAndroidBack = "T"; };
+                // ankiMobile :
+    if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidBack == "F") { isOnMobileBack = "T"; };
+                // desktop :
+    if (ankiPlatform.indexOf("esktop")==-1) { isOnMobileBack = "F"; isOnAndroidBack = "F" };
+} catch(e) { }
+
+
     // ankidroid's buttons etc :
-var isAnkiDroidBack = /wv/i.test(navigator.userAgent);
 
-if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("droid") >= 0 || ankiPlatform.indexOf("esktop")==-1 || isAnkiDroidBack || forceMobileBehavior == "T")  {
-    var isOnMobileBack = "T";
+//if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("droid") >= 0 || ankiPlatform.indexOf("esktop")==-1 || isAnkiDroidBack || forceMobileBehavior == "T")  {
+if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
+    if (isOnAndroidBack == "T") {
+        var jsApi = {"version" : "0.0.1", "developer" : "dev@mail.com"};
+        var apiStatus = AnkiDroidJS.init(JSON.stringify(jsApi));
+        console.log(apiStatus);
+        var api = JSON.parse(apiStatus);
 
-    var jsApi = {"version" : "0.0.1", "developer" : "dev@mail.com"};
-    var apiStatus = AnkiDroidJS.init(JSON.stringify(jsApi));
-    console.log(apiStatus);
-    var api = JSON.parse(apiStatus);
+        // adds card status to the header
+        if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereBack.textContent = "N"  ; addStateHereBack.style.color = "blue" ;} //new
+        if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereBack.textContent = "L"  ; addStateHereBack.style.color = "red" ;} //learning
+        if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereBack.textContent = "R"  ; addStateHereBack.style.color = "green" ;} //review
+        if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereBack.textContent = "rL" ; addStateHereBack.style.color = "red" ;} //relearning
 
-    // adds card status to the header
-    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereBack.textContent = "N"  ; addStateHereBack.style.color = "blue" ;} //new
-    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereBack.textContent = "L"  ; addStateHereBack.style.color = "red" ;} //learning
-    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereBack.textContent = "R"  ; addStateHereBack.style.color = "green" ;} //review
-    if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereBack.textContent = "rL" ; addStateHereBack.style.color = "red" ;} //relearning
-
-    // adds ease factor to the header
-    addStateHereBack.textContent += AnkiDroidJS.ankiGetCardFactor()/10;
+        // adds ease factor to the header
+        addStateHereBack.textContent += AnkiDroidJS.ankiGetCardFactor()/10;
+    }
 
     // button display for mobile
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
@@ -267,9 +282,7 @@ if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("dr
         notOnMobile[index].style.display = "none";
     };
 
-}
-else {
-    var isOnMobileBack = "F";
+} else {
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
         biggerButtonOnlyOnMobile[index].style.display = "none";
     }

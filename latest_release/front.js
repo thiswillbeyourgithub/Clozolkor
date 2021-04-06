@@ -122,15 +122,20 @@ const decksContainer    = document.getElementById("decksContainer")
 
 // ###########################################
     // if there are no hints : auto flip the card
+    // platform tests :
+try {
+            // ankidroid :
+    var isOnMobileFront = "F"; var isOnAndroidFront = "F"; // presets
+    var isAnkiDroidFront = /wv/i.test(navigator.userAgent);
+    if (isAnkiDroidFront) { isOnMobileFront = "T"; isOnAndroidFront = "T"; }
+    if (navigator.userAgent.indexOf("droid") >= 0) { isOnMobileFront = "T"; isOnAndroidFront = "T"; }
+                // ankiMobile :
+    if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidFront == "F") { isOnMobileFront = "T"; }
+                // desktop :
+    if (ankiPlatform.indexOf("esktop")==-1) { isOnMobileFront = "F"; isOnAndroidFront = "F" }
+} catch(e){ }
 
-var isAnkiDroidFront = /wv/i.test(navigator.userAgent);
-if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("roid") >= 0 || isAnkiDroidFront || ankiPlatform.indexOf("esktop") == -1)  {
-    var isOnMobileFront = "T";   
-} 
-else 
-{ 
-    var isOnMobileFront = "F"; 
-}
+
 
 if (autoFlip == "T") { // if contains at least one hint : dont flip
     for(let i = 0 ; i < clozes.length;i++) {
@@ -140,13 +145,16 @@ if (autoFlip == "T") { // if contains at least one hint : dont flip
     }
 }
 if (autoFlip == "T") {
-	if (isOnMobileFront == "T") {
+	if (isOnMobileFront == "T" && isOnAndroidFront == "T") {
         showAnswer(); 
     }
-	if (isOnMobileFront == "F") { 
+	//if (isOnMobileFront == "T" && isOnAndroidFront == "F") { 
+    //    AnkiMobile detected, I need iOS testers to enable autoflip on ankiMobile!
+    //}
+	if (isOnMobileFront == "F" && isOnAndroidFront == "F") { 
         pycmd("ans"); 
     }
-}
+} else { // don't load the front if the card flips on its own
 
 // ###########################################
     // STYLING (depending on platform)
@@ -228,22 +236,23 @@ if ( isOnMobileFront == "T" ) {
         notOnMobile[index].style.display = "none";
     }
 
-        // loads ankidroid api
-    var jsApiFront     = {"version" : "0.0.1", "developer" : "dev@mail.com"};
-    var apiStatusFront = AnkiDroidJS.init(JSON.stringify(jsApiFront));
-    console.log(apiStatusFront);
-    var apiFront       = JSON.parse(apiStatusFront);
+    if (isOnAndroidFront == "T") {
+            // loads ankidroid api
+        var jsApiFront     = {"version" : "0.0.1", "developer" : "dev@mail.com"};
+        var apiStatusFront = AnkiDroidJS.init(JSON.stringify(jsApiFront));
+        console.log(apiStatusFront);
+        var apiFront       = JSON.parse(apiStatusFront);
 
-    // adds card status to the header
-    if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereFront[0].textContent = "N" ; addStateHereFront[0].style.color = "blue" ;} //new
-    if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereFront[0].textContent = "L" ; addStateHereFront[0].style.color = "red" ;} //learning
-    if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereFront[0].textContent = "R" ; addStateHereFront[0].style.color = "green" ;} //review
-    if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereFront[0].textContent = "rL" ; addStateHereFront[0].style.color = "red" ;} //relearning
+        // adds card status to the header
+        if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereFront[0].textContent = "N" ; addStateHereFront[0].style.color = "blue" ;} //new
+        if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereFront[0].textContent = "L" ; addStateHereFront[0].style.color = "red" ;} //learning
+        if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereFront[0].textContent = "R" ; addStateHereFront[0].style.color = "green" ;} //review
+        if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereFront[0].textContent = "rL" ; addStateHereFront[0].style.color = "red" ;} //relearning
 
-    // adds ease factor to the header
-    addEaseHereFront[0].textContent += AnkiDroidJS.ankiGetCardFactor()/10;
-}
-if ( isOnMobileFront == "F" ) {
+        // adds ease factor to the header
+        addEaseHereFront[0].textContent += AnkiDroidJS.ankiGetCardFactor()/10;
+    }
+} else {
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
         biggerButtonOnlyOnMobile[index].style.display = "none";
     }
