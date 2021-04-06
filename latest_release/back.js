@@ -718,8 +718,9 @@ if (enableHiding == "F") { revealAllVar();};
 resetHintLettVar();
 resetHintLettConst();
 
-}; // if clozes found
-[...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack; // finally shows the card
+}; // end of  if clozes found
+
+// finally shows the card
+[...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack;
 
 </script>
-
