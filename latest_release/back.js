@@ -66,7 +66,7 @@
 <!--    <button id="show_button" onclick="revealOneVar();"   class="buttonSizeSmall">C</button>  -->
 </div>
 
-<br>
+
 {{#Hint}}
     <span class=extra>
         <span class=openWithButton>
@@ -416,7 +416,8 @@ clozes.slice(0).forEach((item) => {
             };
         };
         resetHintLettConst();
-        if (c+1 == clozes.length) {
+        resetVariableCConst();
+        if (c == clozes.length) {
             var openWithButtonConst = document.getElementsByClassName("openWithButton")
                 for(var i=0; i<openWithButtonConst.length; i++) {
                         openWithButtonConst[i].querySelector('*').click()
@@ -424,7 +425,6 @@ clozes.slice(0).forEach((item) => {
             hintLettFieldUp.style.opacity = 0;
             hintLettFieldDown.style.opacity = 0;
         }
-        resetVariableCConst();
     });
 });
 
@@ -488,7 +488,9 @@ var revealOneVar = function() {
                         return true;
                     }
         });
-    if (c+1 == clozes.length) {
+    resetVariableCConst();
+    resetHintLettVar();
+    if (c == clozes.length) {
         var openWithButtonVar = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButtonVar.length; i++) {
                 openWithButtonVar[i].querySelector('*').click()
@@ -496,8 +498,6 @@ var revealOneVar = function() {
         hintLettFieldUp.style.opacity = 0;
         hintLettFieldDown.style.opacity = 0;
     }
-    resetVariableCConst();
-    resetHintLettVar();
 };
 var resetClozesVar = function() {
     clozes.slice(0).forEach((item) => {
@@ -539,7 +539,8 @@ var revealAllVar = function() {
             };
     });
     resetHintLettVar();
-    if (c+1 == clozes.length) {
+    c = clozes.length;
+    if (c == clozes.length) {
         var openWithButtonVar = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButtonVar.length; i++) {
                 openWithButtonVar[i].querySelector('*').click()
@@ -547,7 +548,6 @@ var revealAllVar = function() {
         hintLettFieldUp.style.opacity = 0;
         hintLettFieldDown.style.opacity = 0;
     }
-    c = clozes.length;
 };
 
 // code for keystrokes
@@ -575,7 +575,9 @@ const revealOneConst = function() {
                         return true;
                     }
      });
-    if (c+1 == clozes.length) {
+    resetVariableCConst();
+    resetHintLettConst();
+    if (c == clozes.length) {
         const openWithButtonConst = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButtonConst.length; i++) {
                 openWithButtonConst[i].querySelector('*').click()
@@ -583,8 +585,6 @@ const revealOneConst = function() {
         hintLettFieldUp.style.opacity = 0;
         hintLettFieldDown.style.opacity = 0;
     }
-    resetVariableCConst();
-    resetHintLettConst();
 };
 const resetClozesConst = function() {
     clozes.slice(0).forEach((item) => {
@@ -626,7 +626,8 @@ const revealAllConst = function() {
             };
     });
     resetHintLettConst();
-    if (c+1 == clozes.length) {
+    c = clozes.length;
+    if (c == clozes.length) {
         const openWithButtonConst = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButtonConst.length; i++) {
                 openWithButtonConst[i].querySelector('*').click()
@@ -634,7 +635,6 @@ const revealAllConst = function() {
         hintLettFieldUp.style.opacity = 0;
         hintLettFieldDown.style.opacity = 0;
     }
-    c = clozes.length;
 };
 
 // shows letter by letter (hint)
@@ -701,14 +701,30 @@ const resetHintLettConst = function() {
 var resetVariableCVar = function() {
    // resets the cloze counter to the minimum cloze number that is still hidden
    c=0 ; 
-   while (clozes[c].style.backgroundColor != cloze_color | c>100) { c=c+1; }; 
-   if (c==100) { c = 0 };
+   inc = 0; // just a counter
+   while (inc <100 && inc !=-1) {
+       inc=inc+1;
+       if (c < clozes.length) {
+           if (clozes[c].style.backgroundColor == cloze_bg_color) { //if cloze is not hidden, see next cloze
+                inc=inc+1;
+                c=c+1;
+           } else { inc = -1;} // exits the loop
+        } else { inc=-1 ; c=clozes.length }
+   }
 };
 const resetVariableCConst = function() {
    // resets the cloze counter to the minimum cloze number that is still hidden
    c=0 ; 
-   while (clozes[c].style.backgroundColor != cloze_color | c>100) { c=c+1; }; 
-   if (c==100) { c = 0 };
+   inc = 0; // just a counter
+   while (inc <100 && inc !=-1) {
+       inc=inc+1;
+       if (c < clozes.length) {
+           if (clozes[c].style.backgroundColor == cloze_bg_color) { //if cloze is not hidden, see next cloze
+                inc=inc+1;
+                c=c+1;
+           } else { inc = -1;} // exits the loop
+        } else { inc=-1 ; c=clozes.length }
+   }
 };
 
 // ###########################################
