@@ -86,3 +86,4 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 9. optional : install the Sans Forgetica font
 10. that's it, if you have **any** issue, open an issue, I'll gladly try and fix it for everyone else, yes even typos.
 11. If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
+test
