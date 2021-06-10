@@ -15,8 +15,9 @@ Basically, you create your cards just like regular clozes but using this templat
 * **compatibility** : it supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one. Basically like regular cloze so you can just convert all your cloze to this template and it will work the same.
 * **fast** : autoflip to answer sided is the cloze doesn't contain hints
 * **memory boosting?** : if your card's ease drop too low, the card will switch to the font [Sans Forgetica](https://en.wikipedia.org/wiki/Sans_forgetica). No idea if it works but interesting to try.
-* **elegent** : shows the tags and decks on top in a nice and non-distracting way
+* **elegant** : shows the tags and decks on top in a nice and non-distracting way
 * **handy** : displays the ease and the state (learning, new, etc) on top (desktop) or in a little button box (mobile)
+* **non-bloating** : it's not an addon but just a regular javascript-enhanced note template!
 * show all the hidden clozes as a fixed size block, this way you can't use the size of the deletion as a hint
 * automatically show the "links" (like `{{hint:Sources}}` when you showed all the clozes
 * hide images that are inside clozes, leaving the size (or not) as a hint
@@ -26,7 +27,7 @@ Basically, you create your cards just like regular clozes but using this templat
 
 #### demo gifs 
 <!--
-* early version (severely out
+* early version (severely outdated)
 ![demo_gif](bin/demo.gif)
 
 * use it with bullet points to remembers sets. I displayed buttons on these gifs but they are designed to be used on mobile and stay hidden on the computer. You can use the first letter as hints for example :
@@ -40,8 +41,7 @@ Basically, you create your cards just like regular clozes but using this templat
 from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 ![card](card_pic.jpg)
 
-## TODO / Planned features / known issues (some are really simple, don't forget to help!)
-* make it work with the latest anki version
+## TODO / Planned features / known issues (some are really simple, don't hesitate to help!)
 * get rid of the hint fields by finding a way to have the letter and word hints appear just before the actual (still hidden) cloze, then disappear while opening the cloze.
 * split the script into multiple sub scripts. That would help maintenance and "sharability" to have a "decks and tags section", "cloze section", etc. It would make it really easy to add parts to other template, for example adding the nice tag bar to the image occlusion template.
 * see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number (*edit: pretty sure it's actually very easy by adding a html field and treating it like a cloze*)
@@ -50,15 +50,14 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 * maybe add a way to show blurred text as a hint? Anki seems to support it. text.filter = "blur(3px)" at least. It seems to work on images too.
 
 #### Known issues
-* I'm told this stopped working in anki 2.1.40 or 41/42. Unfortunately I won't switch to this version before the end of the semester I think so I don't plan on updating it soon. Don't hesitate to tell me if you really need this, I could maybe manage to get the time.
-* Sometimes when I edit a card while during a review session the card can appear twice in a row. I don't know what causes it and am not even certain that Clozolkor is the cause but  I just go back to the deck list then back to the review (shortcuts : Dss). It doesn't really cause any issue and the first review is indeed accounted for (provided you didn't answer to the second one, in which case I have no idea)
+* Sometimes when I edit a card while during a review session the card can appear twice in a row. I don't know what causes it and am not even certain that Clozolkor is the cause but  I just go back to the deck list then back to the review (shortcuts : Dss). It doesn't really cause any issue and the first review is indeed accounted for (provided you didn't answer to the second one, in which case I have no idea). Note that when this happens the cloze index and hint index are not reset so the {{hint::}} fields can open at the wrong time etc. But no real issue.
 
 ## A few important notes, please read
 * I have a limited (but increasing) understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use Linux and ankidroid, I can't test on other devices. Also, I strongly recommend using the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc. You can see a list of my suggested macros [here](https://github.com/jefdongus/insert-symbols-anki-addon/issues/13). I hope something will come out of [this thread](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2).
 
 * The .js extension of the template files is there only to help with syntax highlighting while editing the files, it's more accurately html containing `<script>` parts.
 
-* I use `anki 2.1` and try to stay on the latest **stable** version (currently 2.1.35). I don't know if it works in `2.0`. I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macOS or iOS, and am counting on your feedbacks for this. **EDIT : see Know issues section**.
+* I try to stay on the latest **stable** anki version (currently 2.1.44). I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macOS or iOS, and am counting on your feedbacks for this.
 
 * The shortcuts and many more things can be edited in the template, inside the script.
 

@@ -1,41 +1,41 @@
 <span class = debugFieldFront></span>
 
 <!-- HEADER -->
-<span id="decksContainer">
+<span id="decksContainer" style="font-size:10px">
     {{Deck}}
 </span> 
-<span id="tagsContainer">
+<span id="tagsContainer" style="font-size:10px">
     {{Tags}}
 </span>
 
-<span class = smallFontHeader>
-    <span class=notOnMobile>
-    <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
-            <span class=blue>
-                {{info-New?:}}
-            </span>
-            <span class=green>
-                {{info-Review?:}}
-            </span>
-            <span class=red>
-                {{info-Learning?:}}
-            </span>
+<span style="font-size:12px">
+   		 <span class=notOnMobile>
+   		 <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
+                <span style="color:blue">
+            		    {{info-New?:}}
+        		    </span>
+               <span style="color:green">
+          		      {{info-Review?:}}
+       		     </span>
+                <span style="color:red">
+            		    {{info-Learning?:}}
+            			</span>
             {{info-Factor:}}
-    </span>
-    <span class=addStateHereFront> </span>
-    <span class=addEaseHereFront> </span>
+   		 </span>
+    		<span class=addStateHereFront> </span>
+  		   <span class=addEaseHereFront> </span>
 </span>
 
 <span class=orange>
     {{#Teacher}}<i>{{Teacher}}</i>&nbsp&nbsp&nbsp{{/Teacher}}
 </span> 
 
-<br>
 
 <!--this next line is used to make sure the text stays at the same level when flipping the card, a placeholder if you will -->
-<div class="biggerButtonOnlyOnMobile"><br></div><br>
+<div class="biggerButtonOnlyOnMobile"></div>
 
-<hr>
+<hr noshade size="2">
+
 <span class=headerField>
     {{#Header}}<b>{{Header}}<br></b> {{/Header}}
 </span>
@@ -53,51 +53,54 @@
     </span>
 </div>
 
-<script>
-/* 
-    Released under the GNU General Public License v3.
-    Copyright (C) - 2020 - user "thiswillbeyourgithub" of the website "github".
-    This file is the Front of the Clozolkor template. It is part of Clozolkor : an
-    Anki card template helping user to retain knowledge.
 
-    Clozolkor is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    Clozolkor is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with Clozolkor.  If not, see <https://www.gnu.org/licenses/>.
-    */ /*
-    for more information or to get the latest version go to :
-    https://github.com/thiswillbeyourgithub/Clozolkor
-    Version : August 2020
-
-    credits due to (at least! ) :
-    thiswillbeyourgithub (main dev)
-    iTraveller (original idea as far as I can tell), /u/AnkingMed (general helper)
-    /u/BlueGreenMagick (code help), /u/ssnoyes (piece of code), 
-    /u/DrewZZZ and /u/yumenogotoshi (scroll code)
-    */
-
+<script> 
+//    Released under the GNU General Public License v3.
+//    Copyright (C) - 2020 - user "thiswillbeyourgithub" of the website "github".
+//    This file is the Front of the Clozolkor template. It is part of Clozolkor : an
+//    Anki card template helping user to retain knowledge.
+//
+//    Clozolkor is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    Clozolkor is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with Clozolkor.  If not, see <https://www.gnu.org/licenses/>.
+//    */ /*
+//    for more information or to get the latest version go to :
+//    https://github.com/thiswillbeyourgithub/Clozolkor
+//    Version : June 2021
+//
+//    credits due to (at least! ) :
+//    thiswillbeyourgithub (main dev)
+//    iTraveller (original idea as far as I can tell), /u/AnkingMed (general helper)
+//    /u/BlueGreenMagick (code help), /u/ssnoyes (piece of code), 
+//    /u/DrewZZZ and /u/yumenogotoshi (scroll code)
+//
 // ###########################################
+
 	// USER SETTINGS
 
-let autoFlip = "T"; // F = autoflip if there are no hints
+var autoFlip = "T"; // F = autoflip if there are no hints
 var enableTagsContainerFront = "F"; // default : "T"
 var enableDecksContainerFront = "F"; // default : "T"
-let tagsAndDeckFontSize     = "8px"; // default : "8px"
+var tagsAndDeckFontSize     = "8px"; // default : "8px"
 var qFade = 0;
 var aFade = 0;
 
-// ###########################################
- 	// INIT + VARIABLES ASSIGNMENT
+//###########################################
+  // INIT + VARIABLES ASSIGNMENT
 
-const clozes                    = [...document.querySelectorAll(".cloze")];
+var n = 0; // tries to reset the variables used in the back as 
+var c = 0; // they sometimes are not reassigned
+
+var clozes                    = [...document.querySelectorAll(".cloze")];
 if (clozes.length !== 0) { // continue only if clozes are found
 
     // hides the card before it is fully loaded, otherwise you can catch a glimpse of images on slow devices :
@@ -133,12 +136,11 @@ try {
     if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidFront == "F") { isOnMobileFront = "T"; }
                 // desktop :
     if (ankiPlatform.indexOf("esktop")==-1) { isOnMobileFront = "F"; isOnAndroidFront = "F" }
-} catch(e){ }
-
+} catch(e){ alert(e);}
 
 
 if (autoFlip == "T") { // if contains at least one hint : dont flip
-    for(let i = 0 ; i < clozes.length;i++) {
+    for(var i = 0 ; i < clozes.length;i++) {
         if(clozes[i].textContent != '[...]') { 
             autoFlip = "F";
         };
@@ -266,3 +268,4 @@ if ( isOnMobileFront == "T" ) {
 [...document.querySelectorAll("*")][0].style.visibility = defaultVisiFront;
 }
 </script>
+

@@ -8,16 +8,16 @@
     {{Tags}}
 </span>
 
-<span class = smallFontHeader>
+<span style="font-size:12px">
         <span class=notOnMobile>
         <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
-                <span class=blue>
+                <span style="color:blue">
                     {{info-New?:}}
                 </span>
-                <span class=green>
+                <span style="color:green">
                     {{info-Review?:}}
                 </span>
-                <span class=red>
+                <span style="color:red">
                     {{info-Learning?:}}
                 </span>
                 {{info-Factor:}}
@@ -32,15 +32,19 @@
     <button id=addStateHereBack class=buttonSizeSmall></button>
     <button id="show_button" onclick="resetClozesVar();" class="buttonSizeSmall">Hide</button>
     <button id="show_button" onclick="revealAllVar();" class="buttonSizeSmall">Show</button>
-    <button id="show_button"  onclick="revealOneVar();" class="buttonSizeSmall"> Cloze</button>
     <button id="show_button" onclick="revealHintWordVar();" class="buttonSizeBig"> Word</button>
     <button id="show_button" onclick="revealHintLettVar();" class="buttonSizeBig"> Letter</button>
+    <button id="show_button"  onclick="revealOneVar();" class="buttonSizeSmall"> Cloze</button>
 </span>
 
 <!-- line that will be filled with the cloze hint-->
 <div id="hintLettUp"></div> 
 
-<hr>
+<span class=notOnMobile>
+	<hr noshade size="2">
+</span>
+
+
 <!-- field header -->
 <span class=headerField>
     {{#Header}}<b>{{Header}}</b><br>{{/Header}}
@@ -54,13 +58,15 @@
     </span>
 </span>
 
-<hr>
+<span class=notOnMobile>
+	<hr noshade size="2">
+</span>
 
 <!-- line that will be filled with the cloze hint-->
 <span id="hintLettDown"></span>
 
 <div class="biggerButtonOnlyOnMobile">
-   <!-- <button id="show_button" onclick="revealOneVar();" class="buttonSizeSmall">C</button> -->
+    <button id="show_button" onclick="revealOneVar();" class="buttonSizeSmall">C</button> 
     <button id="show_button" onclick="revealHintLettVar();" class="buttonSizeBig">L</button>
     <button id="show_button" onclick="revealHintWordVar();" class="buttonSizeBig">W</button>
 <!--    <button id="show_button" onclick="revealOneVar();"   class="buttonSizeSmall">C</button>  -->
@@ -68,71 +74,68 @@
 
 
 {{#Hint}}
-    <span class=extra>
+    <span style="font-size:30px; text-align:center;">
         <span class=openWithButton>
             {{hint:Hint}}
-            <br>
+					  <hr size="1" noshade width="33%" align="left">
         </span>
     </span>
 {{/Hint}}
 {{#More}}
-    <span class=red><span class=extra>
+    <span style="font-size:30px;">
         <span class=openWithButton>
             {{hint:More}}
-            <br>
+						<hr size="1" noshade width="33%" align="left">
         </span>
-    </span></span>
+    </span>
 {{/More}}
 {{#Source}}
     <span class=grey>
         <span class=openWithButton>
-            {{hint:Source}}
-            <br>
+            {{hint:Source}}<br>
         </span>
     </span>
 {{/Source}}
 {{#Source extra}}
     <span class=grey>
         <span class=openWithButton>
-            {{hint:Source extra}}
-            <br>
+            {{hint:Source extra}}<br>
         </span>
     </span>
 {{/Source extra}}
 
 <script>
-/* 
-    Released under the GNU General Public License v3.
-    Copyright (C) - 2020 - user "thiswillbeyourgithub" of the website "github".
-    This file is the Back of the Clozolkor template. It is part of Clozolkor : an
-    Anki card template helping user to retain knowledge.
-
-    Clozolkor is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    Clozolkor is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with Clozolkor.  If not, see <https://www.gnu.org/licenses/>.
-    */ /*
-    for more information or to get the latest version go to :
-    https://github.com/thiswillbeyourgithub/Clozolkor
-    Version : August 2020
-
-    credits due to (at least! ) :
-    thiswillbeyourgithub (main dev)
-    iTraveller (original idea as far as I can tell), /u/AnkingMed (general helper)
-    /u/BlueGreenMagick (code help), /u/ssnoyes (piece of code), 
-    /u/DrewZZZ and /u/yumenogotoshi (scroll code)
- */
-
+//    Released under the GNU General Public License v3.
+//    Copyright (C) - 2020 - user "thiswillbeyourgithub" of the website "github".
+//    This file is the Back of the Clozolkor template. It is part of Clozolkor : an
+//    Anki card template helping user to retain knowledge.
+//
+//    Clozolkor is free software: you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation, either version 3 of the License, or
+//    (at your option) any later version.
+//
+//    Clozolkor is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//    GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License
+//    along with Clozolkor.  If not, see <https://www.gnu.org/licenses/>.
+//    */ /*
+//    for more information or to get the latest version go to :
+//    https://github.com/thiswillbeyourgithub/Clozolkor
+//    Version : June 2021
+//
+//    credits due to (at least! ) :
+//    thiswillbeyourgithub (main dev)
+//    iTraveller (original idea as far as I can tell), /u/AnkingMed (general helper)
+//    /u/BlueGreenMagick (code help), /u/ssnoyes (piece of code), 
+//    /u/DrewZZZ and /u/yumenogotoshi (scroll code)
+//
 // ###########################################
 // CHECKS
+try {
 
 // only proceed if card is not empty :
 const clozes            = [...document.querySelectorAll(".cloze")]; 
@@ -157,14 +160,14 @@ let autoShowFirstIfOnly = "F" ; //set to "T" to show directly the first one and 
 let hideImagesFully     = "T"; // if "F", you can use image size as a hint
 let forceMobileBehavior = "F";  // mainly used to debug
 let roundedButtons      = "F" ; // "F" to square buttons
-let hiddenClozeWidth    = "1%"; // default : "1%"
-let hiddenClozeHeight   = "15px"; // default : "15px"
+let hiddenClozeWidth    = "1px"; // default : "1%", can be in pixel "1px", if very thin it allows to have cloze that touch each other without you being able to count them short of openning the first one
+let hiddenClozeHeight   = "16px"; // default : "15px"
 let smallButtonSize     = "20px"; // default : "20px"
 let largeButtonSize     = "25px"; // default : "15px"
 var enableTagsContainerBack = "F"; // default : "T"
 var enableDecksContainerBack = "F"; // default : "T"
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
-let DisableHintLettFieldDow = "F"; // default : "F", disables the secondary hint letter field
+let DisableHintLettFieldDow = "T"; // default : "F", disables the secondary hint letter field
 
 
     // USER SHORTCUTS
@@ -187,9 +190,6 @@ const biggerButtonOnlyOnMobile = document.getElementsByClassName("biggerButtonOn
 const notOnMobile       = document.getElementsByClassName("notOnMobile");
 const buttonSizeSmall   = document.getElementsByClassName("buttonSizeSmall");
 const buttonSizeBig     = document.getElementsByClassName("buttonSizeBig");
-<!-- removed but you can still add it in the header if you want, it will contain the number of cloze still hidden
-	const numbIndi          = document.getElementById("numberIndicator");
--->
 const hintLettFieldUp   = document.getElementById("hintLettUp");
 const hintLettFieldDown = document.getElementById("hintLettDown");
 const debugFieldBack    = document.getElementsByClassName("debugFieldBack");
@@ -292,10 +292,10 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
         notOnMobile[index].style.color     = "grey";
         notOnMobile[index].style.fontStyle = "bold";
     }
-    if (DisableHintLettFieldDow == "T") {
-        hintLettFieldDown.style.display      = "none"; 
-    };
 }
+if (DisableHintLettFieldDow == "T") {
+    hintLettFieldDown.style.display      = "none"; 
+};
 
 // don't show the buttons if there is only one cloze
 let hideButtons="F"; 
@@ -477,7 +477,7 @@ var revealOneVar = function() {
                         item.style.textIndent      = "0%";
                         var imgs                   = item.getElementsByTagName("img");
                         for(var i = 0; i < imgs.length; i++){ 
-                            if (hideImagesFully == "T") { imgs[i].style.display = "inline-block"; }
+                            if (hideImagesFully == "T") { imgs[i].style.display = "inline"; }
                             else { imgs[i].style.visibility = "visible"; };
                             if (isOnMobileBack == "T") {
                                 imgs[i].style.height = "unset";
@@ -564,7 +564,7 @@ const revealOneConst = function() {
                         item.style.textIndent      = "0%";
                         var imgs                   = item.getElementsByTagName("img");
                         for(var i = 0; i < imgs.length; i++){ 
-                            if (hideImagesFully == "T") { imgs[i].style.display = "inline-block"; }
+                            if (hideImagesFully == "T") { imgs[i].style.display = "inline"; }
                             else { imgs[i].style.visibility = "visible"; };
                             if (isOnMobileBack == "T") {
                                 imgs[i].style.height = "unset";
@@ -739,4 +739,11 @@ resetHintLettConst();
 // finally shows the card
 [...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack;
 
+//} catch(e) {	debugFieldBack[0].textContent += e }
+} catch(e) {	alert(e) }
 </script>
+
+
+
+
+

@@ -1,13 +1,9 @@
-/* clozolkor : */
-
 .card { font-family: robot ; font-size: 18px; #font-style:italic; #text-decoration:underline; text-align: left; color: black; background-color: white;  word-wrap: break-word;}
     .nightmode .card { font-family:robot }
 
-.cloze { font-weight: none; color: grey !important; #text-decoration:underline; display:inline; }
+.cloze { font-weight: none; color: grey !important; #text-decoration:underline; display:inline;  }
     .nightMode .cloze { color: pink !important; }
 
-.extra { font-size: 18px ; text-align: center ;}
-    .nightmode .extra { font-size: 18px ; text-align: center ; }
 .grey { color: grey; } 
     .nightmode .grey { color: beige !important; } 
 .red { color:red;}
@@ -21,11 +17,13 @@
 .headerField { color:black !important ; font-style:bold ;}
     .nightMode .headerField { color:white !important ; font-style:bold}
 
+
 .notOnMobile { color:grey; font-weight:bold; }
     .mobile .notOnMobile { display : none ;}
 .hiddenThings {display : none;}
 .smallFontHeader { font-size : 12px } 
-
+.tagsContainer {display:none}
+	.mobile .tagsContainer {display:flex}
 
 /* if you want to edit clozolkor's hints or something, it had to be handled via js so the related lines will be found in the front and back sections */
 
