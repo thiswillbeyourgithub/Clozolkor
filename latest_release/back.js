@@ -183,6 +183,9 @@ let wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", "."
     // VARIABLES ASSIGNMENT
 let c                   = 0; // index of cloze
 let n                   = 0; // index of the character of the letter used of hints
+n = null ; n = undefined; c = null ; c = undefined; c = 0 ; n = 0 ; // this is a trial to make sure c and n are indeed reset across cards
+
+
 var cloze_color         = window.getComputedStyle(clozes[0]).color;
 var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
 if (typeof cloze_bg_color == 'undefined') { let cloze_bg_color = "white"}; // not sure it works
