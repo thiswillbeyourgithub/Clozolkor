@@ -24,6 +24,7 @@ Basically, you create your cards just like regular clozes but using this templat
 * buttons, handy for mobile (one to reveal one cloze, one to reset, one to show everything, one to show a character hint)
 * automatically scroll to the next cloze if it is cloze to the edge of the frame
 * **more to come (see todo below), this clozing system is the basis of my workflow, but I don't have that much time to code.**
+* **Up to date** tested successfully on anki 2.1.49
 
 #### demo gifs 
 <!--
@@ -57,7 +58,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 
 * The .js extension of the template files is there only to help with syntax highlighting while editing the files, it's more accurately html containing `<script>` parts.
 
-* I try to stay on the latest **stable** anki version (currently 2.1.44). I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macOS or iOS, and am counting on your feedbacks for this.
+* I try to stay on the latest **stable** anki version (currently 2.1.44). I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macOS or iOS, and am counting on your feedbacks for this. **I had the opportunity to test it on 2.1.49 and it works fine.**.
 
 * The shortcuts and many more things can be edited in the template, inside the script.
 
