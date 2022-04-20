@@ -166,14 +166,14 @@ let hiddenClozeWidth    = "1px"; // default : "1%", can be in pixel "1px", if ve
 let hiddenClozeHeight   = "16px"; // default : "15px"
 let smallButtonSize     = "20px"; // default : "20px"
 let largeButtonSize     = "25px"; // default : "15px"
-var enableTagsContainerBack = "F"; // default : "T"
-var enableDecksContainerBack = "F"; // default : "T"
+var enableTagsContainerBack = "T"; // default : "T"
+var enableDecksContainerBack = "T"; // default : "T"
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
-let DisableHintLettFieldDow = "T"; // default : "F", disables the secondary hint letter field
+let DisableHintLettFieldDow = "F"; // default : "F", disables the secondary hint letter field
 
 
     // USER SHORTCUTS
-let shortcutToReveal   = ['']; // default ['w', 'c']
+let shortcutToReveal   = ['w', 'n']; // default ['w', 'n']
 let shortcutToHintLett = [';','c'];
 let shortcutToHintWord = [',','x'];
 let shortcutToShow5    = [''];

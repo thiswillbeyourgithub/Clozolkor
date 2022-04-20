@@ -90,8 +90,8 @@
 	// USER SETTINGS
 
 var autoFlip = "T"; // F = autoflip if there are no hints
-var enableTagsContainerFront = "F"; // default : "T"
-var enableDecksContainerFront = "F"; // default : "T"
+var enableTagsContainerFront = "T"; // default : "T"
+var enableDecksContainerFront = "T"; // default : "T"
 var tagsAndDeckFontSize     = "8px"; // default : "8px"
 var qFade = 0;
 var aFade = 0;
