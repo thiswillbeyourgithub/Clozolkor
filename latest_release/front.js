@@ -43,7 +43,9 @@
 <!-- the next two lines are used to display the card using Sans forgetica if it's harder, at least on the desktop app. On ankidroid this is done below. They need to encompass the whole cloze -->
 <div class="{{Tags}}">
     <span class="ease{{info-Factor:}}">
-        {{cloze:Body}}
+         <div style="text-indent:0%">
+                  {{cloze:Body}}
+         </div>
         {{#Hint}}
         <hr id=answer><br><br>
         <span class=extra>
@@ -268,4 +270,3 @@ if ( isOnMobileFront == "T" ) {
 [...document.querySelectorAll("*")][0].style.visibility = defaultVisiFront;
 }
 </script>
-
