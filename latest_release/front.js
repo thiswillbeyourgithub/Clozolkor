@@ -99,8 +99,12 @@ var aFade = 0;
 //###########################################
   // INIT + VARIABLES ASSIGNMENT
 
-var n = 0; // tries to reset the variables used in the back as 
-var c = 0; // they sometimes are not reassigned
+//var n = 0; // tries to reset the variables used in the back as
+//var c = 0; // they sometimes are not reassigned
+try { // tries to remove those variables set in the back section that screw everything up
+n = null ; n = undefined;
+c = null ; c = undefined;
+} catch(e) {alert(e);};
 
 var clozes                    = [...document.querySelectorAll(".cloze")];
 if (clozes.length !== 0) { // continue only if clozes are found
