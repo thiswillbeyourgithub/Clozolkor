@@ -51,7 +51,7 @@
 </span>
 
 <!-- the next two spans are used to display the card using Sans Forgetica if it's harder, at least on the desktop app. On ankidroid this is done below. They need to encompass the whole cloze -->
-<span class="{{{Tags}}">
+<span class="{{Tags}}">
     <span class="ease{{info-Factor:}}">
         <!-- cloze body -->
         {{cloze:Body}}
