@@ -120,7 +120,7 @@
 //    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 //    GNU General Public License for more details.
 //
-//    You should have received a copy of the GNU General Public License
+//    You should have received a copyof the GNU General Public License
 //    along with Clozolkor.  If not, see <https://www.gnu.org/licenses/>.
 //    */ /*
 //    for more information or to get the latest version go to :
