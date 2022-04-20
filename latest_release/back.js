@@ -709,7 +709,6 @@ var resetVariableCVar = function() {
        inc=inc+1;
        if (c < clozes.length) {
            if (clozes[c].style.backgroundColor == cloze_bg_color) { //if cloze is not hidden, see next cloze
-                inc=inc+1;
                 c=c+1;
            } else { inc = -1;} // exits the loop
         } else { inc=-1 ; c=clozes.length }
@@ -723,7 +722,6 @@ const resetVariableCConst = function() {
        inc=inc+1;
        if (c < clozes.length) {
            if (clozes[c].style.backgroundColor == cloze_bg_color) { //if cloze is not hidden, see next cloze
-                inc=inc+1;
                 c=c+1;
            } else { inc = -1;} // exits the loop
         } else { inc=-1 ; c=clozes.length }
@@ -745,8 +743,3 @@ resetHintLettConst();
 //} catch(e) {	debugFieldBack[0].textContent += e }
 } catch(e) {	alert(e) }
 </script>
-
-
-
-
-
