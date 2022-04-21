@@ -493,7 +493,7 @@ var revealOneVar = function() {
                         return true;
                     }
         });
-    resetVariableCConst();
+    resetVariableCVar();
     resetHintLettVar();
     if (c == clozes.length) {
         var openWithButtonVar = document.getElementsByClassName("openWithButton")
