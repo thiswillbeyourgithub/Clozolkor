@@ -422,6 +422,7 @@ clozes.slice(0).forEach((item) => {
         };
         resetHintLettConst();
         resetVariableCConst();
+        resetVariableCVar();
         if (c == clozes.length) {
             var openWithButtonConst = document.getElementsByClassName("openWithButton")
                 for(var i=0; i<openWithButtonConst.length; i++) {
