@@ -43,9 +43,11 @@
 <!-- the next two lines are used to display the card using Sans forgetica if it's harder, at least on the desktop app. On ankidroid this is done below. They need to encompass the whole cloze -->
 <div class="{{Tags}}">
     <span class="ease{{info-Factor:}}">
-         <div style="text-indent:0%">
-                  {{cloze:Body}}
-         </div>
+        <span style="display:flex ;  flex-direction:row ; flex-wrap:nowrap">
+            <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
+            <span style="flex-grow:999 ; flex-wrap:wrap">{{cloze:Body}}</span>
+            <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
+        </span>
         {{#Hint}}
         <hr id=answer><br><br>
         <span class=extra>
@@ -93,6 +95,7 @@ var autoFlip = "T"; // F = autoflip if there are no hints
 var enableTagsContainerFront = "T"; // default : "T"
 var enableDecksContainerFront = "T"; // default : "T"
 var tagsAndDeckFontSize     = "8px"; // default : "8px"
+var indentedClozeSize = "10"; // default : 10
 var qFade = 0;
 var aFade = 0;
 
@@ -120,6 +123,7 @@ const notOnMobile               = document.getElementsByClassName("notOnMobile")
 const buttonSizeSmall           = document.getElementsByClassName("buttonSizeSmall");
 const buttonSizeBig             = document.getElementsByClassName("buttonSizeBig");
 const debugFieldFront           = document.getElementsByClassName("debugFieldFront");
+const indentclozeElem           = document.getElementsByClassName("indentedClozeBox");
 // to debug, put the following line where you want :
 //	debugFieldFront[0].textContent += "code run until point A";
 // another better way is to use alert("some string"); to know if the code is running a specific part or not, or window.alert()
@@ -267,6 +271,13 @@ if ( isOnMobileFront == "T" ) {
     for (index = 0, len = notOnMobile.length ; index < len ; index++) {
         notOnMobile[index].style.color     = "grey";
         notOnMobile[index].style.fontStyle = "bold";
+    }
+    for (index = 0, len = indentclozeElem.length ; index < len ; index++) {
+        indentclozeElem[index].textContent = "";
+        indentclozeElem[index].innerHTML = "";
+        for (i = 0, len2 = indentedClozeSize ; i < len2 ; i++) {
+            indentclozeElem[index].innerHTML += "&nbsp;";
+        }
     }
 }
 }

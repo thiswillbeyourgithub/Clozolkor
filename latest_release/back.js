@@ -53,10 +53,11 @@
 <!-- the next two spans are used to display the card using Sans Forgetica if it's harder, at least on the desktop app. On ankidroid this is done below. They need to encompass the whole cloze -->
 <span class="{{Tags}}">
     <span class="ease{{info-Factor:}}">
-        <div style="text-indent:0%">
-                 <!-- cloze body -->
-                 {{cloze:Body}}
-        </div>
+        <span style="display:flex ;  flex-direction:row ; flex-wrap:nowrap">
+            <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
+            <span style="flex-grow:999 ; flex-wrap:wrap">{{cloze:Body}}</span>
+            <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
+        </span>
     </span>
 </span>
 
@@ -170,6 +171,7 @@ var enableTagsContainerBack = "T"; // default : "T"
 var enableDecksContainerBack = "T"; // default : "T"
 let tagsAndDeckFontSize     = "8px"; // default : "8px"
 let DisableHintLettFieldDow = "F"; // default : "F", disables the secondary hint letter field
+let indentedClozeSize = "15"; // default : 10
 
 
     // USER SHORTCUTS
@@ -195,6 +197,7 @@ const biggerButtonOnlyOnMobile = document.getElementsByClassName("biggerButtonOn
 const notOnMobile       = document.getElementsByClassName("notOnMobile");
 const buttonSizeSmall   = document.getElementsByClassName("buttonSizeSmall");
 const buttonSizeBig     = document.getElementsByClassName("buttonSizeBig");
+const indentclozeElem   = document.getElementsByClassName("indentedClozeBox");
 const hintLettFieldUp   = document.getElementById("hintLettUp");
 const hintLettFieldDown = document.getElementById("hintLettDown");
 const debugFieldBack    = document.getElementsByClassName("debugFieldBack");
@@ -296,6 +299,13 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
     for (index = 0, len = notOnMobile.length ; index < len ; index++) {
         notOnMobile[index].style.color     = "grey";
         notOnMobile[index].style.fontStyle = "bold";
+    }
+    for (index = 0, len = indentclozeElem.length ; index < len ; index++) {
+        indentclozeElem[index].textContent = "";
+        indentclozeElem[index].innerHTML = "";
+        for (i = 0, len2 = indentedClozeSize ; i < len2 ; i++) {
+            indentclozeElem[index].innerHTML += "&nbsp;";
+        }
     }
 }
 if (DisableHintLettFieldDow == "T") {
