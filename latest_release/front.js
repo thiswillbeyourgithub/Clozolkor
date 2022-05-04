@@ -102,7 +102,7 @@ var aFade = 0;
 //###########################################
   // INIT + VARIABLES ASSIGNMENT
 
-//var n = 0; // tries to reset the variables used in the back as
+//var n = 0; // tries to reset the variables used in the back as 
 //var c = 0; // they sometimes are not reassigned
 try { // tries to remove those variables set in the back section that screw everything up
 n = null ; n = undefined;
@@ -128,10 +128,10 @@ const indentclozeElem           = document.getElementsByClassName("indentedCloze
 //	debugFieldFront[0].textContent += "code run until point A";
 // another better way is to use alert("some string"); to know if the code is running a specific part or not, or window.alert()
 
-const addEaseHereFront          = document.getElementsByClassName("addEaseHereFront") ; 
-const addStateHereFront         = document.getElementsByClassName("addStateHereFront") ; 
-const tagsContainer     = document.getElementById("tagsContainer")
-const decksContainer    = document.getElementById("decksContainer")
+const addEaseHereFront          = document.getElementsByClassName("addEaseHereFront");
+const addStateHereFront         = document.getElementsByClassName("addStateHereFront");
+const tagsContainer             = document.getElementById("tagsContainer");
+const decksContainer            = document.getElementById("decksContainer");
 
 // ###########################################
     // if there are no hints : auto flip the card

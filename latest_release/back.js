@@ -80,7 +80,7 @@
     <span style="font-size:30px; text-align:center;">
         <span class=openWithButton>
             {{hint:Hint}}
-					  <hr size="1" noshade width="33%" align="left">
+            <hr size="1" noshade width="33%" align="left">
         </span>
     </span>
 {{/Hint}}
@@ -88,7 +88,7 @@
     <span style="font-size:30px;">
         <span class=openWithButton>
             {{hint:More}}
-						<hr size="1" noshade width="33%" align="left">
+            <hr size="1" noshade width="33%" align="left">
         </span>
     </span>
 {{/More}}
@@ -202,8 +202,8 @@ const hintLettFieldUp   = document.getElementById("hintLettUp");
 const hintLettFieldDown = document.getElementById("hintLettDown");
 const debugFieldBack    = document.getElementsByClassName("debugFieldBack");
 const addStateHereBack  = document.getElementById("addStateHereBack") ; 
-const tagsContainer     = document.getElementById("tagsContainer")
-const decksContainer    = document.getElementById("decksContainer")
+const tagsContainer     = document.getElementById("tagsContainer");
+const decksContainer    = document.getElementById("decksContainer");
 
     // STYLING
 hintLettFieldUp.style.fontStyle         = "italic";
