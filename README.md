@@ -12,6 +12,7 @@ Basically, you create your cards just like regular clozes but using this templat
 ## Features 
 * **complete** : multiple shortcuts (show, hide, hint, etc), it can **show hint of what's hidden underneath a cloze, letter by letter or word by word**. Don't cheat though.
 * **customizable** : lots of settings to suit your special needs
+* **cross platform** : supports all computer OS's, ankidroid, and maybe iOS too but couldn't test it on my own.
 * **compatibility** : it supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one. Basically like regular cloze so you can just convert all your cloze to this template and it will work the same.
 * **fast** : autoflip to answer sided is the cloze doesn't contain hints
 * **memory boosting?** : if your card's ease drop too low, the card will switch to the font [Sans Forgetica](https://en.wikipedia.org/wiki/Sans_forgetica). No idea if it works but interesting to try.
