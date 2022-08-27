@@ -52,7 +52,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 * maybe add a way to show blurred text as a hint? Anki seems to support it. text.filter = "blur(3px)" at least. It seems to work on images too.
 
 #### Known issues
-* Sometimes when I edit a card while during a review session the card can appear twice in a row. I don't know what causes it and am not even certain that Clozolkor is the cause but  I just go back to the deck list then back to the review (shortcuts : Dss). It doesn't really cause any issue and the first review is indeed accounted for (provided you didn't answer to the second one, in which case I have no idea). Note that when this happens the cloze index and hint index are not reset so the {{hint::}} fields can open at the wrong time etc. But no real issue.
+* None?
 
 ## A few important notes, please read
 * I have a limited (but increasing) understanding of anki coding, don't expect anything much from me, but PR's are welcome and don't hesitate to open an issue if you want anything. Also, I use Linux and ankidroid, I can't test on other devices. Also, I strongly recommend using the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954), the author very nicely added html insertion, this way for example typing `::c::` is replaced by `}}{{c1::` which makes it a ton faster to use this addon. Same goes for `::c2::` etc. You can see a list of my suggested macros [here](https://github.com/jefdongus/insert-symbols-anki-addon/issues/13). I hope something will come out of [this thread](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2).
@@ -63,7 +63,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 
 * The shortcuts and many more things can be edited in the template, inside the script.
 
-* If you have a very slow device, especially on mobile, turning off nightmode seems to speed up the card loading
+* If you have a very slow device, especially on mobile, turning nightmode off seems to speed up the card loading
 
 * If you want to allow clozolkor to automatically use the Sans Forgetica font if the ease is low or if the card is a leech, you have to install the font yourself on all your devices. Otherwise clozolkor works fine but won't use this font.
 
