@@ -141,7 +141,7 @@
 try {
 
 // only proceed if card is not empty :
-const clozes            = [...document.querySelectorAll(".cloze")]; 
+var clozes            = [...document.querySelectorAll(".cloze")];
 if (clozes.length !== 0) {
 
 // hides the card before it is fully loaded, otherwise you can catch a glimpse of images on slow devices
@@ -157,36 +157,36 @@ var defaultDisplayBack = [...document.querySelectorAll(".card")][0].style.displa
 
 var qFade = 0; // set a delay to appear and flip smoothly
 var aFade = 0;
-let enableHiding        = "T"; // set to "F" to disable hiding
-let enableAutoScroll    = "T" ; // set to "F" to disable autoscroll
-let autoShowFirstIfOnly = "F" ; //set to "T" to show directly the first one and hide the buttons
-let hideImagesFully     = "T"; // if "F", you can use image size as a hint
-let forceMobileBehavior = "F";  // mainly used to debug
-let roundedButtons      = "F" ; // "F" to square buttons
-let hiddenClozeWidth    = "1px"; // default : "1%", can be in pixel "1px", if very thin it allows to have cloze that touch each other without you being able to count them short of openning the first one
-let hiddenClozeHeight   = "16px"; // default : "15px"
-let smallButtonSize     = "20px"; // default : "20px"
-let largeButtonSize     = "25px"; // default : "15px"
-var enableTagsContainerBack = "T"; // default : "T"
-var enableDecksContainerBack = "T"; // default : "T"
-let tagsAndDeckFontSize     = "8px"; // default : "8px"
-let DisableHintLettFieldDow = "F"; // default : "F", disables the secondary hint letter field
-let indentedClozeSize = "15"; // default : 10
+var enableHiding        = "T"; // set to "F" to disable hiding
+var enableAutoScroll    = "T" ; // set to "F" to disable autoscroll
+var autoShowFirstIfOnly = "F" ; //set to "T" to show directly the first one and hide the buttons
+var hideImagesFully     = "T"; // if "F", you can use image size as a hint
+var forceMobileBehavior = "F";  // mainly used to debug
+var roundedButtons      = "F" ; // "F" to square buttons
+var hiddenClozeWidth    = "1px"; // default : "1%", can be in pixel "1px", if very thin it allows to have cloze that touch each other without you being able to count them short of openning the first one
+var hiddenClozeHeight   = "16px"; // default : "15px"
+var smallButtonSize     = "20px"; // default : "20px"
+var largeButtonSize     = "25px"; // default : "15px"
+var enableTagsContainerBack = "F"; // default : "T"
+var enableDecksContainerBack = "F"; // default : "T"
+var tagsAndDeckFontSize     = "8px"; // default : "8px"
+var DisableHintLettFieldDow = "F"; // default : "F", disables the secondary hint letter field
+var indentedClozeSize = "25"; // default : 10
 
 
     // USER SHORTCUTS
-let shortcutToReveal   = ['w', 'n']; // default ['w', 'n']
-let shortcutToHintLett = [';','c'];
-let shortcutToHintWord = [',','x'];
-let shortcutToShow5    = [''];
-let shortcutToShowAll  = ['.'];
-let shortcutToReset    = [':', 'q'];
-let wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!","?"] ; // when hinting a whole word
-//let wordSeparators     = [" ", "=", "~","'", ",", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", ";", ":","\"", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","!","?"] ; // when hinting a whole word
+var shortcutToReveal   = ['w', 'n']; // default ['w', 'n']
+var shortcutToHintLett = [';','c'];
+var shortcutToHintWord = [',','x'];
+var shortcutToShow5    = [''];
+var shortcutToShowAll  = ['.'];
+var shortcutToReset    = [':', 'q'];
+var wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!","?"] ; // when hinting a whole word
+//var wordSeparators     = [" ", "=", "~","'", ",", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", ";", ":","\"", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","!","?"] ; // when hinting a whole word
 
     // VARIABLES ASSIGNMENT
-let c                   = 0; // index of cloze
-let n                   = 0; // index of the character of the letter used of hints
+var c                   = 0; // index of cloze
+var n                   = 0; // index of the character of the letter used of hints
 n = null ; n = undefined; c = null ; c = undefined; c = 0 ; n = 0 ; // this is a trial to make sure c and n are indeed reset across cards
 
 
@@ -313,9 +313,9 @@ if (DisableHintLettFieldDow == "T") {
 };
 
 // don't show the buttons if there is only one cloze
-let hideButtons="F"; 
+var hideButtons="F";
 if(clozes.length <= 1 && autoShowFirstIfOnly == "T") {
-   let hideButtons = "T";
+   var hideButtons = "T";
    enableHiding = "F";
 }
 if(hideButtons == "T") {
@@ -430,13 +430,12 @@ clozes.slice(0).forEach((item) => {
                 imgs[i].style.width  = "unset";
             };
         };
-        resetHintLettConst();
-        resetVariableCConst();
-        resetVariableCVar();
+        var c = resetVariableCVar();
+        var n = resetHintLettVar();
         if (c == clozes.length) {
-            var openWithButtonConst = document.getElementsByClassName("openWithButton")
-                for(var i=0; i<openWithButtonConst.length; i++) {
-                        openWithButtonConst[i].querySelector('*').click()
+            var openWithButton = document.getElementsByClassName("openWithButton")
+                for(var i=0; i<openWithButton.length; i++) {
+                        openWithButton[i].querySelector('*').click()
             };
             hintLettFieldUp.style.opacity = 0;
             hintLettFieldDown.style.opacity = 0;
@@ -444,7 +443,7 @@ clozes.slice(0).forEach((item) => {
     });
 });
 
-// "is included in" function, from stack overflow, no shame
+// "is included in" function, from stack overflow
 function include(arr, obj) {
   for (var i = 0; i < arr.length; i++) {
     if (arr[i] == obj) return true;
@@ -452,14 +451,19 @@ function include(arr, obj) {
 }
 
 // keystroke detector
-document.addEventListener("keydown", (event) => {
-    if (include(shortcutToReveal, event.key)) { revealOneConst(); };
-    if (include(shortcutToReset, event.key)) { resetClozesConst(); };
-    if (include(shortcutToShowAll, event.key)) { revealAllConst(); };
-    if (include(shortcutToShow5, event.key)) { for(let i = 0 ; i < 5;i++) {revealOneConst();}};
-    if (include(shortcutToHintLett, event.key)) { revealHintLettConst(); };
-    if (include(shortcutToHintWord, event.key)) { revealHintWordConst(); };
-});
+var keystrokeDispatcher = function(event) {
+    if (globalThis._pressed == true) {return};
+    if (include(shortcutToReveal, event.key)) { revealOneVar(); };
+    if (include(shortcutToReset, event.key)) { resetClozesVar(); };
+    if (include(shortcutToShowAll, event.key)) { revealAllVar(); };
+    if (include(shortcutToShow5, event.key)) { for(let i = 0 ; i < 5;i++) {revealOneVar();}};
+    if (include(shortcutToHintLett, event.key)) { revealHintLettVar(); };
+    if (include(shortcutToHintWord, event.key)) { revealHintWordVar(); };
+    globalThis.removeEventListener("keydown", keystrokeDispatcher);
+    globalThis.addEventListener("keydown", keystrokeDispatcher, {once: true});
+};
+// add event listener only once
+globalThis.addEventListener("keydown", keystrokeDispatcher, {once: true});
 
 // autoscroll to the cloze
 // https://old.reddit.com/r/Anki/comments/acukqg/how_to_autoscroll_to_cloze_deletion_part_in_long/
@@ -478,8 +482,6 @@ const autoScrollToCloze = function(item) {
  
 
 // cloze related functions
-// super ugly code but apparently only var works with the html buttons while const only works with the keystrokes... So I duplicated all function to make it work
-// code for html buttons :
 var revealOneVar = function() {
     clozes.slice(0).some((item) => {   
                     if (item.style.backgroundColor != cloze_bg_color) {
@@ -503,9 +505,9 @@ var revealOneVar = function() {
                         autoScrollToCloze(item);
                         return true;
                     }
-        });
-    resetVariableCVar();
-    resetHintLettVar();
+    });
+    var c = resetVariableCVar();
+    var n = resetHintLettVar();
     if (c == clozes.length) {
         var openWithButtonVar = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButtonVar.length; i++) {
@@ -531,8 +533,8 @@ var resetClozesVar = function() {
             };
     });
     window.scroll(0,0);
-    c = 0;
-    resetHintLettVar();
+    var c = 0;
+    var n = resetHintLettVar();
 };
 var revealAllVar = function() {
     clozes.slice(0).forEach((item) => {
@@ -554,99 +556,12 @@ var revealAllVar = function() {
                 };
             };
     });
-    resetHintLettVar();
-    c = clozes.length;
+    var n = resetHintLettVar();
+    var c = clozes.length;
     if (c == clozes.length) {
         var openWithButtonVar = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButtonVar.length; i++) {
                 openWithButtonVar[i].querySelector('*').click()
-        };
-        hintLettFieldUp.style.opacity = 0;
-        hintLettFieldDown.style.opacity = 0;
-    }
-};
-
-// code for keystrokes
-const revealOneConst = function() {
-    clozes.slice(0).some((item) => {   
-                    if (item.style.backgroundColor != cloze_bg_color) {
-                        item.style.backgroundColor = cloze_bg_color;
-                        item.style.width           = "";
-                        item.style.height          = "";
-                        item.style.overflow        = "";
-                        item.style.textOverflow    = "";
-                        item.style.whiteSpace      = "";
-                        item.style.display         = "inline";
-                        item.style.textIndent      = "0%";
-                        var imgs                   = item.getElementsByTagName("img");
-                        for(var i = 0; i < imgs.length; i++){ 
-                            if (hideImagesFully == "T") { imgs[i].style.display = "inline"; }
-                            else { imgs[i].style.visibility = "visible"; };
-                            if (isOnMobileBack == "T") {
-                                imgs[i].style.height = "unset";
-                                imgs[i].style.width  = "unset";
-                            };
-                        };
-                        autoScrollToCloze(item);
-                        return true;
-                    }
-     });
-    resetVariableCConst();
-    resetHintLettConst();
-    if (c == clozes.length) {
-        const openWithButtonConst = document.getElementsByClassName("openWithButton")
-        for(var i=0; i<openWithButtonConst.length; i++) {
-                openWithButtonConst[i].querySelector('*').click()
-        };
-        hintLettFieldUp.style.opacity = 0;
-        hintLettFieldDown.style.opacity = 0;
-    }
-};
-const resetClozesConst = function() {
-    clozes.slice(0).forEach((item) => {
-            item.style.backgroundColor = cloze_color;
-            item.style.width           = hiddenClozeWidth;
-            item.style.height          = hiddenClozeHeight;
-            item.style.overflow        = "hidden";
-            item.style.textOverflow    = "ellipsis";
-            item.style.whiteSpace      = "nowrap";
-            item.style.display         = "inline-block";
-            var imgs                   = item.getElementsByTagName("img");
-            for (var i = 0; i < imgs.length; i++) {
-                 if (hideImagesFully == "T") { imgs[i].style.display = "none"; }
-                 else { imgs[i].style.visibility = "hidden"; };
-            };
-    });
-    window.scroll(0,0);
-    c = 0;
-    resetHintLettConst();
-};
-const revealAllConst = function() {
-    clozes.slice(0).forEach((item) => {
-            item.style.backgroundColor = cloze_bg_color;
-            item.style.width           = "";
-            item.style.height          = "";
-            item.style.overflow        = "";
-            item.style.textOverflow    = "";
-            item.style.whiteSpace      = "";
-            item.style.display         = "inline";
-            item.style.textIndent      = "0%";
-            var imgs                   = item.getElementsByTagName("img");
-            for (var i = 0; i < imgs.length; i++) {
-                if (hideImagesFully == "T") { imgs[i].style.display = "inline-block"; }
-                else { imgs[i].style.visibility = "visible"; };
-                if (isOnMobileBack == "T") {
-                    imgs[i].style.height = "unset";
-                    imgs[i].style.width  = "unset";
-                };
-            };
-    });
-    resetHintLettConst();
-    c = clozes.length;
-    if (c == clozes.length) {
-        const openWithButtonConst = document.getElementsByClassName("openWithButton")
-        for(var i=0; i<openWithButtonConst.length; i++) {
-                openWithButtonConst[i].querySelector('*').click()
         };
         hintLettFieldUp.style.opacity = 0;
         hintLettFieldDown.style.opacity = 0;
@@ -669,34 +584,11 @@ var revealHintLettVar = function() {
         hintLettFieldDown.textContent = hintLettFieldUp.textContent ;
     }
 };
-const revealHintLettConst = function() { 
-    if ( c < clozes.length) {
-        if (clozes[c].style.backgroundColor == cloze_color) {
-            hintLettFieldUp.textContent = hintLettFieldUp.textContent.substring(0,hintLettFieldUp.textContent.length-1);
-            hintLettFieldUp.textContent += clozes[c].textContent.substring(n,n+1)+"…";
-            n=n+1;
-            if (n >= clozes[c].textContent.length) { 
-                n = 0;
-                revealOneConst();
-            };
-        } 
-        else { c=c+1 ; revealHintLettConst()};
-        hintLettFieldDown.textContent = hintLettFieldUp.textContent ;
-    }
-};
 var revealHintWordVar = function() {
     revealHintLettVar();
     var counting = 0;
     while ( (!(include(wordSeparators,hintLettFieldUp.textContent.charAt(hintLettFieldUp.textContent.length-2)))) && n != 0 && counting <= 99) {
         revealHintLettVar();
-        counting = counting +1;
-    };
-};
-const revealHintWordConst = function() {
-    revealHintLettConst();
-    var counting = 0;
-    while ( (!(include(wordSeparators,hintLettFieldUp.textContent.charAt(hintLettFieldUp.textContent.length-2)))) && n != 0 && counting <= 99) {
-        revealHintLettConst();
         counting = counting +1;
     };
 };
@@ -706,18 +598,12 @@ var resetHintLettVar = function() {
     hintLettFieldDown.style.opacity = 1;
     hintLettFieldUp.textContent   = '…' ; 
     hintLettFieldDown.textContent = hintLettFieldUp.textContent ;
-};
-const resetHintLettConst = function() {
-    n = 0;
-    hintLettFieldUp.style.opacity = 1;
-    hintLettFieldDown.style.opacity = 1;
-    hintLettFieldUp.textContent   = '…' ;
-    hintLettFieldDown.textContent = hintLettFieldUp.textContent ;
+    return n;
 };
 var resetVariableCVar = function() {
    // resets the cloze counter to the minimum cloze number that is still hidden
-   c=0 ; 
-   inc = 0; // just a counter
+   var c = 0 ;
+   let inc = 0; // just a counter
    while (inc <100 && inc !=-1) {
        inc=inc+1;
        if (c < clozes.length) {
@@ -725,34 +611,21 @@ var resetVariableCVar = function() {
                 c=c+1;
            } else { inc = -1;} // exits the loop
         } else { inc=-1 ; c=clozes.length }
-   }
-};
-const resetVariableCConst = function() {
-   // resets the cloze counter to the minimum cloze number that is still hidden
-   c=0 ; 
-   inc = 0; // just a counter
-   while (inc <100 && inc !=-1) {
-       inc=inc+1;
-       if (c < clozes.length) {
-           if (clozes[c].style.backgroundColor == cloze_bg_color) { //if cloze is not hidden, see next cloze
-                c=c+1;
-           } else { inc = -1;} // exits the loop
-        } else { inc=-1 ; c=clozes.length }
-   }
+   };
+   return c;
+
 };
 
 // ###########################################
 // code to run after all that 
 
 if (enableHiding == "F") { revealAllVar();};
-resetHintLettVar();
-resetHintLettConst();
+var n = resetHintLettVar();
 
-}; // end of  if clozes found
+}; // end of "if clozes found"
 
 // finally shows the card
 [...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack;
 
-//} catch(e) {	debugFieldBack[0].textContent += e }
-} catch(e) {	alert(e) }
+} catch(e) {	debugFieldBack[0].textContent += e ; alert(e) }
 </script>
