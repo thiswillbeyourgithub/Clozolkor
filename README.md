@@ -45,7 +45,6 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 ![card](card_pic.jpg)
 
 ## TODO / Planned features / known issues (some are really simple, don't hesitate to help!)
-* add a shortcut that reveals the cloze but also adds a blur effect to it. Repeating the keypress decreases gradually the blur to help you remember the card. Pressing the cloze reveal shortcut would cancel the blur effect.
 * maybe hide front card very early and show it only if necessary
 * get rid of the hint fields by finding a way to have the letter and word hints appear just before the actual (still hidden) cloze, then disappear while opening the cloze.
 * split the script into multiple sub scripts. That would help maintenance and "sharability" to have a "decks and tags section", "cloze section", etc. It would make it really easy to add parts to other template, for example adding the nice tag bar to the image occlusion template.
