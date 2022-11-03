@@ -16,6 +16,7 @@ Basically, you create your cards just like regular clozes but using this templat
 * **compatibility** : it supports multiple cloze : if you add several `c1` you can reveal them one by one but if you add `c2`, `c3` and so one anki will automatically add new cards that reveal `c2` one by one and `c3` one by one. Basically like regular cloze so you can just convert all your cloze to this template and it will work the same.
 * **fast** : autoflip to answer sided is the cloze doesn't contain hints
 * **memory enhancing?** : if your card's ease drop too low, the card will switch to the font [Sans Forgetica](https://en.wikipedia.org/wiki/Sans_forgetica). No idea if it works but interesting to try.
+* **With blur**: A shortcut allows to unblur gradually the cloze to hint you gradually.
 * **elegant** : shows the tags and decks on top in a nice and non-distracting way
 * **handy** : displays the ease and the state (learning, new, etc) on top (desktop) or in a little button box (mobile)
 * **non-bloating** : it's not an addon but just a regular javascript-enhanced note template!
