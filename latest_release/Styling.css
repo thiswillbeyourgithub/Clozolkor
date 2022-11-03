@@ -16,6 +16,9 @@
     .nightmode .orange { color:orange !important;}
 .headerField { color:black !important ; font-style:bold ;}
     .nightMode .headerField { color:white !important ; font-style:bold}
+.more_banner { background-color: rgb(0, 255, 0) !important; text-align: center}
+	.nightMode .more_banner { background-color: purple !important ; text-align: center !important}
+
 
 
 .notOnMobile { color:grey; font-weight:bold; }

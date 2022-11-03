@@ -30,11 +30,11 @@
 
 <span class="biggerButtonOnlyOnMobile">
     <button id=addStateHereBack class=buttonSizeSmall></button>
-    <button id="show_button" onclick="resetClozesVar();" class="buttonSizeSmall">Hide</button>
-    <button id="show_button" onclick="revealAllVar();" class="buttonSizeSmall">Show</button>
-    <button id="show_button" onclick="revealHintWordVar();" class="buttonSizeBig"> Word</button>
-    <button id="show_button" onclick="revealHintLettVar();" class="buttonSizeBig"> Letter</button>
-    <button id="show_button"  onclick="revealOneVar();" class="buttonSizeSmall"> Cloze</button>
+    <button id="show_button" onclick="resetClozes();" class="buttonSizeSmall">Hide</button>
+    <button id="show_button" onclick="revealAll();" class="buttonSizeSmall">Show</button>
+    <button id="show_button" onclick="revealHintWord();" class="buttonSizeBig"> Word</button>
+    <button id="show_button" onclick="revealHintLett();" class="buttonSizeBig"> Letter</button>
+    <button id="show_button"  onclick="revealOne();" class="buttonSizeSmall"> Cloze</button>
 </span>
 
 <!-- line that will be filled with the cloze hint-->
@@ -69,10 +69,10 @@
 <span id="hintLettDown"></span>
 
 <div class="biggerButtonOnlyOnMobile">
-    <button id="show_button" onclick="revealOneVar();" class="buttonSizeSmall">C</button> 
-    <button id="show_button" onclick="revealHintLettVar();" class="buttonSizeBig">L</button>
-    <button id="show_button" onclick="revealHintWordVar();" class="buttonSizeBig">W</button>
-<!--    <button id="show_button" onclick="revealOneVar();"   class="buttonSizeSmall">C</button>  -->
+    <button id="show_button" onclick="revealOne();" class="buttonSizeSmall">C</button>
+    <button id="show_button" onclick="revealHintLett();" class="buttonSizeBig">L</button>
+    <button id="show_button" onclick="revealHintWord();" class="buttonSizeBig">W</button>
+<!--    <button id="show_button" onclick="revealOne();"   class="buttonSizeSmall">C</button>  -->
 </div>
 
 
@@ -87,7 +87,9 @@
 {{#More}}
     <span style="font-size:30px;">
         <span class=openWithButton>
+						<div class="more_banner">
             {{hint:More}}
+						</div>
             <hr size="1" noshade width="33%" align="left">
         </span>
     </span>
@@ -181,6 +183,7 @@ var shortcutToHintWord = [',','x'];
 var shortcutToShow5    = [''];
 var shortcutToShowAll  = ['.'];
 var shortcutToReset    = [':', 'q'];
+var shortcutToBlur     = ['W', 'C'];
 var wordSeparators      = [" ", "=", "~", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!","?"] ; // when hinting a whole word
 //var wordSeparators     = [" ", "=", "~","'", ",", "/", "|", "(", ")", "+", "*", "-", ".", "<", ">", ";", ":","\"", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z","!","?"] ; // when hinting a whole word
 
@@ -408,6 +411,7 @@ clozes.slice(0).forEach((item) => {
     item.style.textOverflow    = "ellipsis";
     item.style.whiteSpace      = "nowrap";
     item.style.display         = "inline-block";
+    item.style.filter          = "blur(0px)";
     var imgs = item.getElementsByTagName("img");
     for (var i = 0; i < imgs.length; i++) {
          if (hideImagesFully == "T") { imgs[i].style.display = "none"; }
@@ -421,6 +425,7 @@ clozes.slice(0).forEach((item) => {
         item.style.textOverflow    = "";
         item.style.whiteSpace      = "";
         item.style.display         = "inline";
+        item.style.filter          = "blur(0px)";
         var imgs                   = item.getElementsByTagName("img");
         for (var i = 0; i < imgs.length; i++) {
             if (hideImagesFully == "T") { imgs[i].style.display = "inline-block"; }
@@ -453,12 +458,13 @@ function include(arr, obj) {
 // keystroke detector
 var keystrokeDispatcher = function(event) {
     if (globalThis._pressed == true) {return};
-    if (include(shortcutToReveal, event.key)) { revealOneVar(); };
-    if (include(shortcutToReset, event.key)) { resetClozesVar(); };
-    if (include(shortcutToShowAll, event.key)) { revealAllVar(); };
-    if (include(shortcutToShow5, event.key)) { for(let i = 0 ; i < 5;i++) {revealOneVar();}};
-    if (include(shortcutToHintLett, event.key)) { revealHintLettVar(); };
-    if (include(shortcutToHintWord, event.key)) { revealHintWordVar(); };
+    if (include(shortcutToReveal, event.key)) { revealOne(); };
+    if (include(shortcutToReset, event.key)) { resetClozes(); };
+    if (include(shortcutToShowAll, event.key)) { revealAll(); };
+    if (include(shortcutToShow5, event.key)) { for(let i = 0 ; i < 5;i++) {revealOne();}};
+    if (include(shortcutToHintLett, event.key)) { revealHintLett(); };
+    if (include(shortcutToHintWord, event.key)) { revealHintWord(); };
+    if (include(shortcutToBlur, event.key)) { revealAndBlur(); };
     globalThis.removeEventListener("keydown", keystrokeDispatcher);
     globalThis.addEventListener("keydown", keystrokeDispatcher, {once: true});
 };
@@ -482,9 +488,9 @@ const autoScrollToCloze = function(item) {
  
 
 // cloze related functions
-var revealOneVar = function() {
+var revealOne = function() {
     clozes.slice(0).some((item) => {   
-                    if (item.style.backgroundColor != cloze_bg_color) {
+                    if (item.style.backgroundColor != cloze_bg_color || item.style.filter != "blur(0px)") {
                         item.style.backgroundColor = cloze_bg_color;
                         item.style.width           = "";
                         item.style.height          = "";
@@ -493,6 +499,7 @@ var revealOneVar = function() {
                         item.style.whiteSpace      = "";
                         item.style.display         = "inline";
                         item.style.textIndent      = "0%";
+                        item.style.filter          = "blur(0px)";
                         var imgs                   = item.getElementsByTagName("img");
                         for(var i = 0; i < imgs.length; i++){ 
                             if (hideImagesFully == "T") { imgs[i].style.display = "inline"; }
@@ -517,7 +524,40 @@ var revealOneVar = function() {
         hintLettFieldDown.style.opacity = 0;
     }
 };
-var resetClozesVar = function() {
+var revealAndBlur = function() {
+    clozes.slice(0).some((item) => {
+                    if (item.style.backgroundColor == cloze_bg_color && item.style.filter != "blur(0px)") {
+                        var current_val = item.style.filter.substring(5, 6)
+                        current_val = parseInt(current_val) - 1
+                        item.style.filter   = "blur(" + current_val + "px)";
+                        return true;
+                        }
+                    if (item.style.backgroundColor != cloze_bg_color) {
+                        item.style.backgroundColor = cloze_bg_color;
+                        item.style.width           = "";
+                        item.style.height          = "";
+                        item.style.overflow        = "";
+                        item.style.textOverflow    = "";
+                        item.style.whiteSpace      = "";
+                        item.style.display         = "inline";
+                        item.style.textIndent      = "0%";
+                        item.style.filter          = "blur(9px)";
+                        var imgs                   = item.getElementsByTagName("img");
+                        for(var i = 0; i < imgs.length; i++){ 
+                            if (hideImagesFully == "T") { imgs[i].style.display = "inline"; }
+                            else { imgs[i].style.visibility = "visible"; };
+                            if (isOnMobileBack == "T") {
+                                imgs[i].style.height = "unset";
+                                imgs[i].style.width  = "unset";
+                            };
+                        };
+                        autoScrollToCloze(item);
+                        return true;
+                    }
+    });
+    var n = resetHintLettVar();
+};
+var resetClozes = function() {
     clozes.slice(0).forEach((item) => {
             item.style.backgroundColor = cloze_color;
             item.style.width           = hiddenClozeWidth;
@@ -526,6 +566,7 @@ var resetClozesVar = function() {
             item.style.textOverflow    = "ellipsis";
             item.style.whiteSpace      = "nowrap";
             item.style.display         = "inline-block";
+            item.style.filter          = "blur(0px)";
             var imgs                   = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
                  if (hideImagesFully == "T") { imgs[i].style.display = "none"; }
@@ -536,7 +577,7 @@ var resetClozesVar = function() {
     var c = 0;
     var n = resetHintLettVar();
 };
-var revealAllVar = function() {
+var revealAll = function() {
     clozes.slice(0).forEach((item) => {
             item.style.backgroundColor = cloze_bg_color;
             item.style.width           = "";
@@ -546,6 +587,7 @@ var revealAllVar = function() {
             item.style.whiteSpace      = "";
             item.style.display         = "inline";
             item.style.textIndent      = "0%";
+            item.style.filter          = "blur(0px)";
             var imgs                   = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
                 if (hideImagesFully == "T") { imgs[i].style.display = "inline-block"; }
@@ -569,7 +611,7 @@ var revealAllVar = function() {
 };
 
 // shows letter by letter (hint)
-var revealHintLettVar = function() { 
+var revealHintLett = function() {
     if ( c < clozes.length) {
         if (clozes[c].style.backgroundColor == cloze_color) {
             hintLettFieldUp.textContent = hintLettFieldUp.textContent.substring(0,hintLettFieldUp.textContent.length-1);
@@ -577,18 +619,18 @@ var revealHintLettVar = function() {
             n=n+1;
             if (n >= clozes[c].textContent.length) { 
                 n = 0;
-                revealOneVar();
+                revealOne();
             };
         } 
-        else { c=c+1 ; revealHintLettVar()};
+        else { c=c+1 ; revealHintLett()};
         hintLettFieldDown.textContent = hintLettFieldUp.textContent ;
     }
 };
-var revealHintWordVar = function() {
-    revealHintLettVar();
+var revealHintWord = function() {
+    revealHintLett();
     var counting = 0;
     while ( (!(include(wordSeparators,hintLettFieldUp.textContent.charAt(hintLettFieldUp.textContent.length-2)))) && n != 0 && counting <= 99) {
-        revealHintLettVar();
+        revealHintLett();
         counting = counting +1;
     };
 };
@@ -619,7 +661,7 @@ var resetVariableCVar = function() {
 // ###########################################
 // code to run after all that 
 
-if (enableHiding == "F") { revealAllVar();};
+if (enableHiding == "F") { revealAll();};
 var n = resetHintLettVar();
 
 }; // end of "if clozes found"
