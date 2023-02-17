@@ -1,5 +1,4 @@
 <span class = debugFieldFront></span>
-
 <!-- HEADER -->
 <span id="decksContainer" style="font-size:10px">
     {{Deck}}
@@ -27,7 +26,7 @@
 </span>
 
 <span class=orange>
-    {{#Teacher}}<i>{{Teacher}}</i>&nbsp&nbsp&nbsp{{/Teacher}}
+    {{#teacher}}<i>{{teacher}}</i>&nbsp&nbsp&nbsp{{/teacher}}
 </span> 
 
 
@@ -37,7 +36,7 @@
 <hr noshade size="2">
 
 <span class=headerField>
-    {{#Header}}<b>{{Header}}<br></b> {{/Header}}
+    {{#header}}<b>{{header}}<br></b> {{/header}}
 </span>
 
 <!-- the next two lines are used to display the card using Sans forgetica if it's harder, at least on the desktop app. On ankidroid this is done below. They need to encompass the whole cloze -->
@@ -45,15 +44,15 @@
     <span class="ease{{info-Factor:}}">
         <span style="display:flex ;  flex-direction:row ; flex-wrap:nowrap">
             <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
-            <span style="flex-grow:999 ; flex-wrap:wrap">{{cloze:Body}}</span>
+            <span style="flex-grow:999 ; flex-wrap:wrap">{{cloze:body}}</span>
             <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
         </span>
-        {{#Hint}}
+        {{#hint}}
         <hr id=answer><br><br>
         <span class=extra>
-            {{hint:Hint}}
+            {{hint:hint}}
         </span>
-        {{/Hint}} 
+        {{/hint}} 
     </span>
 </div>
 
@@ -92,8 +91,8 @@
 	// USER SETTINGS
 
 var autoFlip = "T"; // F = autoflip if there are no hints
-var enableTagsContainerFront = "T"; // default : "T"
-var enableDecksContainerFront = "T"; // default : "T"
+var enableTagsContainerFront = "F"; // default : "T"
+var enableDecksContainerFront = "F"; // default : "T"
 var tagsAndDeckFontSize     = "8px"; // default : "8px"
 var indentedClozeSize = "10"; // default : 10
 var qFade = 0;
@@ -128,10 +127,10 @@ const indentclozeElem           = document.getElementsByClassName("indentedCloze
 //	debugFieldFront[0].textContent += "code run until point A";
 // another better way is to use alert("some string"); to know if the code is running a specific part or not, or window.alert()
 
-const addEaseHereFront          = document.getElementsByClassName("addEaseHereFront");
-const addStateHereFront         = document.getElementsByClassName("addStateHereFront");
-const tagsContainer             = document.getElementById("tagsContainer");
-const decksContainer            = document.getElementById("decksContainer");
+const addEaseHereFront          = document.getElementsByClassName("addEaseHereFront") ; 
+const addStateHereFront         = document.getElementsByClassName("addStateHereFront") ; 
+const tagsContainer             = document.getElementById("tagsContainer")
+const decksContainer            = document.getElementById("decksContainer")
 
 // ###########################################
     // if there are no hints : auto flip the card
