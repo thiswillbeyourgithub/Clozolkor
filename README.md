@@ -17,6 +17,7 @@ Basically, you create your cards just like regular clozes but using this templat
 * **fast** : autoflip to answer sided is the cloze doesn't contain hints
 * **memory enhancing?** : if your card's ease drop too low, the card will switch to the font [Sans Forgetica](https://en.wikipedia.org/wiki/Sans_forgetica). No idea if it works but interesting to try.
 * **With blur**: A shortcut allows to unblur gradually the cloze to hint you gradually.
+* **Auto mode**: One button press and you'll see the your cloze content open letter by letter automatically. Allowing you to read and remember at the same time.
 * **elegant** : shows the tags and decks on top in a nice and non-distracting way
 * **handy** : displays the ease and the state (learning, new, etc) on top (desktop) or in a little button box (mobile)
 * **non-bloating** : it's not an addon but just a regular javascript-enhanced note template!
@@ -47,12 +48,9 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 ## TODO / Planned features / known issues (some are really simple, don't hesitate to help!)
 * you can store hint from the front of the card into `globalThis`, this can be used to show hints when the back is displayed.
 * maybe hide front card very early and show it only if necessary
-* get rid of the hint fields by finding a way to have the letter and word hints appear just before the actual (still hidden) cloze, then disappear while opening the cloze.
 * split the script into multiple sub scripts. That would help maintenance and "sharability" to have a "decks and tags section", "cloze section", etc. It would make it really easy to add parts to other template, for example adding the nice tag bar to the image occlusion template.
 * see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number (*edit: pretty sure it's actually very easy by adding a html field and treating it like a cloze*)
-* I want to support the creation of an addon that handles clozes better : if you are interested, tell it [there](https://github.com/epiphanie-gedeon/anki-wrapper/issues/2)
 * html buttons should scroll with the page instead of being shown on top and bottom (ie always appear at the same place), with something like `position:fixed/sticky`
-* maybe add a way to show blurred text as a hint? Anki seems to support it. text.filter = "blur(3px)" at least. It seems to work on images too.
 
 #### Known issues
 * None?
