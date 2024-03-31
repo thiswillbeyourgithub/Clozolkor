@@ -28,6 +28,7 @@ Basically, you create your cards just like regular clozes but using this templat
 * automatically scroll to the next cloze if it is cloze to the edge of the frame
 * **more to come (see todo below), this clozing system is the basis of my workflow, but I don't have that much time to code.**
 * **Up to date** tested successfully on anki 2.1.54
+* **Nightmode friendly** In nightmode, the images are automatically colour inverted. Clicking on it inerts it back and forth.
 * **Easy to debug** Errors are displayed in a field on top (otherwise invisible) and on android [eruda](https://github.com/liriliri/eruda/) is used to invoke a js console.
 
 #### demo gifs 
