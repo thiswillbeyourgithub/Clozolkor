@@ -343,7 +343,11 @@ try {
                 // ankidroid :
     var isOnMobileBack = "F"; // preset to false
     var isAnkiDroidBack = /wv/i.test(navigator.userAgent);
-    if (isAnkiDroidBack) { isOnMobileBack = "T"; isOnAndroidBack = "T"; };
+    // 2nd check for ankidroid:
+    if (document.documentElement.classList.contains("android")) {
+        var isAnkiDroidBack2 = "T";
+    } else {var isAnkiDroidBack2 = "F";};
+    if (isAnkiDroidBack || isAnkiDroidBack2 == "T") { isOnMobileBack = "T"; isOnAndroidBack = "T"; };
     if (navigator.userAgent.indexOf("droid") >= 0) { isOnMobileBack = "T"; isOnAndroidBack = "T"; };
                 // ankiMobile :
     if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidBack == "F") { isOnMobileBack = "T"; };
