@@ -81,7 +81,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 ## How can I get this?
 1. read this page **thoroughly**, it's well worth a few minutes of (y)our time
 2. *optionnal: install the [refocus card when reviewing](https://ankiweb.net/shared/info/1642550423) addon, the [additional card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki*
-3. *Optional : as explained above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_release` folder*
+3. *Optional : as explained above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `Clozolkor_js` folder*
 4. Copy the contenf of `back.js` and `front.js` to the cloze notetype you want to enhance
 5. check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard. Also remove any mention of the many fields I added to my notetype that you might not need.
 6. now, when you create your own clozes : just select this template instead of the old "cloze" note type
