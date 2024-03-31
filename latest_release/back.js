@@ -525,7 +525,7 @@ clozes.slice(0).forEach((item) => {
     item.style.overflow        = "hidden";
     item.style.textOverflow    = "ellipsis";
     item.style.whiteSpace      = "nowrap";
-    item.style.display         = "inline-block";
+    item.style.display         = "none";
     item.style.filter          = "blur(0px)";
     var imgs = item.getElementsByTagName("img");
     for (var i = 0; i < imgs.length; i++) {
@@ -543,7 +543,7 @@ clozes.slice(0).forEach((item) => {
         item.style.filter          = "blur(0px)";
         var imgs                   = item.getElementsByTagName("img");
         for (var i = 0; i < imgs.length; i++) {
-            if (hideImagesFully == "T") { imgs[i].style.display = "inline-block"; }
+            if (hideImagesFully == "T") { imgs[i].style.display = "none"; }
             else { imgs[i].style.visibility = "visible"; };
             if (isOnMobileBack == "T") {
                 imgs[i].style.height = "unset";
@@ -560,6 +560,7 @@ clozes.slice(0).forEach((item) => {
         }
     });
 });
+clozes[0].style.display="inline-block";  // still indicate there is a cloze
 
 // "is included in" function, from stack overflow
 function include(arr, obj) {
@@ -727,7 +728,7 @@ var resetClozes = function() {
             item.style.overflow        = "hidden";
             item.style.textOverflow    = "ellipsis";
             item.style.whiteSpace      = "nowrap";
-            item.style.display         = "inline-block";
+            item.style.display         = "none";
             item.style.filter          = "blur(0px)";
             var imgs                   = item.getElementsByTagName("img");
             for (var i = 0; i < imgs.length; i++) {
@@ -738,6 +739,7 @@ var resetClozes = function() {
     var c = 0;
     var n = resetHintLett();
     window.scroll(0,0);
+clozes[0].style.display="inline-block";  // still indicate there is a cloze
 };
 var revealAll = function() {
     clozes.slice(0).forEach((item) => {
