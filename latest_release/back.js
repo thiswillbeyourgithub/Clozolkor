@@ -368,19 +368,17 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
             eruda.init();
         }
 
-        var jsApi = {"version" : "0.0.1", "developer" : "dev@mail.com"};
-        var apiStatus = AnkiDroidJS.init(JSON.stringify(jsApi));
-        console.log(apiStatus);
-        var api = JSON.parse(apiStatus);
+        var jsApi = {"version" : "0.0.2", "developer" : "clozolkor@m.c"};
+        var api = new AnkiDroidJS(jsApi);
 
         // adds card status to the header
-        if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereBack.textContent = "N"  ; addStateHereBack.style.color = "blue" ;} //new
-        if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereBack.textContent = "L"  ; addStateHereBack.style.color = "red" ;} //learning
-        if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereBack.textContent = "R"  ; addStateHereBack.style.color = "green" ;} //review
-        if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereBack.textContent = "rL" ; addStateHereBack.style.color = "red" ;} //relearning
+        if (api.ankiGetCardType() == 0) { addStateHereBack.textContent = "N"  ; addStateHereBack.style.color = "blue" ;} //new
+        if (api.ankiGetCardType() == 1) { addStateHereBack.textContent = "L"  ; addStateHereBack.style.color = "red" ;} //learning
+        if (api.ankiGetCardType() == 2) { addStateHereBack.textContent = "R"  ; addStateHereBack.style.color = "green" ;} //review
+        if (api.ankiGetCardType() == 3) { addStateHereBack.textContent = "rL" ; addStateHereBack.style.color = "red" ;} //relearning
 
         // adds ease factor to the header
-        addStateHereBack.textContent += AnkiDroidJS.ankiGetCardFactor()/10;
+        addStateHereBack.textContent += api.ankiGetCardFactor()/10;
     }
 
     // button display for mobile
