@@ -36,8 +36,8 @@
     <button id="show_button" onclick="revealAll();" class="buttonSizeSmall">Show</button>
     <button id="show_button" onclick="revealHintWord();" class="buttonSizeBig"> Word</button>
     <button id="show_button" onclick="revealHintLett();" class="buttonSizeBig"> Letter</button>
-    <button id="show_button"  onclick="revealOne();" class="buttonSizeSmall"> Cloze</button>
-    <button id="show_button"  onclick="revealOneAuto();" class="buttonSizeSmall"> Auto</button>
+    <button id="show_button" onclick="revealOne();" class="buttonSizeSmall"> C</button>
+    <button id="show_button" onclick="revealOneAuto();" class="buttonSizeSmall"> Auto</button>
 </span>
 
 <span class=notOnMobile>
@@ -66,11 +66,11 @@
 </span>
 
 <div class="biggerButtonOnlyOnMobile">
-    <button id="show_button" onclick="revealOneAuto();" class="buttonSizeSmall">A</button>
-    <button id="show_button" onclick="revealOne();" class="buttonSizeSmall">C</button>
+    <button id="show_button" onclick="revealOneAuto();" class="buttonSizeBig">A</button>
+    <!--<button id="show_button" onclick="revealOne();" class="buttonSizeSmall">C</button>-->
+    <button id="show_button" onclick="revealAndBlur();"   class="buttonSizeSmall">B</button>
     <button id="show_button" onclick="revealHintLett();" class="buttonSizeBig">L</button>
-<button id="show_button" onclick="revealAndBlur();"   class="buttonSizeSmall">B</button>
-    <button id="show_button" onclick="revealHintWord();" class="buttonSizeBig">W</button>
+    <button id="show_button" onclick="revealHintWord();" class="buttonSizeSmall">W</button>
 <!--    <button id="show_button" onclick="revealOne();"   class="buttonSizeSmall">C</button>  -->
     <button id="show_button"  onclick="revealOneAuto();" class="buttonSizeBig">A</button>
 
@@ -85,15 +85,36 @@
         </span>
     </span>
 {{/hint}}
+
 {{#more}}
-     <hr size="1" noshade width="50%" align="center">
     <div style="font-size:40px;" class="openWithButton" id="more_banner">
             	{{hint:more}}
     </div>
-     <hr size="1" noshade width="50%" align="center">
-<br>
-<br>
+
 {{/more}}
+
+{{#AnkiMnemonics}}
+    <div style="font-size:15px;" class="openWithButton" id="mnemonics_banner">
+            	{{hint:AnkiMnemonics}}
+    </div> </i></b></u>
+{{/AnkiMnemonics}}
+
+{{#AnkiExplainer}}
+    <div style="font-size:15px;" class="openWithButton" id="summary_banner">
+            	{{hint:AnkiExplainer}}
+    </div> </i></b></u>
+{{/AnkiExplainer}}
+
+{{#AnkiIllustrator}}
+    <div style="font-size:15px;" class="openWithButton" id="illustrator_banner">
+            	{{hint:AnkiIllustrator}}
+     <!--<hr size="25" noshade width="100%" align="left">-->
+    </div> </i></b></u>
+    <br>
+{{/AnkiIllustrator}}
+
+
+
 {{#source}}
     <span class=grey>
         <span class=openWithButton>
@@ -101,13 +122,22 @@
         </span>
     </span>
 {{/source}}
-{{#source extra}}
+
+{{#source_extra}}
     <span class=grey>
         <span class=openWithButton>
-            {{hint:source extra}}<br>
+            {{hint:source_extra}}<br>
         </span>
     </span>
-{{/source extra}}
+{{/source_extra}}
+
+{{#source_audio}}
+    <span class=grey>
+        <span class=openWithButton>
+            {{hint:source_audio}}<br>
+        </span>
+    </span>
+{{/source_audio}}
 
 <script>
 
