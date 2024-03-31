@@ -261,6 +261,7 @@ var enableTagsContainerBack = "F"; // default : "T"
 var enableDecksContainerBack = "F"; // default : "T"
 var tagsAndDeckFontSize     = "8px"; // default : "8px"
 var indentedClozeSize = "25"; // default : 10
+var indentedClozeSizeMobile = "5"; // default : 10
 
 
     // USER SHORTCUTS
@@ -388,6 +389,14 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
     for (index = 0, len = notOnMobile.length ; index < len ; index++) {
         notOnMobile[index].style.display = "none";
     };
+
+    for (index = 0, len = indentclozeElem.length ; index < len ; index++) {
+        indentclozeElem[index].textContent = "";
+        indentclozeElem[index].innerHTML = "";
+        for (i = 0, len2 = indentedClozeSizeMobile ; i < len2 ; i++) {
+            indentclozeElem[index].innerHTML += "&nbsp;";
+        }
+    }
 
 } else {
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
