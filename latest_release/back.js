@@ -1,3 +1,6 @@
+<!-- eruda is used to enable debug inspecctor on ankidroid-->
+<script src="//cdn.jsdelivr.net/npm/eruda"></script>
+
 <span class = debugFieldBack></span>
 <span id=nightmodeToggle></span>  <!-- used only to know when nightmode was turned on -->
 <span style="display:none"; id="hintLett"></span>  <!--empty and hidden field that will just contain the clozolkor hint text -->
@@ -206,6 +209,20 @@
 //    /u/BlueGreenMagick (code help), /u/ssnoyes (piece of code), 
 //    /u/DrewZZZ and /u/yumenogotoshi (scroll code)
 
+// ###########################################
+// DEBUG
+
+
+// to debug, put the following line where you want (see below) :
+// debug("executed until here"); to add the string to debugFieldBack[0].textContent then use alert() on the same string
+
+const debugFieldBack    = document.getElementsByClassName("debugFieldBack");
+function debug(text) {
+    debugFieldBack[0].textContent += text;
+    try {
+        alert(text);
+    } catch(e) {alert(e)};
+  }
 
 
 
@@ -221,18 +238,13 @@ if (clozes.length !== 0) {
 var defaultDisplayBack = [...document.querySelectorAll(".card")][0].style.display;
 [...document.querySelectorAll(".card")][0].style.display = "none !important";
 
-// to debug, put the following line where you want :
-//	debugFieldBack[0].textContent += "code run until point A";
-// another better way is to use alert("some string"); to know if the code is running a specific part or not, or window.alert()
-
-
-
 
 
 
 // ###########################################
     // USER SETTINGS
 
+var ankidroid_eruda = "F";  // if "T", will init eruda (js debuger) early to be sure to catch errors in an helpful way, otherwise it gets inited too late sometimes
 var qFade = 0; // set a delay to appear and flip smoothly
 var aFade = 0;
 var enableHiding        = "T"; // set to "F" to disable hiding
@@ -293,12 +305,11 @@ const notOnMobile       = document.getElementsByClassName("notOnMobile");
 const buttonSizeSmall   = document.getElementsByClassName("buttonSizeSmall");
 const buttonSizeBig     = document.getElementsByClassName("buttonSizeBig");
 const indentclozeElem   = document.getElementsByClassName("indentedClozeBox");
-const debugFieldBack    = document.getElementsByClassName("debugFieldBack");
 const addStateHereBack  = document.getElementById("addStateHereBack") ; 
 const tagsContainer     = document.getElementById("tagsContainer");
 const decksContainer    = document.getElementById("decksContainer");
 const hintLettField   = document.getElementById("hintLett");  // will contain the hint field but stay hidden
-    
+
     
 	// BUTTON STYLING AND MOBILE BEHAVIOR (hide on computer, show on mobile etc) :
 
@@ -336,8 +347,11 @@ try {
                 // ankiMobile :
     if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidBack == "F") { isOnMobileBack = "T"; };
                 // desktop :
-    if (ankiPlatform.indexOf("esktop")==-1) { isOnMobileBack = "F"; isOnAndroidBack = "F" };
-} catch(e) { }
+    if (! typeof ankiPlatform === 'undefined') {
+        if (ankiPlatform.indexOf("esktop")==-1) { isOnMobileBack = "F"; isOnAndroidBack = "F" };
+    }
+
+} catch(e) { debug(e); }
 
 
     // ankidroid's buttons etc :
@@ -345,6 +359,10 @@ try {
 //if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("droid") >= 0 || ankiPlatform.indexOf("esktop")==-1 || isAnkiDroidBack || forceMobileBehavior == "T")  {
 if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
     if (isOnAndroidBack == "T") {
+        if (ankidroid_eruda == "T") {
+            eruda.init();
+        }
+
         var jsApi = {"version" : "0.0.1", "developer" : "dev@mail.com"};
         var apiStatus = AnkiDroidJS.init(JSON.stringify(jsApi));
         console.log(apiStatus);
@@ -469,7 +487,6 @@ if (enableTagsContainerBack == "T") {
       }
     }
 } else { tagsContainer.style.display = "none"; }
-
 
 
 
@@ -646,7 +663,7 @@ var revealOneAuto = function() {
             }
         };
         globalThis.id = setInterval(frame, 40);
-    } catch(e) {clearInterval(globalThis.id); alert(e); globalThis.currently_auto_showing = false; }
+    } catch(e) {debug(e); clearInterval(globalThis.id); globalThis.currently_auto_showing = false; }
     var c = resetVariableC();
     //var n = resetHintLett();
 };
@@ -807,8 +824,6 @@ var resetVariableC = function() {
 
 
 
-
-
 // ###########################################
 // code to run after all that 
 
@@ -821,5 +836,8 @@ var c = 0;
 // finally shows the card
 [...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack;
 
-} catch(e) {	alert(e) ; debugFieldBack[0].textContent += e }
+} catch(e) {
+    debug(e);
+    }
 </script>
+

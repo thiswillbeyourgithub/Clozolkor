@@ -1,3 +1,6 @@
+<!-- eruda is used to enable debug inspecctor on ankidroid -->
+<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+
 <span class = debugFieldFront></span>
 <!-- HEADER -->
 <span id="decksContainer" style="font-size:10px">
@@ -263,6 +266,11 @@ if ( isOnMobileFront == "T" ) {
         // adds ease factor to the header
         addEaseHereFront[0].textContent += AnkiDroidJS.ankiGetCardFactor()/10;
     }
+    try {
+        eruda.init(); // try to init the debugging interface (ankidroid only)
+    } catch(e) {
+        alert(e);
+    };
 } else {
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
         biggerButtonOnlyOnMobile[index].style.display = "none";
@@ -284,3 +292,7 @@ if ( isOnMobileFront == "T" ) {
 [...document.querySelectorAll("*")][0].style.visibility = defaultVisiFront;
 }
 </script>
+
+
+
+
