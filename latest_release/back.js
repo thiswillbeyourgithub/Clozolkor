@@ -605,7 +605,15 @@ if (document.getElementsByClassName("nightMode").length != 0) {
 	var imgs = document.getElementsByTagName("img");
 	for (var i = 0; i < imgs.length; i++) {
   	      imgs[i].style.filter = "invert(1)";
+          imgs[i].addEventListener("click", function() {
+          if (this.style.filter === "invert(1)") {
+              this.style.filter = "invert(0)";
+          } else {
+              this.style.filter = "invert(1)";
+          }
+        });
 	};
+
 };
 
  
