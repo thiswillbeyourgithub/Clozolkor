@@ -62,7 +62,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 
 * The .js extension of the template files is there only to help with syntax highlighting while editing the files, it's more accurately html containing `<script>` parts.
 
-* I try to stay on the latest **stable** anki version (currently 2.1.44). I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macOS or iOS, and am counting on your feedbacks for this. **I had the opportunity to test it on 2.1.54 and it works fine.**.
+* I try to stay on the latest **stable** anki version (currently 2.1.61). I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macOS or iOS, and am counting on your feedbacks for this. **I had the opportunity to test it on 2.1.61 and it works fine.**.
 
 * The shortcuts and many more things can be edited in the template, inside the script.
 
@@ -80,13 +80,12 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 
 ## How can I get this?
 1. read this page **thoroughly**, it's well worth a few minutes of (y)our time
-2. install the [refocus card when reviewing](https://ankiweb.net/shared/info/1642550423) addon, the [additional card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki
-3. Optional : as written above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_release` folder
-4. import the `.apkg` file inside the `latest_release` folder into anki, it's the latest release but usually not the latest *version*
-5. get the latest version by updating this new template. To do this : copy and paste the content of the files located in `latest_release`
-6. check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard
-7. now, when you create your own clozes : just select this template instead of the old "cloze" note type
-8. Optional : convert all your past cloze into this template : it works the same, just better
-9. optional : install the Sans Forgetica font
-10. that's it, if you have **any** issue, open an issue, I'll gladly try and fix it for everyone else, yes even typos.
-11. If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
+2. *optionnal: install the [refocus card when reviewing](https://ankiweb.net/shared/info/1642550423) addon, the [additional card field](https://ankiweb.net/shared/info/744725736) addon as well as [clickable Tags](https://ankiweb.net/shared/info/380714095) and restart anki*
+3. *Optional : as explained above : installing the addon [Symbols as you type](https://ankiweb.net/shared/info/2040501954) will greatly increase your efficiency. Check out my macros in the `latest_release` folder*
+4. Copy the contenf of `back.js` and `front.js` to the cloze notetype you want to enhance
+5. check out the settings inside the front and back template, it is very likely that your shortcuts won't match my keyboard
+6. now, when you create your own clozes : just select this template instead of the old "cloze" note type
+7. Optional : convert all your past cloze into this template : it works the same, just better
+8. optional : install the Sans Forgetica font
+9. that's it, if you have **any** issue, open an issue, I'll gladly try and fix it for everyone else, yes even typos.
+10. If you make a modification to this code, please tell me so that I can (maybe) implement it for everyone else! Thank you!
