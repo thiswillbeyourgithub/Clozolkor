@@ -62,7 +62,7 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 
 * The .js extension of the template files is there only to help with syntax highlighting while editing the files, it's more accurately html containing `<script>` parts.
 
-* I try to stay on the latest **stable** anki version (currently 2.1.61). I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macOS or iOS, and am counting on your feedbacks for this. **I had the opportunity to test it on 2.1.61 and it works fine.**.
+* I try to stay on the latest **stable** anki version (currently 24.04). I also make sure the version works on `AnkiDroid` as it it what I use, and I tend use the latest stable release. I don't usually test it on windows, macOS or iOS, and am counting on your feedbacks for this. **I had the opportunity to test it on 2.1.61 and it works fine.**.
 
 * The shortcuts and many more things can be edited in the template, inside the script.
 
