@@ -216,7 +216,7 @@
 // to debug, put the following line where you want (see below) :
 // debug("executed until here"); to add the string to debugFieldBack[0].textContent then use alert() on the same string
 
-const debugFieldBack    = document.getElementsByClassName("debugFieldBack");
+var debugFieldBack    = document.getElementsByClassName("debugFieldBack");
 function debug(text) {
     debugFieldBack[0].textContent += text;
     try {
