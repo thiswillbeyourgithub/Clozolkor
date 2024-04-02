@@ -1,5 +1,6 @@
-<!-- eruda is used to enable debug inspecctor on ankidroid -->
-<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+<!-- eruda is used to enable debug inspecctor on ankidroid-->
+<script src="//cdn.jsdelivr.net/npm/eruda"></script>
+
 
 <span class = debugFieldFront></span>
 <!-- HEADER -->
@@ -92,6 +93,7 @@
 
 	// USER SETTINGS
 
+var ankidroid_eruda = "F";  // if "T", will init eruda (js debuger) early to be sure to catch errors in an helpful way, otherwise it gets inited too late sometimes
 var autoFlip = "T"; // F = autoflip if there are no hints
 var enableTagsContainerFront = "F"; // default : "T"
 var enableDecksContainerFront = "F"; // default : "T"
@@ -249,6 +251,10 @@ if ( isOnMobileFront == "T" ) {
     }
 
     if (isOnAndroidFront == "T") {
+        if (ankidroid_eruda == "T") {
+            eruda.init();
+        }
+
         // loads ankidroid api
         var jsApi = {"version" : "0.0.2", "developer" : "clozolkor@m.c"};
         var api = new AnkiDroidJS(jsApi);
@@ -301,6 +307,7 @@ if ( isOnMobileFront == "T" ) {
 [...document.querySelectorAll("*")][0].style.visibility = defaultVisiFront;
 }
 </script>
+
 
 
 
