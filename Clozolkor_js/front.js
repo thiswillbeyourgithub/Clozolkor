@@ -25,7 +25,6 @@
             {{info-Factor:}}
    		 </span>
     		<span class=addStateHereFront> </span>
-  		   <span class=addEaseHereFront> </span>
 </span>
 
 <span class=orange>
@@ -130,7 +129,6 @@ const indentclozeElem           = document.getElementsByClassName("indentedCloze
 //	debugFieldFront[0].textContent += "code run until point A";
 // another better way is to use alert("some string"); to know if the code is running a specific part or not, or window.alert()
 
-const addEaseHereFront          = document.getElementsByClassName("addEaseHereFront") ; 
 const addStateHereFront         = document.getElementsByClassName("addStateHereFront") ; 
 const tagsContainer             = document.getElementById("tagsContainer")
 const decksContainer            = document.getElementById("decksContainer")
@@ -251,20 +249,31 @@ if ( isOnMobileFront == "T" ) {
     }
 
     if (isOnAndroidFront == "T") {
-            // loads ankidroid api
-        var jsApiFront     = {"version" : "0.0.1", "developer" : "dev@mail.com"};
-        var apiStatusFront = AnkiDroidJS.init(JSON.stringify(jsApiFront));
-        console.log(apiStatusFront);
-        var apiFront       = JSON.parse(apiStatusFront);
+        // loads ankidroid api
+        var jsApi = {"version" : "0.0.2", "developer" : "clozolkor@m.c"};
+        var api = new AnkiDroidJS(jsApi);
 
-        // adds card status to the header
-        if (AnkiDroidJS.ankiGetCardType() == 0) { addStateHereFront[0].textContent = "N" ; addStateHereFront[0].style.color = "blue" ;} //new
-        if (AnkiDroidJS.ankiGetCardType() == 1) { addStateHereFront[0].textContent = "L" ; addStateHereFront[0].style.color = "red" ;} //learning
-        if (AnkiDroidJS.ankiGetCardType() == 2) { addStateHereFront[0].textContent = "R" ; addStateHereFront[0].style.color = "green" ;} //review
-        if (AnkiDroidJS.ankiGetCardType() == 3) { addStateHereFront[0].textContent = "rL" ; addStateHereFront[0].style.color = "red" ;} //relearning
+        (async function() {
+            // adds card status to the header
+            const cardtype = (await api.ankiGetCardType()).value;
+            const cardfactor = (await api.ankiGetCardFactor()).value;
+            if (cardtype == 0) {
+                addStateHereFront.textContent = "N";
+                addStateHereFront.style.color = "blue";
+            } else if (cardtype == 1) {
+                addStateHereFront.textContent = "L";
+                addStateHereFront.style.color = "red";
+            } else if (cardtype == 2) {
+                addStateHereFront.textContent = "R";
+                addStateHereFront.style.color = "green";
+            } else if (cardtype == 3) {
+                addStateHereFront.textContent = "rL";
+                addStateHereFront.style.color = "red";
+            }
+            // Adds ease factor to the header
+            addStateHereFront.textContent += cardfactor // 10;
+        })();
 
-        // adds ease factor to the header
-        addEaseHereFront[0].textContent += AnkiDroidJS.ankiGetCardFactor()/10;
     }
     try {
         eruda.init(); // try to init the debugging interface (ankidroid only)
