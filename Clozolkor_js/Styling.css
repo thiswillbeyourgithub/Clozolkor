@@ -1,38 +1,174 @@
-.card { font-family: robot ; font-size: 18px; #font-style:italic; #text-decoration:underline; text-align: left; color: black; background-color: white;  word-wrap: break-word;}
-    .nightmode .card { font-family:robot }
+/* CLOZOLKOR */
 
-.cloze { font-weight: none; color: grey !important; #text-decoration:underline; display:inline;  }
-    .nightMode .cloze { color: pink !important; }
+.card {
+    font-family: open sans;
+    #font-style:italic;
+    #text-decoration:underline;
+    text-align: left;
+    color: black;
+    background-color: white;
+    word-wrap: break-word;
+    }
+.nightMode .card {
+    font-family:open sans
+}
 
-.grey { color: grey; } 
-    .nightmode .grey { color: beige !important; } 
-.red { color:red;}
-    .nightmode .red { color:red !important;}
-.blue { color:blue;}
-    .nightmode .blue { color:blue !important;}
-.green { color:green;}
-    .nightmode .green { color:green !important;}
-.orange { color:orange;}
-    .nightmode .orange { color:orange !important;}
-.headerField { color:black !important ; font-style:bold ;}
-    .nightMode .headerField { color:white !important ; font-style:bold}
-.more_banner { background-color: rgb(0, 255, 0) !important; text-align: center}
-	.nightMode .more_banner { background-color: purple !important ; text-align: center !important}
+/* CLOZOLKOR */
+.cloze {
+        font-weight: none;
+        color: red !important;
+        display:inline;
+    }
+.nightMode .cloze {
+    color: red !important;
+}
+.notOnMobile {
+        color:grey;
+        font-weight:bold;
+    }
+.mobile .notOnMobile {
+        display : none;
+    }
+.hiddenThings {
+        display : none;
+    }
+.smallFontHeader {
+        font-size : 12px
+    }
+.tagsContainer {
+        display:none
+    }
+.mobile .tagsContainer {
+        display:flex
+    }
 
 
-
-.notOnMobile { color:grey; font-weight:bold; }
-    .mobile .notOnMobile { display : none ;}
-.hiddenThings {display : none;}
-.smallFontHeader { font-size : 12px } 
-.tagsContainer {display:none}
-	.mobile .tagsContainer {display:flex}
-
+/* COLORS */
 /* if you want to edit clozolkor's hints or something, it had to be handled via js so the related lines will be found in the front and back sections */
+.grey {
+        color: grey;
+    }
+.nightMode .grey {
+    color: beige !important;
+}
 
-span.leech    { font-family: "Sans Forgetica"; }
-span.ease1300 { font-family: "Sans Forgetica"; }
-span.ease1350 { font-family: "Sans Forgetica"; }
-span.ease1400 { font-family: "Sans Forgetica"; }
-span.ease1500 { font-family: "Sans Forgetica"; }
+.red {
+        color:red;
+    }
+.nightMode .red {
+        color:red !important;
+    }
+
+.blue {
+        color:blue;
+    }
+.nightMode .blue {
+        color:blue !important;
+    }
+.green {
+        color:green;
+    }
+.nightMode .green {
+        color:green !important;
+    }
+.orange {
+        color:orange;
+    }
+.nightMode .orange {
+        color:orange !important;
+    }
+
+/* FIELDS */
+.headerField {
+        color:black !important;
+        font-style:bold;
+    }
+.nightMode .headerField {
+        color:white !important;
+        font-style:bold
+    }
+
+#more_banner {
+        background: linear-gradient(to bottom, transparent, rgb(0, 255, 0, 70%)) !important;
+        text-align: left
+    }
+.nightMode #more_banner {
+        background-color: purple !important ;
+        text-align: left !important
+    }
+
+#mnemonics_banner {
+        background-color: red !important;
+        text-align: left
+    }
+.nightMode #mnemonics_banner {
+        background-color: red !important ;
+        text-align: left !important
+    }
+
+#summary_banner {
+        background-color: rgb(255, 20, 0, 70%) !important;
+        text-align: left
+    }
+.nightMode #summary_banner {
+        background-color: purple !important ;
+        text-align: left !important
+    }
+
+#illustrator_banner {
+        background-color: rgb(25, 150, 250, 70%) !important;
+        text-align:left !important;
+
+    }
+.nightMode #illustrator_banner {
+        background-color: green !important;
+        text-align:left !important
+    }
+
+#nightmodeToggle {
+        color:red;
+    }
+.nightMode #nightmodeToggle {
+        color:blue;
+    }
+.AnkiIllustratorContainer {
+        display:flex !important;
+        flex-direction:row !important;
+        flex-wrap:wrap !important;
+        justify-content:space-evenly !important;
+        text-align:center !important;
+    }
+.AnkiIllustratorImages {
+        max-width:30% !important;
+        flex-shrink:5;
+        flex-basis:0;
+        border-radius:10%;
+    }
+.AnkiIllustratorOldImages {
+        max-width:20% !important;
+        flex-shrink:5;
+        flex-basis:0;
+        border-radius:10%;
+        text-align:center !important;
+    }
+
+
+
+/* Use Sans Forgetica (special font) for cards with low ease */
+span.leech    {
+        font-family: "Sans Forgetica";
+    }
+span.ease1300 {
+        font-family: "Sans Forgetica";
+    }
+span.ease1350 {
+        font-family: "Sans Forgetica";
+    }
+span.ease1400 {
+        font-family: "Sans Forgetica";
+    }
+span.ease1500 {
+        font-family: "Sans Forgetica";
+    }
+
 
