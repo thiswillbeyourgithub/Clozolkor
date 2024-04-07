@@ -89,20 +89,20 @@
     }
 
 #more_banner {
-        background: linear-gradient(to bottom, transparent, rgb(0, 255, 0, 70%)) !important;
+        background: linear-gradient(to top, rgb(0, 0, 0, 0), red) !important;
         text-align: left
     }
 .nightMode #more_banner {
-        background-color: purple !important ;
+        background: linear-gradient(to top, rgb(0, 0, 0, 0), purple) !important ;
         text-align: left !important
     }
 
 #mnemonics_banner {
-        background-color: red !important;
+        background: linear-gradient(to bottom, rgb(0, 0, 0, 0), red) !important ;
         text-align: left
     }
 .nightMode #mnemonics_banner {
-        background-color: red !important ;
+        background: linear-gradient(to bottom, rgb(0, 0, 0, 0), purple) !important ;
         text-align: left !important
     }
 
@@ -111,17 +111,17 @@
         text-align: left
     }
 .nightMode #summary_banner {
-        background-color: purple !important ;
+        background: linear-gradient(to bottom, rgb(0, 0, 0, 0), purple) !important ;
         text-align: left !important
     }
 
 #illustrator_banner {
-        background-color: rgb(25, 150, 250, 70%) !important;
+        background: linear-gradient(to top, rgb(0, 0, 0, 0), rgb(25, 150, 250, 70%)) !important;
         text-align:left !important;
 
     }
 .nightMode #illustrator_banner {
-        background-color: green !important;
+        background: linear-gradient(to top, rgb(0, 0, 0, 0), green) !important;
         text-align:left !important
     }
 
@@ -170,5 +170,3 @@ span.ease1400 {
 span.ease1500 {
         font-family: "Sans Forgetica";
     }
-
-
