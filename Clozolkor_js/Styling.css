@@ -42,6 +42,25 @@
         display:flex
     }
 
+/* ANIMATIONS */
+.animate {
+  animation: slide 0.5s forwards, fadeIn 0.5s forwards;
+  opacity: 0;
+  /*left: -100%;*/
+  position: relative;
+}
+
+@keyframes slide {
+  /*100% { left: 0; }*/
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 
 /* COLORS */
 /* if you want to edit clozolkor's hints or something, it had to be handled via js so the related lines will be found in the front and back sections */
@@ -88,49 +107,55 @@
         font-style:bold
     }
 
+
+
 #more_banner {
-        background: linear-gradient(to top, rgb(0, 0, 0, 0), red) !important;
-        text-align: left
+        --gradientcolor: rgb(255,20,0,70%);
+        text-align: left;
+        animation-delay: 0.2s;
     }
 .nightMode #more_banner {
-        background: linear-gradient(to top, rgb(0, 0, 0, 0), purple) !important ;
-        text-align: left !important
+        --gradientcolor: purple;
+        text-align: left !important;
+        animation-delay: 0.2s;
     }
 
+
+
 #mnemonics_banner {
-        background: linear-gradient(to bottom, rgb(0, 0, 0, 0), red) !important ;
-        text-align: left
+        --gradientcolor: red;
+        text-align: left;
+        animation-delay: 0.3s;
     }
 .nightMode #mnemonics_banner {
-        background: linear-gradient(to bottom, rgb(0, 0, 0, 0), purple) !important ;
-        text-align: left !important
+        --gradientcolor: purple;
+        text-align: left !important;
+        animation-delay: 0.3s;
     }
 
 #summary_banner {
-        background-color: rgb(255, 20, 0, 70%) !important;
-        text-align: left
+        --gradientcolor: rgb(255,20,0,70%);
+        text-align: left;
+        animation-delay: 0.3s;
     }
 .nightMode #summary_banner {
-        background: linear-gradient(to bottom, rgb(0, 0, 0, 0), purple) !important ;
-        text-align: left !important
+        --gradientcolor: purple;
+        text-align: left !important;
+        animation-delay: 0.3s;
     }
 
 #illustrator_banner {
-        background: linear-gradient(to top, rgb(0, 0, 0, 0), rgb(25, 150, 250, 70%)) !important;
+        --gradientcolor: rgb(25,150,250,70%);
         text-align:left !important;
+        animation-delay: 0.5s;
 
     }
 .nightMode #illustrator_banner {
-        background: linear-gradient(to top, rgb(0, 0, 0, 0), green) !important;
-        text-align:left !important
+        --gradientcolor: green;
+        text-align:left !important;
+        animation-delay: 0.5s;
     }
 
-#nightmodeToggle {
-        color:red;
-    }
-.nightMode #nightmodeToggle {
-        color:blue;
-    }
 .AnkiIllustratorContainer {
         display:flex !important;
         flex-direction:row !important;
@@ -150,6 +175,12 @@
         flex-basis:0;
         border-radius:10%;
         text-align:center !important;
+    }
+#nightmodeToggle {
+        color:red;
+    }
+.nightMode #nightmodeToggle {
+        color:blue;
     }
 
 

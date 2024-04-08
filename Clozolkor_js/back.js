@@ -389,7 +389,7 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
                 addStateHereBack.style.color = "red";
             }
             // Adds ease factor to the header
-            addStateHereBack.textContent += cardfactor // 10;
+            addStateHereBack.textContent += cardfactor // 1000;
         })();
     }
 
@@ -511,6 +511,19 @@ if (enableTagsContainerBack == "T") {
     }
 } else { tagsContainer.style.display = "none"; }
 
+
+
+// when the hint field are clicked or triggered, add an animation class with gradient color
+function applyGradientAndAnimate() {
+  var color = getComputedStyle(this).getPropertyValue('--gradientcolor').trim() || 'purple';
+  this.style.background = `linear-gradient(to top, rgba(0, 0, 0, 0), ${color}, rgba(0, 0, 0, 0))`;
+  this.classList.add('animate');
+}
+var openWithButton = document.getElementsByClassName("openWithButton")
+for (var i = 0; i < openWithButton.length; i++) {
+  // Attach the event listener to each button
+  openWithButton[i].addEventListener('click', applyGradientAndAnimate);
+}
 
 
 
@@ -662,7 +675,7 @@ var revealOne = function() {
     if (c >= clozes.length) {
         var openWithButton = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButton.length; i++) {
-                openWithButton[i].querySelector('*').click()
+            openWithButton[i].querySelector('*').click()
         };
     }
 };
@@ -779,7 +792,7 @@ var revealAll = function() {
     if (c == clozes.length) {
         var openWithButton = document.getElementsByClassName("openWithButton")
         for(var i=0; i<openWithButton.length; i++) {
-                openWithButton[i].querySelector('*').click()
+            openWithButton[i].querySelector('*').click()
         };
         hintLettField.style.opacity = 0;
     }
@@ -873,4 +886,3 @@ var c = 0;
     debug(e);
     }
 </script>
-
