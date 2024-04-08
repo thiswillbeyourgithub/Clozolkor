@@ -634,14 +634,17 @@ if (document.getElementsByClassName("nightMode").length != 0) {
           imgs[i].addEventListener("click", function() {
           if (this.style.filter === "invert(1)") {
               this.style.filter = "invert(0)";
+              this.style.display = "inline";
+              this.style.visibility = "visible";
           } else {
               this.style.filter = "invert(1)";
+              this.style.display = "inline";
+              this.style.visibility = "visible";
           }
         });
 	};
 
 };
-
  
 
 // cloze related functions
