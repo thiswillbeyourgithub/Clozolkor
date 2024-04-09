@@ -120,7 +120,7 @@
 
 {{#source}}
     <span class=grey>
-        <span class=openWithButton>
+        <span class=openWithButton id="source_banner">
             {{hint:source}}<br>
         </span>
     </span>
@@ -128,7 +128,7 @@
 
 {{#source_extra}}
     <span class=grey>
-        <span class=openWithButton>
+        <span class=openWithButton id="source_banner">
             {{hint:source_extra}}<br>
         </span>
     </span>
@@ -136,7 +136,7 @@
 
 {{#source_audio}}
     <span class=grey>
-        <span class=openWithButton>
+        <span class=openWithButton id="source_banner">
             {{hint:source_audio}}<br>
         </span>
     </span>

@@ -112,12 +112,12 @@
 #more_banner {
         --gradientcolor: rgb(255,20,0,70%);
         text-align: left;
-        animation-delay: 0.2s;
+        animation-delay: 0.1s;
     }
 .nightMode #more_banner {
         --gradientcolor: purple;
         text-align: left !important;
-        animation-delay: 0.2s;
+        animation-delay: 0.1s;
     }
 
 
@@ -147,13 +147,13 @@
 #illustrator_banner {
         --gradientcolor: rgb(25,150,250,70%);
         text-align:left !important;
-        animation-delay: 0.5s;
+        animation-delay: 0.3s;
 
     }
 .nightMode #illustrator_banner {
         --gradientcolor: green;
         text-align:left !important;
-        animation-delay: 0.5s;
+        animation-delay: 0.3s;
     }
 
 .AnkiIllustratorContainer {
@@ -181,6 +181,16 @@
     }
 .nightMode #nightmodeToggle {
         color:blue;
+    }
+#source_banner {
+        --gradientcolor: rgb(255,20,0,70%);
+        text-align: left;
+        animation-delay: 0.1s;
+    }
+.nightMode #source_banner {
+        --gradientcolor: purple;
+        text-align: left !important;
+        animation-delay: 0.1s;
     }
 
 
