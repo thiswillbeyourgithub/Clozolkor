@@ -256,7 +256,7 @@ if ( isOnMobileFront == "T" ) {
         }
 
         // loads ankidroid api
-        var jsApi = {"version" : "0.0.2", "developer" : "clozolkor@m.c"};
+        var jsApi = {"version" : "0.0.3", "developer" : "clozolkor@m.c"};
         var api = new AnkiDroidJS(jsApi);
 
         (async function() {
