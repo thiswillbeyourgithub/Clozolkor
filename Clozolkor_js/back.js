@@ -59,10 +59,14 @@
 <!-- the next two spans are used to display the card using Sans Forgetica if it's harder, at least on the desktop app. On ankidroid this is done below. They need to encompass the whole cloze -->
 <span class="{{Tags}}">
     <span class="ease{{info-Factor:}}">
-        <span style="display:flex ;  flex-direction:row ; flex-wrap:nowrap">
+        <span class="disable_image_invert">
+          <span style="display:flex ;  flex-direction:row ; flex-wrap:nowrap">
             <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
-            <span style="flex-grow:999 ; flex-wrap:wrap">{{cloze:body}}</span>
-            <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
+                <span style="flex-grow:999 ; flex-wrap:wrap">
+                    {{cloze:body}}
+                </span>
+                <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
+            </span>
         </span>
     </span>
 </span>
