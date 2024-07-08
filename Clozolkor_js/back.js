@@ -1,4 +1,3 @@
-<!-- eruda is used to enable debug inspecctor on ankidroid-->
 <script src="//cdn.jsdelivr.net/npm/eruda"></script>
 
 <span class = debugFieldBack></span>
@@ -13,6 +12,10 @@
     {{Tags}}
 </span>
 
+<!--forbid zooming in too much
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+-->
+<!-- eruda is used to enable debug inspecctor on ankidroid-->
 <span style="font-size:12px">
         <span class=notOnMobile>
         <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
@@ -46,7 +49,7 @@
 <span class=notOnMobile>
 	<hr noshade size="2">
 </span>
-
+</meta>
 
 <!-- field header -->
 <span class=headerField>
@@ -68,6 +71,10 @@
 	<hr noshade size="2">
 </span>
 
+<!--forbid zooming in too much
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+-->
+<!-- eruda is used to enable debug inspecctor on ankidroid-->
 <div class="biggerButtonOnlyOnMobile">
     <button id="show_button" onclick="revealOneAuto();" class="buttonSizeBig">A</button>
     <!--<button id="show_button" onclick="revealOne();" class="buttonSizeSmall">C</button>-->
@@ -78,6 +85,7 @@
     <button id="show_button"  onclick="revealOneAuto();" class="buttonSizeBig">A</button>
 
 </div>
+</meta>
 
 
 {{#hint}}
@@ -923,6 +931,14 @@ var c = 0;
     debug(e);
 }
 </script>
+
+
+
+</meta>
+
+
+
+
 
 
 

@@ -1,4 +1,3 @@
-<!-- eruda is used to enable debug inspecctor on ankidroid-->
 <script src="//cdn.jsdelivr.net/npm/eruda"></script>
 
 
