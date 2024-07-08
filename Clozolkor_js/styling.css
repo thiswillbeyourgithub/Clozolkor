@@ -133,12 +133,12 @@
         animation-delay: 0.3s;
     }
 
-#summary_banner {
+#explainer_banner {
         --gradientcolor: rgb(255,20,0,70%);
         text-align: left;
         animation-delay: 0.3s;
     }
-.nightMode #summary_banner {
+.nightMode #explainer_banner {
         --gradientcolor: purple;
         text-align: left !important;
         animation-delay: 0.3s;
@@ -164,13 +164,13 @@
         text-align:center !important;
     }
 .AnkiIllustratorImages {
-        max-width:30% !important;
+        max-width:50% !important;
         flex-shrink:5;
         flex-basis:0;
         border-radius:10%;
     }
 .AnkiIllustratorOldImages {
-        max-width:20% !important;
+        max-width:50% !important;
         flex-shrink:5;
         flex-basis:0;
         border-radius:10%;
@@ -211,3 +211,6 @@ span.ease1400 {
 span.ease1500 {
         font-family: "Sans Forgetica";
     }
+
+
+

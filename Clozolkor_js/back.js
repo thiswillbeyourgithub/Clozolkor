@@ -90,31 +90,54 @@
 {{/hint}}
 
 {{#more}}
+    <div class="disable_image_invert">
     <div style="font-size:40px;" class="openWithButton" id="more_banner">
             	{{hint:more}}
+	  </div>
     </div>
 
 {{/more}}
 
-{{#AnkiMnemonics}}
-    <div style="font-size:15px;" class="openWithButton" id="mnemonics_banner">
-            	{{hint:AnkiMnemonics}}
-    </div> </i></b></u>
-{{/AnkiMnemonics}}
+{{#AnkiIllustrator}}
+    <details>
+        <summary>AnkiIllustrator</summary>
+        <div style="font-size:15px;" class="openWithButton" id="illustrator_banner">
+            <span class="disable_image_invert">
+                {{AnkiIllustrator}}
+                <!--<hr size="25" noshade width="100%" align="left">-->
+            </span>
+        </div>
+    </details>
+    </i></b></u> <!--just in case some markers were not closed -->
+{{/AnkiIllustrator}}
 
 {{#AnkiExplainer}}
-    <div style="font-size:15px;" class="openWithButton" id="summary_banner">
-            	{{hint:AnkiExplainer}}
-    </div> </i></b></u>
+    <details>
+        <summary>AnkiExplainer</summary>
+        <div style="font-size:15px;" class="openWithButton" id="explainer_banner">
+            <span class="disable_image_invert">
+                {{AnkiExplainer}}
+            </span>
+        </div>
+    </details>
+    </i></b></u>
 {{/AnkiExplainer}}
 
-{{#AnkiIllustrator}}
-    <div style="font-size:15px;" class="openWithButton" id="illustrator_banner">
-            	{{hint:AnkiIllustrator}}
-     <!--<hr size="25" noshade width="100%" align="left">-->
-    </div> </i></b></u>
+{{#AnkiMnemonics}}
+    <details>
+        <summary>AnkiMnemonics</summary>
+        <div style="font-size:15px;" class="openWithButton" id="mnemonics_banner">
+            <span class="disable_image_invert">
+                {{AnkiMnemonics}}
+            </span>
+        </div>
+    </details>
+    </i></b></u>
     <br>
-{{/AnkiIllustrator}}
+{{/AnkiMnemonics}}
+
+
+
 
 
 
@@ -517,9 +540,11 @@ if (enableTagsContainerBack == "T") {
 
 // when the hint field are clicked or triggered, add an animation class with gradient color
 function applyGradientAndAnimate() {
+  this.parentElement.parentElement.querySelectorAll('details').forEach(detail => detail.open = true);
   var color = getComputedStyle(this).getPropertyValue('--gradientcolor').trim() || 'purple';
   this.style.background = `linear-gradient(to top, rgba(0, 0, 0, 0), ${color}, rgba(0, 0, 0, 0))`;
   this.classList.add('animate');
+  // this.removeEventListener('click', applyGradientAndAnimate); // doesn't work to make it trigger only once
 }
 var openWithButton = document.getElementsByClassName("openWithButton")
 for (var i = 0; i < openWithButton.length; i++) {
@@ -632,7 +657,9 @@ const autoScrollToCloze = function(item) {
 if (document.getElementsByClassName("nightMode").length != 0) {
 	var imgs = document.getElementsByTagName("img");
 	for (var i = 0; i < imgs.length; i++) {
-  	      imgs[i].style.filter = "invert(1)";
+          if (!imgs[i].closest('.disable_image_invert')) {
+            imgs[i].style.filter = "invert(1)";
+          };
           imgs[i].addEventListener("click", function() {
           if (this.style.filter === "invert(1)") {
               this.style.filter = "invert(0)";
