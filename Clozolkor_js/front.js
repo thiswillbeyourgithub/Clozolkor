@@ -118,6 +118,7 @@ if (clozes.length !== 0) { // continue only if clozes are found
     // hides the card before it is fully loaded, otherwise you can catch a glimpse of images on slow devices :
 var defaultVisiFront = [...document.querySelectorAll("*")][0].style.visibility;
 [...document.querySelectorAll("*")][0].style.visibility = "hidden";
+try {
 
 var cloze_color         = window.getComputedStyle(clozes[0]).color;
 var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
@@ -306,9 +307,14 @@ if ( isOnMobileFront == "T" ) {
  // finally shows the card :
 [...document.querySelectorAll("*")][0].style.visibility = defaultVisiFront;
 }
+} catch(e) {
+    try {
+        [...document.querySelectorAll("*")][0].style.display = defaultVisiFront;
+    } catch(e) {
+        [...document.querySelectorAll("*")][0].style.display = "block";
+    }
+
+}
 </script>
-
-
-
 
 

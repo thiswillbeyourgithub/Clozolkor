@@ -886,8 +886,13 @@ var c = 0;
 [...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack;
 
 } catch(e) {
-    debug(e);
+    try {
+        [...document.querySelectorAll(".card")][0].style.display = defaultDisplayBack;
+    } catch(e) {
+        [...document.querySelectorAll(".card")][0].style.display = "block";
     }
+    debug(e);
+}
 </script>
 
 
