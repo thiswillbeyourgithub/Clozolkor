@@ -368,29 +368,31 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
             eruda.init();
         }
 
-        var jsApi = {"version" : "0.0.3", "developer" : "clozolkor@m.c"};
-        var api = new AnkiDroidJS(jsApi);
+        try {
+            var jsApi = {"version" : "0.0.3", "developer" : "clozolkor@m.c"};
+            var api = new AnkiDroidJS(jsApi);
 
-        (async function() {
-            // adds card status to the header
-            const cardtype = (await api.ankiGetCardType()).value;
-            const cardfactor = (await api.ankiGetCardFactor()).value;
-            if (cardtype == 0) {
-                addStateHereBack.textContent = "N";
-                addStateHereBack.style.color = "blue";
-            } else if (cardtype == 1) {
-                addStateHereBack.textContent = "L";
-                addStateHereBack.style.color = "red";
-            } else if (cardtype == 2) {
-                addStateHereBack.textContent = "R";
-                addStateHereBack.style.color = "green";
-            } else if (cardtype == 3) {
-                addStateHereBack.textContent = "rL";
-                addStateHereBack.style.color = "red";
-            }
-            // Adds ease factor to the header
-            addStateHereBack.textContent += cardfactor // 1000;
-        })();
+            (async function() {
+                // adds card status to the header
+                const cardtype = (await api.ankiGetCardType()).value;
+                const cardfactor = (await api.ankiGetCardFactor()).value;
+                if (cardtype == 0) {
+                    addStateHereBack.textContent = "N";
+                    addStateHereBack.style.color = "blue";
+                } else if (cardtype == 1) {
+                    addStateHereBack.textContent = "L";
+                    addStateHereBack.style.color = "red";
+                } else if (cardtype == 2) {
+                    addStateHereBack.textContent = "R";
+                    addStateHereBack.style.color = "green";
+                } else if (cardtype == 3) {
+                    addStateHereBack.textContent = "rL";
+                    addStateHereBack.style.color = "red";
+                }
+                // Adds ease factor to the header
+                addStateHereBack.textContent += cardfactor // 1000;
+            })();
+        } catch(e) {debug(e);}
     }
 
     // button display for mobile
