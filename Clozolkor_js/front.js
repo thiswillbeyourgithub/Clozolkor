@@ -274,7 +274,10 @@ if ( isOnMobileFront == "T" ) {
             //script.onerror = () => console.error('Eruda load failed');
             document.head.appendChild(script);
         }
-        loadEruda('//cdn.jsdelivr.net/npm/eruda');
+        try {
+            loadEruda('//cdn.jsdelivr.net/npm/eruda');
+        } catch(e) {debug(e)}
+
         if (ankidroid_eruda == "T") {
             eruda.init();
         }

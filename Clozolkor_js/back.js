@@ -1,4 +1,3 @@
-<script src="//cdn.jsdelivr.net/npm/eruda"></script>
 
 <span class = debugFieldBack></span>
 <span id=nightmodeToggle></span>  <!-- used only to know when nightmode was turned on -->
@@ -15,7 +14,6 @@
 <!--forbid zooming in too much
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 -->
-<!-- eruda is used to enable debug inspecctor on ankidroid-->
 <span style="font-size:12px">
         <span class=notOnMobile>
         <!-- not shown on mobile because those information will be added in ankidroid using js code below -->
@@ -78,7 +76,6 @@
 <!--forbid zooming in too much
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 -->
-<!-- eruda is used to enable debug inspecctor on ankidroid-->
 <div class="biggerButtonOnlyOnMobile">
     <button id="show_button" onclick="revealOneAuto();" class="buttonSizeBig">A</button>
     <!--<button id="show_button" onclick="revealOne();" class="buttonSizeSmall">C</button>-->
@@ -253,11 +250,21 @@
 
 var debugFieldBack    = document.getElementsByClassName("debugFieldBack");
 function debug(text) {
-    debugFieldBack[0].textContent += text;
+    // try to launch eruda, but works only on some device and situation so don't count on it
     try {
-        alert(text);
-    } catch(e) {alert(e)};
-  }
+    eruda.init();
+    } catch(e) {};
+
+    try {
+        console.error(text);
+        debugFieldBack[0].textContent += text;
+        window.alert(text);
+    } catch(e) {
+        window.alert(text);
+        window.alert(e);
+    };
+
+}
 
 
 
@@ -399,10 +406,22 @@ try {
 //if (navigator.userAgent.indexOf("obile") >= 0 || navigator.userAgent.indexOf("droid") >= 0 || ankiPlatform.indexOf("esktop")==-1 || isAnkiDroidBack || forceMobileBehavior == "T")  {
 if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
     if (isOnAndroidBack == "T") {
+        function loadEruda(url) {
+            const script = document.createElement('script');
+            script.src = url;
+            //script.onload = () => eruda.init();
+            //script.onerror = () => console.error('Eruda load failed');
+            document.head.appendChild(script);
+        }
+        try {
+            loadEruda('//cdn.jsdelivr.net/npm/eruda');
+        } catch(e) {debug(e)}
+
         if (ankidroid_eruda == "T") {
             eruda.init();
         }
 
+        // loads ankidroid api
         try {
             var jsApi = {"version" : "0.0.3", "developer" : "clozolkor@m.c"};
             var api = new AnkiDroidJS(jsApi);
