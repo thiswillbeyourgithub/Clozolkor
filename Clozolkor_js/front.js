@@ -1,4 +1,3 @@
-<script src="//cdn.jsdelivr.net/npm/eruda"></script>
 <span class=debugFieldFront style="font:size:30px">&nbsp;</span>
 
 <!-- HEADER -->
@@ -58,7 +57,7 @@
 </div>
 
 
-<script> 
+<script>
 //    Released under the GNU General Public License v3.
 //    Copyright (C) - 2020 - user "thiswillbeyourgithub" of the website "github".
 //    This file is the Front of the Clozolkor template. It is part of Clozolkor : an
@@ -92,6 +91,11 @@
 
 try {
 function debug(text) {
+    // try to launch eruda, but works only on some device and situation so don't count on it
+    try {
+    eruda.init();
+    } catch(e) {};
+
     try {
         console.error(text);
         debugFieldFront[0].textContent += text;
@@ -263,6 +267,14 @@ if ( isOnMobileFront == "T" ) {
     }
 
     if (isOnAndroidFront == "T") {
+        function loadEruda(url) {
+            const script = document.createElement('script');
+            script.src = url;
+            //script.onload = () => eruda.init();
+            //script.onerror = () => console.error('Eruda load failed');
+            document.head.appendChild(script);
+        }
+        loadEruda('//cdn.jsdelivr.net/npm/eruda');
         if (ankidroid_eruda == "T") {
             eruda.init();
         }
