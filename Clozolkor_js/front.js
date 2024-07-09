@@ -1,7 +1,6 @@
 <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+<span class=debugFieldFront style="font:size:30px">&nbsp;</span>
 
-
-<span class = debugFieldFront></span>
 <!-- HEADER -->
 <span id="decksContainer" style="font-size:10px">
     {{Deck}}
@@ -90,6 +89,19 @@
 //
 // ###########################################
 
+
+try {
+function debug(text) {
+    try {
+        console.error(text);
+        debugFieldFront[0].textContent += text;
+        window.alert(text);
+    } catch(e) {
+        window.alert(text);
+        window.alert(e);
+    };
+}
+
 	// USER SETTINGS
 
 var ankidroid_eruda = "F";  // if "T", will init eruda (js debuger) early to be sure to catch errors in an helpful way, otherwise it gets inited too late sometimes
@@ -107,17 +119,17 @@ var aFade = 0;
 //var n = 0; // tries to reset the variables used in the back as 
 //var c = 0; // they sometimes are not reassigned
 try { // tries to remove those variables set in the back section that screw everything up
-n = null ; n = undefined;
-c = null ; c = undefined;
-} catch(e) {alert(e);};
+    n = null ; n = undefined;
+    c = null ; c = undefined;
+} catch(e) {debug(e);};
 
 var clozes                    = [...document.querySelectorAll(".cloze")];
-if (clozes.length !== 0) { // continue only if clozes are found
+// continue only if clozes are found
+if (clozes.length !== 0) {
 
     // hides the card before it is fully loaded, otherwise you can catch a glimpse of images on slow devices :
 var defaultVisiFront = [...document.querySelectorAll("*")][0].style.visibility;
 [...document.querySelectorAll("*")][0].style.visibility = "hidden";
-try {
 
 var cloze_color         = window.getComputedStyle(clozes[0]).color;
 var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
@@ -129,7 +141,7 @@ const debugFieldFront           = document.getElementsByClassName("debugFieldFro
 const indentclozeElem           = document.getElementsByClassName("indentedClozeBox");
 // to debug, put the following line where you want :
 //	debugFieldFront[0].textContent += "code run until point A";
-// another better way is to use alert("some string"); to know if the code is running a specific part or not, or window.alert()
+// another better way is to use window.alert("some string"); to know if the code is running a specific part or not, or window.alert()
 
 const addStateHereFront         = document.getElementsByClassName("addStateHereFront") ; 
 const tagsContainer             = document.getElementById("tagsContainer")
@@ -148,7 +160,7 @@ try {
     if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidFront == "F") { isOnMobileFront = "T"; }
                 // desktop :
     if (ankiPlatform.indexOf("esktop")==-1) { isOnMobileFront = "F"; isOnAndroidFront = "F" }
-} catch(e){ alert(e);}
+} catch(e){ debug(e);}
 
 
 if (autoFlip == "T") { // if contains at least one hint : dont flip
@@ -280,14 +292,9 @@ if ( isOnMobileFront == "T" ) {
                 // Adds ease factor to the header
                 addStateHereFront.textContent += cardfactor // 1000;
             })();
-        } catch(e) {alert(e);}
+        } catch(e) {debug(e);}
 
     }
-    try {
-        eruda.init(); // try to init the debugging interface (ankidroid only)
-    } catch(e) {
-        alert(e);
-    };
 } else {
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
         biggerButtonOnlyOnMobile[index].style.display = "none";
@@ -305,9 +312,10 @@ if ( isOnMobileFront == "T" ) {
     }
 }
 }
+}; // end of if
  // finally shows the card :
 [...document.querySelectorAll("*")][0].style.visibility = defaultVisiFront;
-}
+
 } catch(e) {
     try {
         [...document.querySelectorAll("*")][0].style.display = defaultVisiFront;
@@ -315,7 +323,7 @@ if ( isOnMobileFront == "T" ) {
         [...document.querySelectorAll("*")][0].style.display = "block";
     }
 
-}
+};
 </script>
 
 
