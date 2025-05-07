@@ -360,15 +360,10 @@ if ( isOnMobileFront == "T" ) {
 [...document.querySelectorAll("*")][0].style.visibility = defaultVisiFront;
 
 } catch(e) {
-    try {
-        [...document.querySelectorAll("*")][0].style.display = defaultVisiFront;
-        debug(e);
-    } catch(ee) {
-        [...document.querySelectorAll("*")][0].style.display = "block";
-        debug(ee);
-    }
+    [...document.querySelectorAll("*")][0].style.display = "block";
+    debug(e);
+}
 
-};
 </script>
 
 
