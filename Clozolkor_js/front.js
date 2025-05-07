@@ -290,32 +290,34 @@ if ( isOnMobileFront == "T" ) {
             eruda.init();
         }
 
-        // loads ankidroid api
-        try {
-            var jsApi = {"version" : "0.0.3", "developer" : "clozolkor@m.c"};
-            var api = new AnkiDroidJS(jsApi);
+        // loads ankidroid api, which does not exist in the browser preview
+        if (typeof AnkiDroidJS === 'object' && AnkiDroidJS !== null) {
+            try {
+                var jsApi = {"version" : "0.0.3", "developer" : "clozolkor@m.c"};
+                var api = new AnkiDroidJS(jsApi);
 
-            (async function() {
-                // adds card status to the header
-                const cardtype = (await api.ankiGetCardType()).value;
-                const cardfactor = (await api.ankiGetCardFactor()).value;
-                if (cardtype == 0) {
-                    addStateHereFront.textContent = "N";
-                    addStateHereFront.style.color = "blue";
-                } else if (cardtype == 1) {
-                    addStateHereFront.textContent = "L";
-                    addStateHereFront.style.color = "red";
-                } else if (cardtype == 2) {
-                    addStateHereFront.textContent = "R";
-                    addStateHereFront.style.color = "green";
-                } else if (cardtype == 3) {
-                    addStateHereFront.textContent = "rL";
-                    addStateHereFront.style.color = "red";
-                }
-                // Adds ease factor to the header
-                addStateHereFront.textContent += cardfactor // 1000;
-            })();
-        } catch(e) {debug(e);}
+                (async function() {
+                    // adds card status to the header
+                    const cardtype = (await api.ankiGetCardType()).value;
+                    const cardfactor = (await api.ankiGetCardFactor()).value;
+                    if (cardtype == 0) {
+                        addStateHereFront.textContent = "N";
+                        addStateHereFront.style.color = "blue";
+                    } else if (cardtype == 1) {
+                        addStateHereFront.textContent = "L";
+                        addStateHereFront.style.color = "red";
+                    } else if (cardtype == 2) {
+                        addStateHereFront.textContent = "R";
+                        addStateHereFront.style.color = "green";
+                    } else if (cardtype == 3) {
+                        addStateHereFront.textContent = "rL";
+                        addStateHereFront.style.color = "red";
+                    }
+                    // Adds ease factor to the header
+                    addStateHereFront.textContent += cardfactor // 1000;
+                })();
+            } catch(e) {debug(e);}
+        }
 
     }
 } else {
