@@ -176,8 +176,13 @@ try {
     if (navigator.userAgent.indexOf("droid") >= 0) { isOnMobileFront = "T"; isOnAndroidFront = "T"; }
                 // ankiMobile :
     if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidFront == "F") { isOnMobileFront = "T"; }
-                // desktop :
-    if (ankiPlatform.indexOf("esktop")==-1) { isOnMobileFront = "F"; isOnAndroidFront = "F" }
+    // desktop :
+    if (typeof ankiPlatform === 'object' && ankiPlatform !== null) {
+        if (ankiPlatform.indexOf("esktop")==-1) {
+            isOnMobileFront = "F";
+            isOnAndroidFront = "F";
+        };
+    };
 } catch(e){ debug(e);}
 
 

@@ -410,10 +410,13 @@ try {
     if (navigator.userAgent.indexOf("droid") >= 0) { isOnMobileBack = "T"; isOnAndroidBack = "T"; };
                 // ankiMobile :
     if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidBack == "F") { isOnMobileBack = "T"; };
-                // desktop :
-    if (! typeof ankiPlatform === 'undefined') {
-        if (ankiPlatform.indexOf("esktop")==-1) { isOnMobileBack = "F"; isOnAndroidBack = "F" };
-    }
+    // desktop :
+    if (typeof ankiPlatform === 'object' && ankiPlatform !== null) {
+        if (ankiPlatform.indexOf("esktop")==-1) {
+            isOnMobileBack = "F";
+            isOnAndroidBack = "F";
+        };
+    };
 
 } catch(e) { debug(e); }
 
