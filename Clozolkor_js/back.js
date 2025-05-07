@@ -254,7 +254,11 @@ function debug(text) {
     // try to launch eruda, but works only on some device and situation so don't count on it
     // load eruda if not already loaded
     if (isOnAndroidBack == "T" && (! (typeof eruda === 'object' && eruda !== null && typeof eruda.init === 'function'))) {
-        loadEruda('//cdn.jsdelivr.net/npm/eruda');
+        if (loadEruda === 'function') {
+            loadEruda('//cdn.jsdelivr.net/npm/eruda');
+        } else {
+            window.alert("Function loadEruda is not yet defined. Error was: " + e.message)
+        }
     }
     if (typeof eruda === 'object' && eruda !== null && typeof eruda.init === 'function') {
         try {
