@@ -392,6 +392,7 @@ for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
 try {
                 // ankidroid :
     var isOnMobileBack = "F"; // preset to false
+    var isOnAndroidBack = "F"; // preset to false
     var isAnkiDroidBack = /wv/i.test(navigator.userAgent);
     // 2nd check for ankidroid:
     if (document.documentElement.classList.contains("android")) {
