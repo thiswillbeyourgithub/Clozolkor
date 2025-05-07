@@ -150,9 +150,9 @@ var clozes                    = [...document.querySelectorAll(".cloze")];
 // continue only if clozes are found
 if (clozes.length !== 0) {
 
-    // hides the card before it is fully loaded, otherwise you can catch a glimpse of images on slow devices :
-var defaultVisiFront = [...document.querySelectorAll("*")][0].style.visibility;
-[...document.querySelectorAll("*")][0].style.visibility = "hidden";
+// hides the card before it is fully loaded, otherwise you can catch a glimpse of images on slow devices :
+var defaultVisiFront = document.querySelector(".card").style.display;
+document.querySelector(".card").style.display = "none";
 
 var cloze_color         = window.getComputedStyle(clozes[0]).color;
 var cloze_bg_color      = window.getComputedStyle(clozes[0]).backgroundColor;
@@ -376,13 +376,19 @@ if ( isOnMobileFront == "T" ) {
     }
 }
 }
-}; // end of if
- // finally shows the card :
-[...document.querySelectorAll("*")][0].style.visibility = defaultVisiFront;
+}; // end of if clozes are found
+
+// finally shows the card :
+document.querySelector(".card").style.display = defaultVisiFront;
 
 } catch(e) {
-    [...document.querySelectorAll("*")][0].style.display = "block";
-    debug(e);
+    try {
+        document.querySelector(".card").style.display = defaultVisiFront;
+        debug(e);
+    } catch(ee) {
+        [...document.querySelectorAll("*")][0].style.display = "block";
+        debug(ee);
+    }
 }
 
 </script>
