@@ -88,10 +88,7 @@
 //
 // ###########################################
 
-
-try {
-
-const debugFieldFront           = document.getElementsByClassName("debugFieldFront");
+const debugFieldFront = document.getElementsByClassName("debugFieldFront");
 function debug(text) {
     // try to launch eruda, but works only on some device and situation so don't count on it
     if (typeof eruda === 'object' && eruda !== null && typeof eruda.init === 'function') {
@@ -115,6 +112,9 @@ function debug(text) {
         window.alert(e);
     };
 }
+
+
+try {
 
 	// USER SETTINGS
 
