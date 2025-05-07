@@ -369,9 +369,9 @@ try {
         if (roundedButtons == "T") {
             buttonSizeSmall[index].style.borderRadius = smallButtonSize;
         } else {
-            buttonSizeSmall[index].style.borderRadius = "-1px";
+            buttonSizeSmall[index].style.borderRadius = "2px";
         };
-    }
+    };
     for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
         buttonSizeBig[index].style.backgroundColor = "grey";
         buttonSizeBig[index].style.flexGrow        = "10";
@@ -383,9 +383,9 @@ try {
         if (roundedButtons == "T") {
             buttonSizeBig[index].style.borderRadius = largeButtonSize;
         } else {
-            buttonSizeBig[index].style.borderRadius = "-1px";
+            buttonSizeBig[index].style.borderRadius = "2px";
         };
-    }
+    };
 } catch(e) {
     debug("Error when styling buttons: " + e.message)
 }
