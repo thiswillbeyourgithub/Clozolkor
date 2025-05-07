@@ -202,6 +202,8 @@ if (autoFlip == "T") {
             debug("Error when calling pycmd('ans'):");
             debug(e);
         };
+    } else {
+        debug("autoFlip is T but failed to know what backend to trigger");
     }
 } else { // don't load the front if the card flips on its own
 
