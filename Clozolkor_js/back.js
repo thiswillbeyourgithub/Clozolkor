@@ -359,7 +359,7 @@ const indentclozeElem   = document.getElementsByClassName("indentedClozeBox");
 const addStateHereBack  = document.getElementById("addStateHereBack") ; 
 const tagsContainer     = document.getElementById("tagsContainer");
 const decksContainer    = document.getElementById("decksContainer");
-const hintLettField   = document.getElementById("hintLett");  // will contain the hint field but stay hidden
+const hintLettField     = document.getElementById("hintLett");  // will contain the hint field but stay hidden
 
     
 	// BUTTON STYLING AND MOBILE BEHAVIOR (hide on computer, show on mobile etc) :
@@ -388,7 +388,7 @@ for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
 }
 
 
-    // platform tests :
+// platform tests :
 try {
                 // ankidroid :
     var isOnMobileBack = "F"; // preset to false
@@ -457,7 +457,7 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
                 })();
             } catch(e) {debug(e);}
         }
-    }
+    };
 
     // button display for mobile
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
@@ -818,7 +818,7 @@ var revealAndBlur = function() {
     });
 };
 var resetClozes = function() {
-		globalThis.currently_auto_showing = false;  // stops reveal auto just in case
+    globalThis.currently_auto_showing = false;  // stops reveal auto just in case
     clozes.slice(0).forEach((item) => {
             item.style.backgroundColor = cloze_color;
             item.style.width           = hiddenClozeWidth;
@@ -837,7 +837,7 @@ var resetClozes = function() {
     var c = 0;
     var n = resetHintLett();
     window.scroll(0,0);
-clozes[0].style.display="inline-block";  // still indicate there is a cloze
+    clozes[0].style.display="inline-block";  // still indicate there is a cloze
 };
 var revealAll = function() {
     clozes.slice(0).forEach((item) => {

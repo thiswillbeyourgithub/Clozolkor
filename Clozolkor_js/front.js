@@ -161,10 +161,10 @@ const tagsContainer             = document.getElementById("tagsContainer")
 const decksContainer            = document.getElementById("decksContainer")
 
 // ###########################################
-    // if there are no hints : auto flip the card
-    // platform tests :
+// if there are no hints : auto flip the card
+// platform tests :
 try {
-            // ankidroid :
+    // ankidroid :
     var isOnMobileFront = "F"; var isOnAndroidFront = "F"; // presets
     var isAnkiDroidFront = /wv/i.test(navigator.userAgent);
     if (isAnkiDroidFront) { isOnMobileFront = "T"; isOnAndroidFront = "T"; }
