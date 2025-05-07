@@ -193,9 +193,9 @@ if (autoFlip == "T") {
                 debug(e)
             };
         }
-    } elif (isOnMobileFront == "T" && isOnAndroidFront == "F") {
+    } else if (isOnMobileFront == "T" && isOnAndroidFront == "F") {
         debug("AnkiMobile detected, I need iOS testers for clozolkor to enable autoflip on ankiMobile!")
-    } elif (isOnMobileFront == "F" && isOnAndroidFront == "F") {
+    } else if (isOnMobileFront == "F" && isOnAndroidFront == "F") {
         try {
             pycmd("ans");
         } catch(e) {
