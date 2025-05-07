@@ -92,16 +92,24 @@
 try {
 function debug(text) {
     // try to launch eruda, but works only on some device and situation so don't count on it
-    try {
-    eruda.init();
-    } catch(e) {};
+    if (typeof eruda === 'object' && eruda !== null && typeof eruda.init === 'function') {
+        try {
+            eruda.init();
+        } catch (e) {
+            // This catch block now only handles errors from eruda.init() itself,
+            // not the error of 'eruda' being undefined.
+            console.error(text);
+            window.alert("Error during eruda.init():"); // Or keep using 'text'
+            window.alert(e);
+        }
+    }
 
     try {
         console.error(text);
         debugFieldFront[0].textContent += text;
         window.alert(text);
     } catch(e) {
-        window.alert(text);
+        window.alert("Error when window.alert of an error:"); // Or keep using 'text'
         window.alert(e);
     };
 }
