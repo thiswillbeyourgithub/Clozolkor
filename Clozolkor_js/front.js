@@ -355,8 +355,10 @@ if ( isOnMobileFront == "T" ) {
 } catch(e) {
     try {
         [...document.querySelectorAll("*")][0].style.display = defaultVisiFront;
-    } catch(e) {
+        debug(e);
+    } catch(ee) {
         [...document.querySelectorAll("*")][0].style.display = "block";
+        debug(ee);
     }
 
 };
