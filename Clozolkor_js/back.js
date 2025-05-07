@@ -358,34 +358,34 @@ const hintLettField     = document.getElementById("hintLett");  // will contain 
 
 // setup all buttons
 try {
-for (index = 0, len = buttonSizeSmall.length ; index < len ; index++) {
-    buttonSizeSmall[index].style.backgroundColor = "grey";
-    buttonSizeSmall[index].style.flexGrow        = "1";
-    buttonSizeSmall[index].style.fontSize        = smallButtonSize;
-    buttonSizeSmall[index].style.color           = "beige";
-    buttonSizeSmall[index].style.outlineColor    = "transparent";
-    buttonSizeSmall[index].style.height          = 2 * hiddenClozeHeight;
-    buttonSizeSmall[index].style.margin          = 0;
-    if (roundedButtons == "T") {
-        buttonSizeSmall[index].style.borderRadius = smallButtonSize;
-    } else {
-        buttonSizeSmall[index].style.borderRadius = "-1px";
-    };
-}
-for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
-    buttonSizeBig[index].style.backgroundColor = "grey";
-    buttonSizeBig[index].style.flexGrow        = "10";
-    buttonSizeBig[index].style.fontSize        = largeButtonSize;
-    buttonSizeBig[index].style.color           = "beige";
-    buttonSizeBig[index].style.outlineColor    = "transparent";
-    buttonSizeBig[index].style.height          = 3 * hiddenClozeHeight;
-    buttonSizeBig[index].style.margin          = 0;
-    if (roundedButtons == "T") {
-        buttonSizeBig[index].style.borderRadius = largeButtonSize;
-    } else {
-        buttonSizeBig[index].style.borderRadius = "-1px";
-    };
-}
+    for (index = 0, len = buttonSizeSmall.length ; index < len ; index++) {
+        buttonSizeSmall[index].style.backgroundColor = "grey";
+        buttonSizeSmall[index].style.flexGrow        = "1";
+        buttonSizeSmall[index].style.fontSize        = smallButtonSize;
+        buttonSizeSmall[index].style.color           = "beige";
+        buttonSizeSmall[index].style.outlineColor    = "transparent";
+        buttonSizeSmall[index].style.height          = 2 * hiddenClozeHeight;
+        buttonSizeSmall[index].style.margin          = 0;
+        if (roundedButtons == "T") {
+            buttonSizeSmall[index].style.borderRadius = smallButtonSize;
+        } else {
+            buttonSizeSmall[index].style.borderRadius = "-1px";
+        };
+    }
+    for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
+        buttonSizeBig[index].style.backgroundColor = "grey";
+        buttonSizeBig[index].style.flexGrow        = "10";
+        buttonSizeBig[index].style.fontSize        = largeButtonSize;
+        buttonSizeBig[index].style.color           = "beige";
+        buttonSizeBig[index].style.outlineColor    = "transparent";
+        buttonSizeBig[index].style.height          = 3 * hiddenClozeHeight;
+        buttonSizeBig[index].style.margin          = 0;
+        if (roundedButtons == "T") {
+            buttonSizeBig[index].style.borderRadius = largeButtonSize;
+        } else {
+            buttonSizeBig[index].style.borderRadius = "-1px";
+        };
+    }
 } catch(e) {
     debug("Error when styling buttons: " + e.message)
 }
