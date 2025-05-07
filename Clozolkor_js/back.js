@@ -891,9 +891,14 @@ var revealHintLett = function(show_next=true, make_italic=true) {
     let c = resetVariableC();
     if ( c < clozes.length) {
         if (clozes[c].style.backgroundColor == cloze_color || clozes[c].style.filter != "blur(0px)") {
-            hintLettField.textContent += clozes[c].textContent.substring(n,n+1);
-            n=n+1;
-            if (n >= clozes[c].textContent.length) { 
+            if (clozes[c].innerHTML.substring(n,n+4) == "<br>") {
+                hintLettField.innerHTML += clozes[c].innerHTML.substring(n,n+4);
+                n=n+4;
+            } else {
+                hintLettField.innerHTML += clozes[c].innerHTML.substring(n,n+1);
+                n=n+1;
+            }
+            if (n >= clozes[c].innerHTML.length) {
                 n = 0;
                 revealOne();
             };
@@ -901,7 +906,7 @@ var revealHintLett = function(show_next=true, make_italic=true) {
                 window.hint_span.remove()
             }
             window.hint_span = document.createElement('span');
-            window.hint_span.innerHTML = hintLettField.textContent;
+            window.hint_span.innerHTML = hintLettField.innerHTML;
             window.hint_span.classList.add("hint_field")
 
             if (make_italic == true) {
