@@ -353,10 +353,11 @@ const tagsContainer     = document.getElementById("tagsContainer");
 const decksContainer    = document.getElementById("decksContainer");
 const hintLettField     = document.getElementById("hintLett");  // will contain the hint field but stay hidden
 
-    
-	// BUTTON STYLING AND MOBILE BEHAVIOR (hide on computer, show on mobile etc) :
 
-    // setup all buttons
+// BUTTON STYLING AND MOBILE BEHAVIOR (hide on computer, show on mobile etc) :
+
+// setup all buttons
+try {
 for (index = 0, len = buttonSizeSmall.length ; index < len ; index++) {
     buttonSizeSmall[index].style.backgroundColor = "grey";
     buttonSizeSmall[index].style.flexGrow        = "1";
@@ -384,6 +385,9 @@ for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
     } else {
         buttonSizeBig[index].style.borderRadius = "-1px";
     };
+}
+} catch(e) {
+    debug("Error when styling buttons: " + e.message)
 }
 
 
