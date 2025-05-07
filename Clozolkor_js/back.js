@@ -363,6 +363,7 @@ for (index = 0, len = buttonSizeSmall.length ; index < len ; index++) {
     buttonSizeSmall[index].style.fontSize        = smallButtonSize;
     buttonSizeSmall[index].style.color           = "beige";
     buttonSizeSmall[index].style.outlineColor    = "transparent";
+    buttonSizeSmall[index].style.height          = 2 * hiddenClozeHeight;
     if (roundedButtons == "T") {
         buttonSizeSmall[index].style.borderRadius = smallButtonSize;
     } 
@@ -374,6 +375,7 @@ for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
     buttonSizeBig[index].style.fontSize        = largeButtonSize;
     buttonSizeBig[index].style.color           = "beige";
     buttonSizeBig[index].style.outlineColor    = "transparent";
+    buttonSizeBig[index].style.height          = 3 * hiddenClozeHeight;
     if (roundedButtons == "T") {
         buttonSizeBig[index].style.borderRadius = largeButtonSize;
     } else { buttonSizeBig[index].style.borderRadius = "-1px"; }
