@@ -90,6 +90,8 @@
 
 
 try {
+
+const debugFieldFront           = document.getElementsByClassName("debugFieldFront");
 function debug(text) {
     // try to launch eruda, but works only on some device and situation so don't count on it
     if (typeof eruda === 'object' && eruda !== null && typeof eruda.init === 'function') {
@@ -149,7 +151,6 @@ const biggerButtonOnlyOnMobile  = document.getElementsByClassName("biggerButtonO
 const notOnMobile               = document.getElementsByClassName("notOnMobile");
 const buttonSizeSmall           = document.getElementsByClassName("buttonSizeSmall");
 const buttonSizeBig             = document.getElementsByClassName("buttonSizeBig");
-const debugFieldFront           = document.getElementsByClassName("debugFieldFront");
 const indentclozeElem           = document.getElementsByClassName("indentedClozeBox");
 // to debug, put the following line where you want :
 //	debugFieldFront[0].textContent += "code run until point A";
