@@ -839,6 +839,17 @@ var resetClozes = function() {
     var n = resetHintLett();
     window.scroll(0,0);
     clozes[0].style.display="inline-block";  // still indicate there is a cloze
+
+    // Resetting clozes is not routinely used so let's start the debugger just in case
+    if (typeof eruda === 'object' && eruda !== null && typeof eruda.init === 'function') {
+        try {
+            eruda.init();
+        } catch (e) {
+            console.error(text);
+            window.alert("Error during eruda.init():"); // Or keep using 'text'
+            window.alert(e);
+        }
+    }
 };
 var revealAll = function() {
     clozes.slice(0).forEach((item) => {
