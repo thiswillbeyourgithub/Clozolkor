@@ -186,7 +186,7 @@ if (autoFlip == "T") { // if contains at least one hint : dont flip
 if (autoFlip == "T") {
 	if (isOnMobileFront == "T" && isOnAndroidFront == "T") {
         // showAnswer does not exist in the ankidroid browser
-        if (typeof showAnswer === 'object' && showAnswer !== null && typeof showAnswer === 'function') {
+        if (typeof showAnswer === 'function') {
             try {
                 showAnswer();
             } catch(e) {
