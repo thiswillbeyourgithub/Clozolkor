@@ -290,8 +290,7 @@ if ( isOnMobileFront == "T" ) {
         function loadEruda(url) {
             const script = document.createElement('script');
             script.src = url;
-            //script.onload = () => eruda.init();
-            //script.onerror = () => console.error('Eruda load failed');
+            script.onerror = () => window.alert('Eruda load failed');
             document.head.appendChild(script);
         }
         try {
