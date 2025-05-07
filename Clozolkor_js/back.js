@@ -242,6 +242,15 @@
 
 var debugFieldBack    = document.getElementsByClassName("debugFieldBack");
 function debug(text) {
+    try {
+        console.error(text);
+        debugFieldBack[0].textContent += text;
+        window.alert(text);
+    } catch(e) {
+        window.alert("Error when window.alert of an error:"); // Or keep using 'text'
+        window.alert(e);
+    };
+
     // try to launch eruda, but works only on some device and situation so don't count on it
     // load eruda if not already loaded
     if (isOnAndroidBack == "T" && (! (typeof eruda === 'object' && eruda !== null && typeof eruda.init === 'function'))) {
@@ -259,14 +268,6 @@ function debug(text) {
         }
     }
 
-    try {
-        console.error(text);
-        debugFieldBack[0].textContent += text;
-        window.alert(text);
-    } catch(e) {
-        window.alert("Error when window.alert of an error:"); // Or keep using 'text'
-        window.alert(e);
-    };
 }
 
 
