@@ -398,18 +398,24 @@ try {
 
 // platform tests :
 try {
-                // ankidroid :
-    var isOnMobileBack = "F"; // preset to false
+    // presets
+    var isOnMobileBack = "F";
     var isOnAndroidBack = "F"; // preset to false
+
+    // ankidroid :
     var isAnkiDroidBack = /wv/i.test(navigator.userAgent);
-    // 2nd check for ankidroid:
-    if (document.documentElement.classList.contains("android")) {
-        var isAnkiDroidBack2 = "T";
-    } else {var isAnkiDroidBack2 = "F";};
-    if (isAnkiDroidBack || isAnkiDroidBack2 == "T") { isOnMobileBack = "T"; isOnAndroidBack = "T"; };
-    if (navigator.userAgent.indexOf("droid") >= 0) { isOnMobileBack = "T"; isOnAndroidBack = "T"; };
-                // ankiMobile :
-    if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidBack == "F") { isOnMobileBack = "T"; };
+    if (isAnkiDroidBack || document.documentElement.classList.contains("android")) {
+        isOnMobileBack = "T";
+        isOnAndroidBack = "T";
+    };
+    if (navigator.userAgent.indexOf("droid") >= 0) {
+        isOnMobileBack = "T";
+        isOnAndroidBack = "T";
+    };
+    // ankiMobile :
+    if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidBack == "F") {
+        isOnMobileBack = "T";
+    };
     // desktop :
     if (typeof ankiPlatform === 'object' && ankiPlatform !== null) {
         if (ankiPlatform.indexOf("esktop")==-1) {

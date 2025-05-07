@@ -169,13 +169,24 @@ const decksContainer            = document.getElementById("decksContainer")
 // if there are no hints : auto flip the card
 // platform tests :
 try {
+    // presets
+    var isOnMobileFront = "F";
+    var isOnAndroidFront = "F";
+
     // ankidroid :
-    var isOnMobileFront = "F"; var isOnAndroidFront = "F"; // presets
     var isAnkiDroidFront = /wv/i.test(navigator.userAgent);
-    if (isAnkiDroidFront) { isOnMobileFront = "T"; isOnAndroidFront = "T"; }
-    if (navigator.userAgent.indexOf("droid") >= 0) { isOnMobileFront = "T"; isOnAndroidFront = "T"; }
-                // ankiMobile :
-    if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidFront == "F") { isOnMobileFront = "T"; }
+    if (isAnkiDroidFront || document.documentElement.classList.contains("android")) {
+        isOnMobileFront = "T";
+        isOnAndroidFront = "T";
+    };
+    if (navigator.userAgent.indexOf("droid") >= 0) {
+        isOnMobileFront = "T";
+        isOnAndroidFront = "T";
+    };
+    // ankiMobile :
+    if (navigator.userAgent.indexOf("obile") >= 0 && isOnAndroidFront == "F") {
+        isOnMobileFront = "T";
+    };
     // desktop :
     if (typeof ankiPlatform === 'object' && ankiPlatform !== null) {
         if (ankiPlatform.indexOf("esktop")==-1) {
