@@ -8,9 +8,30 @@
     color: black;
     background-color: white;
     word-wrap: break-word;
+
+    word-wrap: break-word !important; /* Old property for compatibility */
+    overflow-wrap: break-word !important; /* Standard property to break long words */
     }
 .nightMode .card {
     font-family:open sans
+}
+
+.code {
+    word-wrap: break-word !important; /* Old property for compatibility */
+    overflow-wrap: break-word !important; /* Standard property to break long words */
+    white-space: pre-wrap !important; /* Ensure lines wrap while preserving whitespace */
+}
+
+/* Ensure preformatted text and code blocks wrap correctly to prevent horizontal scrolling */
+/* This is especially important for source fields displayed via .openWithButton */
+.openWithButton pre,
+.openWithButton pre code,
+pre { /* General rule for any pre tag as well */
+    white-space: pre-wrap !important;   /* Preserves whitespace, but wraps lines */
+    word-wrap: break-word !important;   /* For older browsers, breaks words if they overflow */
+    overflow-wrap: break-word !important; /* Standard property for breaking words */
+    max-width: 100%; /* Ensures the block does not exceed the width of its container */
+    box-sizing: border-box; /* Includes padding and border in the element's total width */
 }
 
 /* CLOZOLKOR */
