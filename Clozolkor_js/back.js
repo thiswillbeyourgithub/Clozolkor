@@ -456,10 +456,10 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
 
     // button display for mobile
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
-        biggerButtonOnlyOnMobile[index].style.display         = "flex !important";
-        biggerButtonOnlyOnMobile[index].style.flexWrap        = "no-wrap";
-        biggerButtonOnlyOnMobile[index].style.justifyContent  = "center";
-        biggerButtonOnlyOnMobile[index].style.backgroundColor = "transparent";
+        biggerButtonOnlyOnMobile[index].style.setProperty("display", "flex", "important");
+        biggerButtonOnlyOnMobile[index].style.setProperty("flex-wrap", "no-wrap");
+        biggerButtonOnlyOnMobile[index].style.setProperty("justify-content", "center");
+        biggerButtonOnlyOnMobile[index].style.setProperty("background-color", "transparent");
     };
     for (index = 0, len = notOnMobile.length ; index < len ; index++) {
         notOnMobile[index].style.display = "none";
