@@ -225,7 +225,7 @@
 //    */ /*
 //    for more information or to get the latest version go to :
 //    https://github.com/thiswillbeyourgithub/Clozolkor
-//    Version : April 2024
+//    Version : may 2025
 //
 //    credits due to (at least! ) :
 //    thiswillbeyourgithub (main dev)
