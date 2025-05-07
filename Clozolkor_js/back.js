@@ -367,8 +367,9 @@ for (index = 0, len = buttonSizeSmall.length ; index < len ; index++) {
     buttonSizeSmall[index].style.margin          = 0;
     if (roundedButtons == "T") {
         buttonSizeSmall[index].style.borderRadius = smallButtonSize;
-    } 
-    else { buttonSizeSmall[index].style.borderRadius = "-1px"; }
+    } else {
+        buttonSizeSmall[index].style.borderRadius = "-1px";
+    };
 }
 for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
     buttonSizeBig[index].style.backgroundColor = "grey";
@@ -380,7 +381,9 @@ for (index = 0, len = buttonSizeBig.length ; index < len ; index++) {
     buttonSizeBig[index].style.margin          = 0;
     if (roundedButtons == "T") {
         buttonSizeBig[index].style.borderRadius = largeButtonSize;
-    } else { buttonSizeBig[index].style.borderRadius = "-1px"; }
+    } else {
+        buttonSizeBig[index].style.borderRadius = "-1px";
+    };
 }
 
 
