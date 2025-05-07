@@ -462,7 +462,7 @@ if (isOnMobileBack == "T" || forceMobileBehavior == "T") {
 
     // button display for mobile
     for (index = 0, len = biggerButtonOnlyOnMobile.length ; index < len ; index++) {
-        biggerButtonOnlyOnMobile[index].style.display         = "flex";
+        biggerButtonOnlyOnMobile[index].style.display         = "flex !important";
         biggerButtonOnlyOnMobile[index].style.flexWrap        = "no-wrap";
         biggerButtonOnlyOnMobile[index].style.justifyContent  = "center";
         biggerButtonOnlyOnMobile[index].style.backgroundColor = "transparent";
