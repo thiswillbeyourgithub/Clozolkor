@@ -185,13 +185,23 @@ if (autoFlip == "T") { // if contains at least one hint : dont flip
 }
 if (autoFlip == "T") {
 	if (isOnMobileFront == "T" && isOnAndroidFront == "T") {
-        showAnswer(); 
-    }
-	//if (isOnMobileFront == "T" && isOnAndroidFront == "F") { 
-    //    AnkiMobile detected, I need iOS testers to enable autoflip on ankiMobile!
-    //}
-	if (isOnMobileFront == "F" && isOnAndroidFront == "F") { 
-        pycmd("ans"); 
+        // showAnswer does not exist in the ankidroid browser
+        if (typeof showAnswer === 'object' && showAnswer !== null && typeof showAnswer === 'function') {
+            try {
+                showAnswer();
+            } catch(e) {
+                debug(e)
+            };
+        }
+    } elif (isOnMobileFront == "T" && isOnAndroidFront == "F") {
+        debug("AnkiMobile detected, I need iOS testers for clozolkor to enable autoflip on ankiMobile!")
+    } elif (isOnMobileFront == "F" && isOnAndroidFront == "F") {
+        try {
+            pycmd("ans");
+        } catch(e) {
+            debug("Error when calling pycmd('ans'):");
+            debug(e);
+        };
     }
 } else { // don't load the front if the card flips on its own
 
