@@ -48,10 +48,10 @@
             <span class="indentedClozeBox" style="flex-grow:1">&nbsp;</span>
         </span>
         {{#hint}}
-        <hr id=answer><br><br>
-        <span class=extra>
-            {{hint:hint}}
-        </span>
+            <hr id=answer><br><br>
+            <span class=extra>
+                {{hint:hint}}
+            </span>
         {{/hint}} 
     </span>
 </div>
@@ -176,11 +176,10 @@ try {
 } catch(e){ debug(e);}
 
 
-if (autoFlip == "T") { // if contains at least one hint : dont flip
-    for(var i = 0 ; i < clozes.length;i++) {
-        if(clozes[i].textContent != '[...]') {
-            autoFlip = "F";
-        };
+// If the element that specifically holds hints exists, don't autoflip, because then there are hints in the front
+if (autoFlip == "T") {
+    if (document.querySelector('.extra')) {
+        autoFlip = "F";
     }
 }
 if (autoFlip == "T") {
