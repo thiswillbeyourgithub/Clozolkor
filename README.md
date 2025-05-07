@@ -49,7 +49,6 @@ from the following card (and yes the deck is ZZ::Perso::BrainDB) :
 
 ## TODO / Planned features / known issues (some are really simple, don't hesitate to help!)
 * you can store hint from the front of the card into `globalThis`, this can be used to show hints when the back is displayed.
-* maybe hide front card very early and show it only if necessary
 * split the script into multiple sub scripts. That would help maintenance and "sharability" to have a "decks and tags section", "cloze section", etc. It would make it really easy to add parts to other template, for example adding the nice tag bar to the image occlusion template.
 * see if it's possible to add a {{cx:: field that would always be clozed, no matter the card number (*edit: pretty sure it's actually very easy by adding a html field and treating it like a cloze*)
 * html buttons should scroll with the page instead of being shown on top and bottom (ie always appear at the same place), with something like `position:fixed/sticky`
