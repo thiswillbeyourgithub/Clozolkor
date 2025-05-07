@@ -178,7 +178,7 @@ try {
 
 if (autoFlip == "T") { // if contains at least one hint : dont flip
     for(var i = 0 ; i < clozes.length;i++) {
-        if(clozes[i].textContent != '[...]') { 
+        if(clozes[i].textContent != '[...]') {
             autoFlip = "F";
         };
     }
