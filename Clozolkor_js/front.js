@@ -91,6 +91,10 @@
 const debugFieldFront = document.getElementsByClassName("debugFieldFront");
 function debug(text) {
     // try to launch eruda, but works only on some device and situation so don't count on it
+    // load eruda if not already loaded
+    if (isOnAndroidFront == "T" && (! (typeof eruda === 'object' && eruda !== null && typeof eruda.init === 'function'))) {
+        loadEruda('//cdn.jsdelivr.net/npm/eruda');
+    }
     if (typeof eruda === 'object' && eruda !== null && typeof eruda.init === 'function') {
         try {
             eruda.init();
@@ -293,12 +297,15 @@ if ( isOnMobileFront == "T" ) {
             script.onerror = () => window.alert('Eruda load failed');
             document.head.appendChild(script);
         }
-        try {
-            loadEruda('//cdn.jsdelivr.net/npm/eruda');
-        } catch(e) {debug(e)}
 
         if (ankidroid_eruda == "T") {
-            eruda.init();
+            try {
+                loadEruda('//cdn.jsdelivr.net/npm/eruda');
+                eruda.init();
+            } catch(e) {
+                window.alert("Error when loading eruda because ankidroid_eruda is T: " + e.message)
+                debug(e);
+            }
         }
 
         // loads ankidroid api, which does not exist in the browser preview
