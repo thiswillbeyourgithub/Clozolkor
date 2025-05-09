@@ -911,14 +911,42 @@ var revealHintLett = function(show_next=true, make_italic=true) {
     let c = resetVariableC();
     if ( c < clozes.length) {
         if (clozes[c].style.backgroundColor == cloze_color || clozes[c].style.filter != "blur(0px)") {
-            if (clozes[c].innerHTML.substring(n,n+4) == "<br>") {
-                hintLettField.innerHTML += clozes[c].innerHTML.substring(n,n+4);
-                n=n+4;
-            } else {
-                hintLettField.innerHTML += clozes[c].innerHTML.substring(n,n+1);
-                n=n+1;
+            // New logic to handle HTML tags and entities as single "signs"
+            let currentClozeInnerHTML = clozes[c].innerHTML;
+            if (n < currentClozeInnerHTML.length) {
+                let charToReveal = "";
+                let next_n = n; // Use next_n to calculate the new value of n
+
+                let firstChar = currentClozeInnerHTML[n];
+                if (firstChar === '<') { // HTML tag
+                    let endTagIndex = currentClozeInnerHTML.indexOf('>', n);
+                    if (endTagIndex !== -1) {
+                        next_n = endTagIndex + 1;
+                        charToReveal = currentClozeInnerHTML.substring(n, next_n);
+                    } else { // Malformed or incomplete tag, take just the char as a fallback
+                        next_n = n + 1;
+                        charToReveal = currentClozeInnerHTML.substring(n, next_n);
+                    }
+                } else if (firstChar === '&') { // HTML entity
+                    let endEntityIndex = currentClozeInnerHTML.indexOf(';', n);
+                    if (endEntityIndex !== -1) {
+                        next_n = endEntityIndex + 1;
+                        charToReveal = currentClozeInnerHTML.substring(n, next_n);
+                    } else { // Malformed or incomplete entity, take just the char as a fallback
+                        next_n = n + 1;
+                        charToReveal = currentClozeInnerHTML.substring(n, next_n);
+                    }
+                } else { // Regular character
+                    next_n = n + 1;
+                    charToReveal = currentClozeInnerHTML.substring(n, next_n);
+                }
+                
+                hintLettField.innerHTML += charToReveal;
+                n = next_n; // Update global n
             }
-            if (n >= clozes[c].innerHTML.length) {
+            // End of new logic
+
+            if (n >= currentClozeInnerHTML.length) { // Check if current cloze is fully hinted
                 n = 0;
                 revealOne();
             };
@@ -937,9 +965,15 @@ var revealHintLett = function(show_next=true, make_italic=true) {
 
             clozes[c].parentNode.insertBefore(window.hint_span, clozes[c])
         } 
-        else {
-            c=c+1;
-            if (show_next == true) {revealHintLett()};
+        else { // clozes[c] is already fully revealed
+            // c=c+1; // This was not effective as c is a local 'let' variable, 
+                     // and resetVariableC() in the recursive call will determine the correct next cloze.
+            if (show_next == true) {
+                // If current cloze is already revealed and we want to show hint for the next one,
+                // reset hint state (n and hintLettField.innerHTML) before attempting hints for the *next* cloze.
+                resetHintLett(); 
+                revealHintLett(); // Recursive call; resetVariableC() inside will find the next unrevealed cloze.
+            };
         };
     }
 };
